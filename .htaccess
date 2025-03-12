@@ -1,0 +1,231 @@
+Options -Indexes 
+ErrorDocument 404 /404.php
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+RewriteCond  %{HTTP_HOST} belgorod.1dvm.ru$
+Rewriterule ^robots.txt$ /robots/robots_belgorod.txt [L]
+RewriteCond  %{HTTP_HOST} bryansk.1dvm.ru$
+Rewriterule ^robots.txt$ /robots/robots_bryansk.txt [L]
+RewriteCond  %{HTTP_HOST} vladimir.1dvm.ru$
+Rewriterule ^robots.txt$ /robots/robots_vladimir.txt [L]
+RewriteCond  %{HTTP_HOST} kaluga.1dvm.ru$
+Rewriterule ^robots.txt$ /robots/robots_kaluga.txt [L]
+RewriteCond  %{HTTP_HOST} kostroma.1dvm.ru$
+Rewriterule ^robots.txt$ /robots/robots_kostroma.txt [L]
+RewriteCond  %{HTTP_HOST} kursk.1dvm.ru$
+Rewriterule ^robots.txt$ /robots/robots_kursk.txt [L]
+RewriteCond  %{HTTP_HOST} lipetsk.1dvm.ru$
+Rewriterule ^robots.txt$ /robots/robots_lipetsk.txt [L]
+RewriteCond  %{HTTP_HOST} msk.1dvm.ru$
+Rewriterule ^robots.txt$ /robots/robots_msk.txt [L]
+RewriteCond  %{HTTP_HOST} orel.1dvm.ru$
+Rewriterule ^robots.txt$ /robots/robots_orel.txt [L]
+RewriteCond  %{HTTP_HOST} ryasan.1dvm.ru$
+Rewriterule ^robots.txt$ /robots/robots_ryasan.txt [L]
+RewriteCond  %{HTTP_HOST} smolensk.1dvm.ru$
+Rewriterule ^robots.txt$ /robots/robots_smolensk.txt [L]
+RewriteCond  %{HTTP_HOST} tambov.1dvm.ru$
+Rewriterule ^robots.txt$ /robots/robots_tambov.txt [L]
+RewriteCond  %{HTTP_HOST} tver.1dvm.ru$
+Rewriterule ^robots.txt$ /robots/robots_tver.txt [L]
+RewriteCond  %{HTTP_HOST} tula.1dvm.ru$
+Rewriterule ^robots.txt$ /robots/robots_tula.txt [L]
+RewriteCond  %{HTTP_HOST} yaroslavl.1dvm.ru$
+Rewriterule ^robots.txt$ /robots/robots_yaroslavl.txt [L]
+RewriteCond  %{HTTP_HOST} 1dvm.ru$
+Rewriterule ^robots.txt$ /robots/robots.txt [L]
+
+RewriteCond  %{HTTP_HOST} msk.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/msk/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} ryasan.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/ryasan/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} belgorod.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/belgorod/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} kursk.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/kursk/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} lipetsk.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/lipetsk/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} tambov.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/tambov/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} vladimir.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/vladimir/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} bryansk.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/bryansk/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} kaluga.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/kaluga/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} kostroma.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/kostroma/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} orel.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/orel/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} smolensk.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/smolensk/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} tver.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/tver/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} tula.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/tula/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} yaroslavl.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/yaroslavl/sitemap.xml [L]
+
+Redirect 301 /catalog/dymogazonepronitsaemye-dveri/ /catalog/protivopozharnye-dveri/dymogazonepronitsaemye/
+Redirect 301 /catalog/dymogazonepronitsaemye-lyuki/ /catalog/lyuki-protivopozharnye/dymogazonepronitsaemye-lyuki/
+Redirect 301 /catalog/s-framugoy/ /catalog/protivopozharnye-dveri/s-framugoy/
+Redirect 301 /catalog/s-avtoporogom/ /catalog/protivopozharnye-dveri/s-avtoporogom/
+Redirect 301 /catalog/s-pryamougolnym-ostekleniem/ /catalog/protivopozharnye-dveri/s-pryamougolnym-ostekleniem/
+Redirect 301 /catalog/s-kruglym-ostekleniem/ /catalog/protivopozharnye-dveri/s-kruglym-ostekleniem/
+Redirect 301 /catalog/s-ventilyatsiey/ /catalog/protivopozharnye-dveri/s-ventilyatsiey/
+Redirect 301 /catalog/s-sistemoy-antipanika/ /catalog/protivopozharnye-dveri/s-sistemoy-antipanika/
+Redirect 301 /catalog/dymogazonepronitsaemye-vorota/ /catalog/protivopozharnye-vorota-ei-60/dymogazonepronitsaemye-vorota/
+
+#Redirect 301 /catalog/protivopozharnye-vorota-ei-60/ /catalog/protivopozharnye-vorota/
+Redirect 301 /catalog/protivopozharnye-vorota/dymogazonepronitsaemye-vorota/ /catalog/protivopozharnye-vorota/dymogazonepronitcaemye/
+#Redirect 301 /catalog/protivopozharnye-vorota-ei-60/protivopozharnye-vorota-ei60/ /catalog/protivopozharnye-vorota/protivopozharnye-vorota-ei60/
+#Redirect 301 /catalog/protivopozharnye-vorota-ei-60/protivopozharnye-vorota-ei-30/ /catalog/protivopozharnye-vorota/protivopozharnye-vorota-ei-30/
+#Redirect 301 /catalog/protivopozharnye-vorota-ei-60/protivopozharnye-vorota-s-kalitkoy/ /catalog/protivopozharnye-vorota/protivopozharnye-vorota-s-kalitkoy/
+#Redirect 301 /catalog/protivopozharnye-vorota-ei-60/promyshlennye-protivopozharnye-vorota/ /catalog/protivopozharnye-vorota/promyshlennye-protivopozharnye-vorota/
+#Redirect 301 /catalog/protivopozharnye-vorota-ei-60/raspashnye-protivopozharnye-vorota/ /catalog/protivopozharnye-vorota-ei-60/raspashnye-protivopozharnye-vorota/
+
+Redirect 301 /catalog/protivopozharnye-dveri/s-ostekleniem/s-ostekleniem-bolee-25/ /catalog/protivopozharnye-dveri/s-ostekleniem/bolee-25/
+Redirect 301 /catalog/protivopozharnye-dveri/s-kruglym-ostekleniem/ /catalog/protivopozharnye-dveri/s-ostekleniem/s-kruglym-ostekleniem/
+Redirect 301 /catalog/protivopozharnye-dveri/s-pryamougolnym-ostekleniem/ /catalog/protivopozharnye-dveri/s-ostekleniem/s-pryamougolnym-ostekleniem/
+Redirect 301 /catalog/protivopozharnye-dveri/dlya-vykhoda-na-krovlyu/ /catalog/lyuki-protivopozharnye/protivopozharnye-lyuki-na-krovlyu/
+
+
+Redirect 301 /catalog/tekhnicheskie-dveri/boylernye-tekhnicheskie-dveri/dver-tekhnicheskaya-odnopolnaya-2000kh1000/ /catalog/tekhnicheskie-dveri/dver-tekhnicheskaya-odnopolnaya-2000kh1000/
+Redirect 301 /catalog/tekhnicheskie-dveri/boylernye-tekhnicheskie-dveri/dver-tekhnicheskaya-s-dopolnitelnoy-petley-2200-1300/ /catalog/tekhnicheskie-dveri/dver-tekhnicheskaya-s-dopolnitelnoy-petley-2200-1300/
+Redirect 301 /catalog/tekhnicheskie-dveri/boylernye-tekhnicheskie-dveri/dver-tekhnicheskaya-dmt-02/ /catalog/tekhnicheskie-dveri/dver-tekhnicheskaya-dmt-02/
+Redirect 301 /catalog/tekhnicheskie-dveri/boylernye-tekhnicheskie-dveri/dver-tekhnicheskaya-s-porogom-2200-1300/ /catalog/tekhnicheskie-dveri/dver-tekhnicheskaya-s-porogom-2200-1300/
+Redirect 301 /catalog/tekhnicheskie-dveri/boylernye-tekhnicheskie-dveri/dver-tekhnicheskaya-odnopolnaya-s-panelyu-khdf-gladkoy-6mm-2200kh1100/ /catalog/tekhnicheskie-dveri/dver-tekhnicheskaya-odnopolnaya-s-panelyu-khdf-gladkoy-6mm-2200kh1100/
+Redirect 301 /catalog/protivopozharnye-dveri/dlya-mest-obshchego-polzovaniya-mop/dver-tekhnicheskaya-odnopolnaya-s-sistemoy-antipanika-push-bar-2200kh1100/ /catalog/tekhnicheskie-dveri/dver-tekhnicheskaya-odnopolnaya-s-sistemoy-antipanika-push-bar-2200kh1100/
+Redirect 301 /catalog/protivopozharnye-dveri/s-ostekleniem/s-pryamougolnym-ostekleniem/dver-protivopozharnaya-odnostvorchataya-bez-poroga-ei-30/ /catalog/protivopozharnye-dveri/odnopolnye/dver-protivopozharnaya-odnostvorchataya-bez-poroga-ei-30/
+Redirect 301 /catalog/protivopozharnye-dveri/s-ostekleniem/s-pryamougolnym-ostekleniem/dver-protivopozharnaya-odnostvorchataya-c-porogom-ei-30/ /catalog/protivopozharnye-dveri/ognestoykost-3-go-tipa-ei-30/odnopolnye-protivopozharnye-dveri-ei-30/dver-protivopozharnaya-odnostvorchataya-c-porogom-ei-30/
+Redirect 301 /catalog/tekhnicheskie-dveri/boylernye-tekhnicheskie-dveri/dver-tekhnicheskaya-odnostvorchataya-glukhaya-dm-1/ /catalog/tekhnicheskie-dveri/dver-tekhnicheskaya-odnostvorchataya-glukhaya-dm-1/
+Redirect 301 /catalog/lyuki-protivopozharnye/lyuki-protivopozharnye-ei-30/lyuk-dvupolnyy-ei30-1000-1000/ /catalog/lyuki-protivopozharnye/lyuki-protivopozharnye-ei-30/lyuk-odnopolnyy-metallicheskiy-ei30-1000-1000/
+Redirect 301 /catalog/lyuki-protivopozharnye/protivopozharnye-lyuki-ei-60/lyuk-dvupolnyy-ei60-1000-1000/ /catalog/lyuki-protivopozharnye/protivopozharnye-lyuki-ei-60/lyuk-odnopolnyy-metallicheskiy-ei60-1000-1000/
+Redirect 301 /catalog/lyuki-protivopozharnye/protivopozharnye-lyuki-ei-60/lyuk-dvupolnyy-eis60-1000-1000/ /catalog/lyuki-protivopozharnye/protivopozharnye-lyuki-ei-60/lyuk-odnopolnyy-metallicheskiy-eis60-1000-1000/
+Redirect 301 /catalog/lyuki-protivopozharnye/dymogazonepronitsaemye-lyuki/lyuk-dvupolnyy-eis60-1000-1000/ /catalog/lyuki-protivopozharnye/protivopozharnye-lyuki-ei-60/lyuk-odnopolnyy-metallicheskiy-eis60-1000-1000/
+Redirect 301 /catalog/protivopozharnye-vorota/protivopozharnye-vorota-el90/ /catalog/protivopozharnye-vorota/protivopozharnye-vorota-ei90/
+Redirect 301 /catalog/lyuki-protivopozharnye/protivopozharnye-lyuki-na-krovlyu/lyuk-tekhnicheskiy-1000-1000-gost-31173-2016/ /catalog/tekhnicheskie-lyuki/lyuk-tekhnicheskiy-1000-1000-gost-31173-2016/
+
+
+
+
+Redirect 301 /catalog/protivopozharnye-dveri/s-ostekleniem/dver-ei90-protivopozharnaya-dvupolnaya-gost-53307-2009-2050-1250/ /catalog/protivopozharnye-dveri/dver-ei90-protivopozharnaya-dvupolnaya-gost-53307-2009-2050-1250/
+Redirect 301 /catalog/protivopozharnye-dveri/s-framugoy/dver-tekhnicheskaya-dvupolnaya-s-framugoy-2200kh1300-/ /catalog/tekhnicheskie-dveri/dver-tekhnicheskaya-dvupolnaya-s-framugoy-2200kh1300-/
+Redirect 301 /catalog/tekhnicheskie-dveri/boylernye-tekhnicheskie-dveri/dver-tekhnicheskaya-odnopolnaya-c-glazkom-2200kh1100/ /catalog/tekhnicheskie-dveri/dver-tekhnicheskaya-odnopolnaya-c-glazkom-2200kh1100/
+Redirect 301 /catalog/protivopozharnye-dveri/s-ostekleniem/dver-ei30-protivopozharnaya-dvupolnaya-gost-53303-2009-2050-1250/ /catalog/protivopozharnye-dveri/dver-ei30-protivopozharnaya-dvupolnaya-gost-53303-2009-2050-1250/
+Redirect 301 /catalog/dver-ei60-co-shtangoy-antipanika-2050-950/ /catalog/protivopozharnye-dveri/s-sistemoy-antipanika/dver-ei60-co-shtangoy-antipanika-2050-950/
+Redirect 301 /catalog/lyuki-protivopozharnye/lyuk-dvupolnyy-ei90-1000-1000/ /catalog/lyuki-protivopozharnye/lyuk-odnopolnyy-ei90-1000-1000/
+Redirect 301 /catalog/protivopozharnye-dveri/s-ostekleniem/odnopolnye-/ /catalog/protivopozharnye-dveri/s-ostekleniem/odnopolnye-osteklennye/
+Redirect 301 /catalog/protivopozharnye-dveri/s-ostekleniem/ver-ei30-protivopozharnaya-dvupolnaya-gost-53307-2009-2050-1250/ /catalog/protivopozharnye-dveri/ver-ei30-protivopozharnaya-dvupolnaya-gost-53307-2009-2050-1250/
+Redirect 301 /catalog/protivopozharnye-dveri/ognestoykost-1-go-tipa-ei-90/dvupolnye-protivopozharnye-dveri-ei-90/dver-eiws30-protivopozharnaya-gost-53303-2009-2050-950/ /catalog/protivopozharnye-dveri/s-ostekleniem/s-ostekleniem-bolee-25/dver-eiws30-protivopozharnaya-gost-53303-2009-2050-950/
+Redirect 301 /catalog/protivopozharnye-dveri/ognestoykost-2-go-tipa-ei-60/dvupolnye-protivopozharnye-dveri-ei-60/dver-dvupolnaya-protivopozharnaya-s-zamkom-antipanika-ei30/ /catalog/protivopozharnye-dveri/dlya-mest-obshchego-polzovaniya-mop/dver-dvupolnaya-protivopozharnaya-s-zamkom-antipanika-ei30/
+Redirect 301 /catalog/protivopozharnye-dveri/s-ostekleniem/dver-ei90-protivopozharnaya-dvupolnaya-gost-53303-2009-2050-1250/ /catalog/protivopozharnye-dveri/dver-ei90-protivopozharnaya-dvupolnaya-gost-53303-2009-2050-1250/
+
+Redirect 301 /articles/kak-proveryayut-pozharostoykost-dverey/ /articles/metody-ispytaniya-protivopozharnykh-dverey/
+Redirect 301 /articles/ispytanie-protivopozharnykh-dverey-na-ognestoykost/ /articles/metody-ispytaniya-protivopozharnykh-dverey/
+
+Redirect 301 /articles/tolshchina-i-razmery-protivopozharnykh-dverey/ /articles/razmery-protivopozharnykh-dverey/
+Redirect 301 /articles/parametry-protivopozharnykh-dverey/ /articles/razmery-protivopozharnykh-dverey/
+Redirect 301 /articles/normy-i-trebovaniya-k-izgotovleniyu-protivopozharnykh-dverey/ /articles/trebovaniya-k-protivopozharnym-dveryam/
+Redirect 301 /articles/klassy-ognestoykosti-protivopozharnykh-dverey/ /articles/tipy-protivopozharnykh-dverey/
+Redirect 301 /articles/kakie-gosty-deystvuyut-na-izgotovlenie-protivopozharnykh-dverey/ /articles/gost-na-protivopozharnye-dveri/
+Redirect 301 /articles/metody-ispytaniya-protivopozharnykh-dverey/ /articles/ispytaniya-protivopozharnykh-dverey/
+Redirect 301 /articles/kak-dolzhny-otkryvatsya-protivopozharnye-dveri-normy-i-trebovaniya-pozharnoy-bezopasnosti/ /articles/kak-dolzhny-otkryvatsya-dveri-po-pozharnoy-bezopasnosti/
+Redirect 301 /articles/stepeni-ognestoykosti-protivopozharnykh-dverey/ /articles/tipy-protivopozharnykh-dverey/
+Redirect 301 /articles/kakie-pomeshcheniya-oboruduyutsya-protivopozharnymi-dvermi/ /articles/gde-ustanavlivayutsya-protivopozharnye-dveri/
+Redirect 301 /articles/pravila-obsluzhivaniya-protivopozharnykh-dverey/ /articles/obsluzhivanie-protivopozharnykh-dverey/
+Redirect 301 /articles/kak-ustanavlivayut-protivopozharnye-dveri-/ /articles/gde-ustanavlivayutsya-protivopozharnye-dveri/
+Redirect 301 /articles/v-chem-otlichie-protivopozharnykh-dverey-ot-obychnykh-metallicheskikh/ /articles/protivopozharnye-dveri-chem-otlichayutsya-ot-obychnykh/
+Redirect 301 /articles/chto-vazhno-znat-o-protivopozharnykh-dveryakh/ /articles/chto-takoe-protivopozharnye-dveri/
+Redirect 301 /articles/protivopozharnye-dveri-dlya-torgovykh-tsentrov/ /articles/protivopozharnye-dveri-dlya-magazinov-i-torgovykh-tsentrov/
+Redirect 301 /articles/v-kakikh-sluchayakh-menyayut-protivopozharnye-dveri/ /articles/kogda-menyat-protivopozharnye-dveri/
+Redirect 301 /articles/kakoy-dolzhna-byt-shirina-protivopozharnogo-lyuka/ /articles/razmery-protivopozharnykh-lyukov/
+
+Redirect 301 /catalog/lyuki-protivopozharnye/protivopozharnye-lyuki-na-krovlyu/ /catalog/lyuki-protivopozharnye/na-krovlyu/
+Redirect 301 /catalog/lyuki-protivopozharnye/protivopozharnye-lyuki-na-cherdak/ /catalog/lyuki-protivopozharnye/na-cherdak/
+Redirect 301 /catalog/lyuki-protivopozharnye/lyuki-protivopozharnye-ei-30/ /catalog/lyuki-protivopozharnye/ei30/
+Redirect 301 /catalog/lyuki-protivopozharnye/protivopozharnye-lyuki-ei-60/ /catalog/lyuki-protivopozharnye/ei60/
+Redirect 301 /catalog/lyuki-protivopozharnye/protivopozharnye-lyuki-ei-90/ /catalog/lyuki-protivopozharnye/ei90/
+Redirect 301 /catalog/lyuki-protivopozharnye/germetichnye-lyuki/ /catalog/lyuki-protivopozharnye/germetichnye/
+Redirect 301 /catalog/lyuki-protivopozharnye/dymogazonepronitsaemye-lyuki/ /catalog/lyuki-protivopozharnye/dymogazonepronicaemye/
+Redirect 301 /catalog/protivopozharnye-vorota/protivopozharnye-vorota-ei-30/ /catalog/protivopozharnye-vorota/ei-30/
+Redirect 301 /catalog/protivopozharnye-vorota/protivopozharnye-vorota-ei60/ /catalog/protivopozharnye-vorota/ei-60/
+Redirect 301 /catalog/protivopozharnye-vorota/promyshlennye-protivopozharnye-vorota/ /catalog/protivopozharnye-vorota/promyshlennye/
+Redirect 301 /catalog/protivopozharnye-vorota/raspashnye-protivopozharnye-vorota/ /catalog/protivopozharnye-vorota/raspashnye/
+Redirect 301 /catalog/protivopozharnye-vorota/protivopozharnye-vorota-s-kalitkoy/ /catalog/protivopozharnye-vorota/s-kalitkoy/
+Redirect 301 /catalog/protivopozharnye-vorota/dymogazonepronitсaemye/ /catalog/protivopozharnye-vorota/dymogazonepronitcaemye/
+Redirect 301 /catalog/tekhnicheskie-dveri/boylernye-tekhnicheskie-dveri/ /catalog/tekhnicheskie-dveri/boylernye/
+Redirect 301 /catalog/tekhnicheskie-dveri/dlya-transformatornykh-tekhnicheskie-dveri/ /catalog/tekhnicheskie-dveri/dlya-transformatornykh/
+Redirect 301 /catalog/tekhnicheskie-dveri/elektroshchitovye-tekhnicheskie-dveri/ /catalog/tekhnicheskie-dveri/elektroshchitovye/
+Redirect 301 /catalog/tekhnicheskie-dveri/tamburnye-tekhnicheskie-dveri/ /catalog/tekhnicheskie-dveri/tamburnye/
+Redirect 301 /catalog/tekhnicheskie-dveri/podezdnye-tekhnicheskie-dveri/ /catalog/tekhnicheskie-dveri/podezdnye/
+Redirect 301 /catalog/tekhnicheskie-dveri/stalnye-tekhnicheskie-dveri/ /catalog/tekhnicheskie-dveri/stalnye/
+Redirect 301 /catalog/tekhnicheskie-dveri/metallicheskie-tekhnicheskie-dveri/ /catalog/tekhnicheskie-dveri/metallicheskie/
+Redirect 301 /catalog/tekhnicheskie-dveri/s-ventilyatsionnoy-reshetkoy-tekhnicheskie-dveri/ /catalog/tekhnicheskie-dveri/s-ventilyatsionnoy-reshetkoy/
+Redirect 301 /catalog/tekhnicheskie-dveri/glukhie-tekhnicheskie-dveri/ /catalog/tekhnicheskie-dveri/glukhie/
+Redirect 301 /catalog/protivopozharnye-dveri/ognestoykost-2-go-tipa-ei-60/protivopozharnye-dveri-ei-60-s-ostekleniem-bolee-25/ /catalog/protivopozharnye-dveri/ognestoykost-2-go-tipa-ei-60/eiw-60-s-ostekleniem-bolee-25/
+Redirect 301 /catalog/protivopozharnye-dveri/ognestoykost-2-go-tipa-ei-60/protivopozharnye-dveri-ei-60-s-ostekleniem-menee-25/ /catalog/protivopozharnye-dveri/ognestoykost-2-go-tipa-ei-60/eiw-60-s-ostekleniem-menee-25/
+
+
+
+Redirect 301 /articles/protivopozharnye-dveri-dlya-kotelnoy/ /catalog/protivopozharnye-dveri/dlya-kotelnoy/
+Redirect 301 /articles/dvukhstvorchatye-protivopozharnye-dveri-ustanovka-i-osobennosti/ /catalog/protivopozharnye-dveri/dvupolnye/
+Redirect 301 /catalog/tekhnicheskie-dveri/stalnye/ /catalog/tekhnicheskie-dveri/
+Redirect 301 /catalog/tekhnicheskie-dveri/metallicheskie/ /catalog/tekhnicheskie-dveri/
+
+<IfModule mod_php5.c>
+	php_flag allow_call_time_pass_reference 1
+	php_flag session.use_trans_sid off
+	php_value memory_limit 512M
+	#php_value display_errors 1
+
+	#php_value mbstring.internal_encoding UTF-8
+</IfModule>
+
+<IfModule mod_rewrite.c>
+	Options +FollowSymLinks
+	RewriteEngine On
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*[^/])$ /$1/ [L,R=301]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !/bitrix/urlrewrite.php$
+	RewriteRule ^(.*)$ /bitrix/urlrewrite.php [L]
+	RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
+
+
+  	RewriteCond %{HTTP_HOST} ^www\.(.*)$
+  	RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
+
+
+    # indexes
+      RewriteCond %{REQUEST_URI} ^/index$ [OR]
+      RewriteCond %{REQUEST_URI} ^/index[.]+(\w+)$
+      RewriteRule . / [R=301,L]
+
+
+      #RewriteCond %{ENV:HTTPS} =off
+      #RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [QSA,L,R=301]
+
+  	#RewriteCond %{ENV:HTTPS} off
+  	#RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  	#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+      #RewriteCond %{HTTP_HOST} ^www\.(.*)$
+      #RewriteRule ^(.*)$ http://%1/$1 [L,R=301]]
+  </IfModule>
+
+  <IfModule mod_dir.c>
+  	DirectoryIndex index.php index.html
+  </IfModule>
+
+  <IfModule mod_expires.c>
+  	ExpiresActive on
+  	ExpiresByType image/jpeg "access plus 3 day"
+  	ExpiresByType image/gif "access plus 3 day"
+  </IfModule>

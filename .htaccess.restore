@@ -1,0 +1,50 @@
+Options -Indexes 
+ErrorDocument 404 /404.php
+
+#Redirect 301 /catalog/protivopozharnye-izdeliya/protivopozharnye-dveri/ http://1dvm.ru/catalog/protivopozharnye-dveri-moskva/
+#Redirect 301 /catalog/protivopozharnye-izdeliya/protivopozharnye-dveri/protivopozharnaya-dver-odnopolnaya/ http://1dvm.ru/catalog/protivopozharnye-dveri-moskva/protivopozharnaya-dver-odnopolnaya/
+#Redirect 301 /catalog/protivopozharnye-izdeliya/protivopozharnye-dveri/protivopozharnaya-dver-dvupolnaya/ http://1dvm.ru/catalog/protivopozharnye-dveri-moskva/protivopozharnaya-dver-dvupolnaya/
+
+#Redirect 301 /catalog/stroitelnye-dveri/tekhnicheskie-dveri-i-vorota/ http://1dvm.ru/catalog/tekhnicheskie-dveri/
+#Redirect 301 /catalog/stroitelnye-dveri/tekhnicheskie-dveri-i-vorota/dver-tekhnicheskaya/ http://1dvm.ru/catalog/tekhnicheskie-dveri/dver-tekhnicheskaya/
+#Redirect 301 /catalog/stroitelnye-dveri/tekhnicheskie-dveri-i-vorota/vorota-tekhnicheskie/ http://1dvm.ru/catalog/tekhnicheskie-dveri/vorota-tekhnicheskie/
+
+#Redirect 301 /delivery/ http://1dvm.ru/info/dostavka/
+#Redirect 301 /provider/ http://1dvm.ru/info/postavshchikam/
+
+<IfModule mod_php5.c>
+	php_flag allow_call_time_pass_reference 1
+	php_flag session.use_trans_sid off
+
+	#php_value display_errors 1
+
+	#php_value mbstring.internal_encoding UTF-8
+</IfModule>
+
+<IfModule mod_rewrite.c>
+	Options +FollowSymLinks
+	RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^1dvm.ru$ [NC]
+RewriteRule ^(.*)$ http://www.1dvm.ru/$1 [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^www.msk.1dvm.ru
+RewriteRule (.*) http://1dvm.ru/$1 [R=301,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !/bitrix/urlrewrite.php$
+	RewriteRule ^(.*)$ /bitrix/urlrewrite.php [L]
+	RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
+</IfModule>
+
+<IfModule mod_dir.c>
+	DirectoryIndex index.php index.html
+</IfModule>
+
+<IfModule mod_expires.c>
+	ExpiresActive on
+	ExpiresByType image/jpeg "access plus 3 day"
+	ExpiresByType image/gif "access plus 3 day"
+</IfModule>

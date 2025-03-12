@@ -1,0 +1,187 @@
+@padding-col: 15px;
+
+@footerbg: #f5f5f5;
+@link: #2874b4;
+@linkh: lighten(@link, 5%);
+@linkd: darken(@link, 5%);
+@gray: #767676;
+
+@font-heading: 'Arial', sans-serif;
+@font-body: 'Arial', sans-serif;
+@line-height-default: 1.4;
+
+.wf-row {
+  margin: 0 -@padding-col;
+  overflow: auto;
+}
+
+.col-x-4, .col-x-2 {
+  box-sizing: border-box;
+  padding: 0 @padding-col;
+  float: left;
+  min-height: 1px;
+}
+
+.col-x-4 {
+  width: 25%;
+}
+
+.col-x-2 {
+  width: 50%;
+}
+
+.wf-modal-cities {
+  font-family: @font-body;
+  font-size: 13px;
+  line-height: @line-height-default;
+  .wf-modal-dialog {
+    margin: 30px auto;
+
+  }
+  .wf-modal-header, .wf-modal-body, .wf-modal-footer {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .wf-modal-header {
+    padding-top: 20px;
+    padding-bottom: 0;
+    border-bottom: none;
+
+    .wf-modal-title {
+      font-family: @font-heading;
+      font-weight: bold;
+      font-size: 15px;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .wf-modal-close {
+      position: absolute;
+      display: block;
+      top: -1px;
+      right: 100%;
+      background: @footerbg;
+      width: 32px;
+      height: 32px;
+      margin-left: -1px;
+      cursor: pointer;
+      border: 1px solid rgba(0, 0, 0, 0.6);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+      &:before, &:after {
+        position: absolute;
+        display: block;
+        content: '';
+      }
+      &:before {
+        width: 24px;
+        height: 24px;
+        opacity: .7;
+        transition: opacity .2s ease-in;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+      }
+      &:after {
+        width: 20px;
+        height: 60px;
+        top: 0;
+        right: 100%;
+        background: #ffffff;
+      }
+      &:hover {
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .wf-modal-footer {
+    background: @footerbg;
+    text-align: left;
+
+  }
+  .list-unstyled {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      margin-bottom: 5px;
+    }
+  }
+
+  .pick-location-final, .pick-location {
+
+    color: @link;
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover {
+      text-decoration: none;
+      color: @linkh;
+    }
+    &:active {
+      transform: translateY(1px);
+      color: @linkd;
+    }
+    &.active {
+      color: @gray !important;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
+  .list-districts {
+    .pick-location {
+      color: #000000;
+      font-weight: bold;
+    }
+  }
+}
+
+.wf-primary-cities {
+  overflow: auto;
+  margin: 0 -@padding-col;
+}
+
+//Animation effect for picked city
+@-webkit-keyframes wfPulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes wfPulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.wf-city {
+  display: inline-block;
+  outline: none !important;
+}
+
+.wf-pulse {
+  animation-duration: .5s;
+  animation-name: wfPulse;
+}

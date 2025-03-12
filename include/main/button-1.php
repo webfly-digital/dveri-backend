@@ -1,0 +1,1 @@
+ <a href="/info/sertifikaty-i-gosty/" class="btn btn--sky">Смотреть все</a>

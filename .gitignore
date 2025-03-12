@@ -1,0 +1,22 @@
+# Игнорируем всё содержимое папки bitrix и папку logs
+/bitrix/*
+/logs/
+
+# Исключаем папку php_interface
+!bitrix/php_interface/
+
+# Сначала исключаем саму папку components, чтобы её содержимое можно было обработать
+!bitrix/components/
+bitrix/components/*
+
+# Исключаем конкретные файлы и папки внутри components
+!bitrix/components/reaspekt/
+!bitrix/components/webfly/
+!bitrix/components/yandex.market/
+
+# Сначала исключаем саму папку templates, чтобы её содержимое можно было обработать
+!bitrix/templates/
+bitrix/templates/*
+
+# Исключаем конкретные файлы и папки внутри templates
+!bitrix/templates/1dvm/

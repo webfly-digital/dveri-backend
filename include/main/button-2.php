@@ -1,0 +1,1 @@
+<a href="/gallery/" class="btn btn--sky">Смотреть все галереи</a>

@@ -1,0 +1,1 @@
+<span class="flaticon-placeholder"></span> Город: <a href="#modalCities" id="wf-city-bottom" class="link-dashed"><?=$arResult["CURRENT_CITY"]["NAME"]?></a>
