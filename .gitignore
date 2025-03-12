@@ -1,6 +1,8 @@
-# Игнорируем всё содержимое папки bitrix и папку logs
+# Игнорируем всё содержимое этих папок
 /bitrix/*
 /logs/
+/.idea/
+
 
 # Исключаем папку php_interface
 !bitrix/php_interface/
