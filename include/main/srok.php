@@ -1,4 +1,4 @@
-<h2 class="page-section__title">Сроки производства в реальном времени и цены</h2>
+<div class="h2 page-section__title">Сроки производства в реальном времени и цены</div>
 <table class="table table-striped table-responsive">
 <tbody>
 <tr>

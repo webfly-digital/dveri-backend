@@ -188,7 +188,7 @@ if (true) { ?> <!--Top slider-->
     )
 ); ?>
     <section class="page-section">
-        <h2 class="h1 page-section__title text-center">Хит продаж</h2>
+        <div class="h1 page-section__title text-center">Хит продаж</div>
         <div class="container">
             <?php
             global $mainFilter;
@@ -287,11 +287,12 @@ if (true) { ?> <!--Top slider-->
                             ?></div>
                     </div>
                     <div class="col-xs-12">
-                        <h2 class="page-section__title"><?php
+                        <div class="h2 page-section__title"><?php
                             $APPLICATION->IncludeFile(
                                 SITE_DIR . "include/main/title-1.php", array(), array("NAME" => "seo-текст", "MODE" => "html")
                             );
-                            ?></h2>
+                            ?>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -325,11 +326,12 @@ if (true) { ?> <!--Top slider-->
 <?php if (is_array($gallery4)): ?>
     <section class="page-section--contrast gray-bg">
         <div class="container">
-            <h2 class="h1 page-section__title"><?php
+            <div class="h1 page-section__title"><?php
                 $APPLICATION->IncludeFile(
                     SITE_DIR . "include/main/title-2.php", array(), array("NAME" => "seo-текст", "MODE" => "html")
                 );
-                ?></h2>
+                ?>
+            </div>
             <div class="gal gal-v1">
                 <?php
                 foreach ($gallery4 as $cert):
@@ -361,11 +363,12 @@ if (true) { ?> <!--Top slider-->
             <div class="text-content-wrapper">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h2 class="h2 page-section__title"><?php
+                        <div class="h2 page-section__title"><?php
                             $APPLICATION->IncludeFile(
                                 SITE_DIR . "include/main/title-4.php", array(), array("NAME" => "текст", "MODE" => "html")
                             );
-                            ?></h2>
+                            ?>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -585,7 +588,8 @@ if ($sub == 'msk') { ?>
             "SORT_BY1" => "ACTIVE_FROM",
             "SORT_BY2" => "SORT",
             "SORT_ORDER1" => "DESC",
-            "SORT_ORDER2" => "ASC"
+            "SORT_ORDER2" => "ASC",
+            "TAG_H" => "N"
         )
     ); ?>
     <!--/articles-->
