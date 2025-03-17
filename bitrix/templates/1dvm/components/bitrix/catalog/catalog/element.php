@@ -1,4 +1,11 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+
+/**
+ * @global CMain                 $APPLICATION
+ * @var array                    $arParams
+ * @var array                    $arResult
+ * @var CatalogElementComponent  $component
+ */
 
 $wfc = new CWebflyCities();
 $sub = $wfc->GetSubDomain();
@@ -73,16 +80,16 @@ $ElementID = $APPLICATION->IncludeComponent(
     ),
     $component
 ); ?>
-<? $this->SetViewTarget('catalog_detail'); ?>
-<?
-$APPLICATION->IncludeFile("/include/benefits-catalog.php", [], array("MODE" => "html", "NAME" => "Преймущества"));
+<?php $this->SetViewTarget('catalog_detail'); ?>
+<?php
+//$APPLICATION->IncludeFile("/include/benefits-catalog.php", [], array("MODE" => "html", "NAME" => "Преймущества"));
 ?>
     <section class="page-section">
         <div class="h1 page-section__title text-center">Похожие товары:</div>
         <div class="container">
-            <?
+            <?php
             global $recomFilter;
-           
+
             $recomFilter = ['IBLOCK_ID' => $arParams['IBLOCK_ID'], 'SECTION_CODE' => $arResult["VARIABLES"]["SECTION_CODE"], '!ID' => $ElementID];
             $APPLICATION->IncludeComponent(
                 "bitrix:catalog.section",
@@ -157,36 +164,36 @@ $APPLICATION->IncludeFile("/include/benefits-catalog.php", [], array("MODE" => "
             ?>
         </div>
     </section>
-<?
-$APPLICATION->IncludeFile("/include/index-clients-catalog.html", array(), array("MODE" => "html", "NAME" => "Логотипы клиентов",));
+<?php
+//$APPLICATION->IncludeFile("/include/index-clients-catalog.html", array(), array("MODE" => "html", "NAME" => "Логотипы клиентов",));
 ?>
-    <section class="page-section" id="sect-feedback">
-        <div class="container">
-            <div class="h2 page-section__title text-center"><a href="/info/reviews/">Отзывы</a> о продукции Двери Металл М
-            </div>
-            <div class="gal gal-v3">
-                <? $gallery = WFGeneral::GetGallery(9); ?>
-                <? if ($gallery):
-                    foreach ($gallery as $key => $production):
-                        if ($key >= 5) break;
-                        if (!empty($production["DESCRIPTION"]))
-                            $production_desc = $production["DESCRIPTION"];
-                        else
-                            $production_desc = $production["NAME"];
-                        ?>
-                        <div class="gal-item">
-                            <a href="<?= $production["PATH"] ?>" class="gal-item__preview lazyload"
-                               title="<?= $production_desc ?>"
-                               data-original="<?= $production['PATH'] ?>"></a>
-                        </div>
-                    <?endforeach;
-                else:?>
-                    <p>Пока нет ни одного отзыва!</p>
-                <? endif; ?>
-            </div>
-        </div>
-    </section>
-<? /*
+<!--    <section class="page-section" id="sect-feedback">-->
+<!--        <div class="container">-->
+<!--            <div class="h2 page-section__title text-center"><a href="/info/reviews/">Отзывы</a> о продукции Двери Металл М-->
+<!--            </div>-->
+<!--            <div class="gal gal-v3">-->
+<!--                --><?php //$gallery = WFGeneral::GetGallery(9); ?>
+<!--                --><?php //if ($gallery):
+//                    foreach ($gallery as $key => $production):
+//                        if ($key >= 5) break;
+//                        if (!empty($production["DESCRIPTION"]))
+//                            $production_desc = $production["DESCRIPTION"];
+//                        else
+//                            $production_desc = $production["NAME"];
+//                        ?>
+<!--                        <div class="gal-item">-->
+<!--                            <a href="--><?php //= $production["PATH"] ?><!--" class="gal-item__preview lazyload"-->
+<!--                               title="--><?php //= $production_desc ?><!--"-->
+<!--                               data-original="--><?php //= $production['PATH'] ?><!--"></a>-->
+<!--                        </div>-->
+<!--                    --><?php //endforeach;
+//                else:?>
+<!--                    <p>Пока нет ни одного отзыва!</p>-->
+<!--                --><?php //endif; ?>
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+<?php /*
 <section class="page-section">
     <div class="container">
         <h2 class="page-section__title text-center">Также мы предлагаем</h2>
@@ -220,10 +227,10 @@ $APPLICATION->IncludeFile("/include/index-clients-catalog.html", array(), array(
     </div>
 </section>
 */ ?>
-<? global $USER;
+<?php global $USER;
 if ($sub == 'msk') { ?>
     <!--articles-->
-    <? $APPLICATION->IncludeComponent(
+    <?php $APPLICATION->IncludeComponent(
         "bitrix:news.list",
         "articles",
         array(
@@ -275,5 +282,5 @@ if ($sub == 'msk') { ?>
         )
     ); ?>
     <!--/articles-->
-<? } ?>
-<? $this->EndViewTarget(); ?>
+<?php } ?>
+<?php $this->EndViewTarget(); ?>

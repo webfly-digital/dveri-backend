@@ -1,4 +1,12 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+
+/**
+ * @global CMain                 $APPLICATION
+ * @var array                    $arParams
+ * @var array                    $arResult
+ * @var CatalogSectionComponent  $component
+ * @const WF_SEO_IBLOCK
+ */
 
 $sectionID = $arResult['VARIABLES']['SECTION_ID'];
 $section = CIBlockSection::GetByID($sectionID)->GetNext();
@@ -14,7 +22,7 @@ $sub = $wfc->GetSubDomain();
 <div class="row double-column-layout">
 
     <div class="super-accordion col-md-3">
-        <? $APPLICATION->IncludeComponent(
+        <?php $APPLICATION->IncludeComponent(
             "bitrix:menu",
             "tree",
             array(
@@ -38,7 +46,7 @@ $sub = $wfc->GetSubDomain();
     </div>
 
     <section class="col-md-9 super-accordion">
-        <?
+        <?php
         $APPLICATION->IncludeComponent(
             "bitrix:catalog.smart.filter",
             "filter",
@@ -142,18 +150,18 @@ $sub = $wfc->GetSubDomain();
            data-options="Получить прайс-лист|.input-comment|PRICE_GOAL"
            style="width:100%; display: block; margin: 0 0 24px 0;text-align: center;">Получить оптовый прайс-лист</a>
 
-        <? if (!empty($arSortFields)): ?>
+        <?php if (!empty($arSortFields)): ?>
             <noindex>
                 <div class="sort-panel">
                     <span class="sort-panel__caption">Сортировать по</span>
                     <select name="sort" class="sort-panel__select chosen-single--noselect" id="selectSortParams">
-                        <? foreach ($arSortFields as $arSortFieldCode => $arSortField): ?>
-                            <option value="<?= $APPLICATION->GetCurPageParam("SORT_FIELD=" . $arSortFieldCode, array("SORT_FIELD")); ?>"<? if ($arSortField["SELECTED"] == "Y"): ?> selected<? endif; ?>><?= $arSortField["NAME"] ?></option>
-                        <? endforeach; ?>
+                        <?php foreach ($arSortFields as $arSortFieldCode => $arSortField): ?>
+                            <option value="<?= $APPLICATION->GetCurPageParam("SORT_FIELD=" . $arSortFieldCode, array("SORT_FIELD")); ?>"<?php if ($arSortField["SELECTED"] == "Y"): ?> selected<?php endif; ?>><?= $arSortField["NAME"] ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
             </noindex>
-        <? endif;
+        <?php endif;
 
         if ($sub == 'msk') $price_mod = 1;
 
@@ -248,13 +256,13 @@ $sub = $wfc->GetSubDomain();
         ?>
     </section>
 </div>
-<? $this->SetViewTarget('catalog_section'); ?>
+<?php $this->SetViewTarget('catalog_section'); ?>
 <section class="double-column" id="calculate">
     <div class="col">
         <noindex>
             <div class="page-section">
                 <div class="calc-form-wrapper">
-                    <div class="page-section__title h3"><?
+                    <div class="page-section__title h3"><?php
                         $APPLICATION->IncludeFile(
                             SITE_DIR . "include/main/title-3.php", array(), array("NAME" => "текст", "MODE" => "html")
                         );
@@ -283,54 +291,54 @@ $sub = $wfc->GetSubDomain();
         </noindex>
     </div>
     <div class="col">
-        <? $gallery6 = WFGeneral::GetGallery(6); ?>
-        <? if ($gallery6): ?>
+        <?php $gallery6 = WFGeneral::GetGallery(6); ?>
+        <?php if ($gallery6): ?>
             <div class="square-pics">
-                <? foreach ($gallery6 as $minigal): ?>
+                <?php foreach ($gallery6 as $minigal): ?>
                     <div class="pic lazyload" data-original="<?= $minigal["PATH"] ?>"></div>
-                <? endforeach ?>
+                <?php endforeach ?>
             </div>
-        <? endif ?>
+        <?php endif ?>
     </div>
 </section>
-<?
-$APPLICATION->IncludeFile("/include/benefits-catalog.php", [], array("MODE" => "html", "NAME" => "Преймущества"));
+<?php
+//$APPLICATION->IncludeFile("/include/benefits-catalog.php", [], array("MODE" => "html", "NAME" => "Преймущества"));
 //$APPLICATION->IncludeFile("/include/index-clients.html", Array(), Array("MODE" => "html", "NAME" => "Логотипы клиентов",));
 ?>
 <!-- Отзывы -->
-<section class="page-section" id="sect-feedback">
-    <div class="container">
-        <div class="h2 page-section__title text-center"><a href="/info/reviews/">Отзывы</a> о продукции Двери Металл М
-        </div>
-        <div class="gal gal-v3">
-            <? $gallery = WFGeneral::GetGallery(9); ?>
-            <? if ($gallery):
-                foreach ($gallery as $key => $production):
-                    if ($key >= 5) break;
-                    if (!empty($production["DESCRIPTION"]))
-                        $production_desc = $production["DESCRIPTION"];
-                    else
-                        $production_desc = $production["NAME"];
-                    ?>
-                    <div class="gal-item">
-                        <a href="<?= $production["PATH"] ?>" class="gal-item__preview lazyload"
-                           title="<?= $production_desc ?>"
-                           data-original="<?= $production['PATH'] ?>"></a>
-                    </div>
-                <?endforeach;
-            else:?>
-                <p>Пока нет ни одного отзыва!</p>
-            <? endif; ?>
-        </div>
-    </div>
-</section>
+<!--<section class="page-section" id="sect-feedback">-->
+<!--    <div class="container">-->
+<!--        <div class="h2 page-section__title text-center"><a href="/info/reviews/">Отзывы</a> о продукции Двери Металл М-->
+<!--        </div>-->
+<!--        <div class="gal gal-v3">-->
+<!--            --><?php // $gallery = WFGeneral::GetGallery(9); ?>
+<!--            --><?php // if ($gallery):
+//                foreach ($gallery as $key => $production):
+//                    if ($key >= 5) break;
+//                    if (!empty($production["DESCRIPTION"]))
+//                        $production_desc = $production["DESCRIPTION"];
+//                    else
+//                        $production_desc = $production["NAME"];
+//                    ?>
+<!--                    <div class="gal-item">-->
+<!--                        <a href="--><?php //= $production["PATH"] ?><!--" class="gal-item__preview lazyload"-->
+<!--                           title="--><?php //= $production_desc ?><!--"-->
+<!--                           data-original="--><?php //= $production['PATH'] ?><!--"></a>-->
+<!--                    </div>-->
+<!--                --><?php //endforeach;
+//            else:?>
+<!--                <p>Пока нет ни одного отзыва!</p>-->
+<!--            --><?php // endif; ?>
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
 <!--/Отзывы -->
-<?
+<?php
 
 global $showArticles;
 if ($showArticles) { ?>
     <!--articles-->
-    <? $APPLICATION->IncludeComponent(
+    <?php $APPLICATION->IncludeComponent(
         "bitrix:news.list",
         "articles",
         array(
@@ -381,5 +389,5 @@ if ($showArticles) { ?>
         )
     ); ?>
     <!--/articles-->
-<? } ?>
-<? $this->EndViewTarget(); ?>
+<?php } ?>
+<?php $this->EndViewTarget(); ?>
