@@ -1,10 +1,10 @@
 <?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 /**
- * @global CMain                 $APPLICATION
- * @var array                    $arParams
- * @var array                    $arResult
- * @var CatalogElementComponent  $component
+ * @global CMain                $APPLICATION
+ * @var array                   $arParams
+ * @var array                   $arResult
+ * @var CatalogElementComponent $component
  */
 
 $wfc = new CWebflyCities();
@@ -23,13 +23,13 @@ while ($nav = $res->GetNext())
 $ElementID = $APPLICATION->IncludeComponent(
     "bitrix:catalog.element",
     "",
-    array(
+    [
         'PRICE_MOD' => $price_mod,
         "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
         "IBLOCK_ID" => $arParams["IBLOCK_ID"],
         "PROPERTY_CODE" => $arParams["DETAIL_PROPERTY_CODE"],
         "META_KEYWORDS" => $arParams["DETAIL_META_KEYWORDS"],
-	    "META_DESCRIPTION" => $arParams["DETAIL_META_DESCRIPTION"],
+        "META_DESCRIPTION" => $arParams["DETAIL_META_DESCRIPTION"],
         "BROWSER_TITLE" => $arParams["DETAIL_BROWSER_TITLE"],
         "BASKET_URL" => $arParams["BASKET_URL"],
         "ACTION_VARIABLE" => $arParams["ACTION_VARIABLE"],
@@ -77,7 +77,7 @@ $ElementID = $APPLICATION->IncludeComponent(
         "ADD_ELEMENT_CHAIN" => $arParams["ADD_ELEMENT_CHAIN"],
         'ADD_SECTIONS_CHAIN' => $arParams["ADD_SECTIONS_CHAIN"],
         "SET_CANONICAL_URL" => "N",
-    ),
+    ],
     $component
 ); ?>
 <?php $this->SetViewTarget('catalog_detail'); ?>
@@ -94,7 +94,7 @@ $ElementID = $APPLICATION->IncludeComponent(
             $APPLICATION->IncludeComponent(
                 "bitrix:catalog.section",
                 "main",
-                array(
+                [
                     'FILTER_NAME' => 'recomFilter',
                     'IBLOCK_TYPE' => 'catalog',
                     'IBLOCK_ID' => $arParams['IBLOCK_ID'],
@@ -103,11 +103,11 @@ $ElementID = $APPLICATION->IncludeComponent(
                     'ELEMENT_SORT_FIELD2' => 'id',
                     'ELEMENT_SORT_ORDER2' => 'desc',
                     'PROPERTY_CODE' =>
-                        array(
+                        [
                             0 => 'FIRE_RESIST',
                             1 => 'CONSTUCTION',
                             2 => 'HIT',
-                        ),
+                        ],
                     'META_KEYWORDS' => '-',
                     'META_DESCRIPTION' => '-',
                     'BROWSER_TITLE' => '-',
@@ -159,7 +159,7 @@ $ElementID = $APPLICATION->IncludeComponent(
                     'CURRENCY_ID' => NULL,
                     'HIDE_NOT_AVAILABLE' => NULL,
                     'ADD_ELEMENT_CHAIN' => 'N',
-                ), $component, ['HIDE_ICONS' => 'Y']
+                ], $component, ['HIDE_ICONS' => 'Y']
             );
             ?>
         </div>
@@ -167,13 +167,13 @@ $ElementID = $APPLICATION->IncludeComponent(
 <?php
 //$APPLICATION->IncludeFile("/include/index-clients-catalog.html", array(), array("MODE" => "html", "NAME" => "Логотипы клиентов",));
 ?>
-<!--    <section class="page-section" id="sect-feedback">-->
-<!--        <div class="container">-->
-<!--            <div class="h2 page-section__title text-center"><a href="/info/reviews/">Отзывы</a> о продукции Двери Металл М-->
-<!--            </div>-->
-<!--            <div class="gal gal-v3">-->
-<!--                --><?php //$gallery = WFGeneral::GetGallery(9); ?>
-<!--                --><?php //if ($gallery):
+    <!--    <section class="page-section" id="sect-feedback">-->
+    <!--        <div class="container">-->
+    <!--            <div class="h2 page-section__title text-center"><a href="/info/reviews/">Отзывы</a> о продукции Двери Металл М-->
+    <!--            </div>-->
+    <!--            <div class="gal gal-v3">-->
+    <!--                --><?php //$gallery = WFGeneral::GetGallery(9); ?>
+    <!--                --><?php //if ($gallery):
 //                    foreach ($gallery as $key => $production):
 //                        if ($key >= 5) break;
 //                        if (!empty($production["DESCRIPTION"]))
@@ -181,18 +181,18 @@ $ElementID = $APPLICATION->IncludeComponent(
 //                        else
 //                            $production_desc = $production["NAME"];
 //                        ?>
-<!--                        <div class="gal-item">-->
-<!--                            <a href="--><?php //= $production["PATH"] ?><!--" class="gal-item__preview lazyload"-->
-<!--                               title="--><?php //= $production_desc ?><!--"-->
-<!--                               data-original="--><?php //= $production['PATH'] ?><!--"></a>-->
-<!--                        </div>-->
-<!--                    --><?php //endforeach;
+    <!--                        <div class="gal-item">-->
+    <!--                            <a href="--><?php //= $production["PATH"] ?><!--" class="gal-item__preview lazyload"-->
+    <!--                               title="--><?php //= $production_desc ?><!--"-->
+    <!--                               data-original="--><?php //= $production['PATH'] ?><!--"></a>-->
+    <!--                        </div>-->
+    <!--                    --><?php //endforeach;
 //                else:?>
-<!--                    <p>Пока нет ни одного отзыва!</p>-->
-<!--                --><?php //endif; ?>
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
+    <!--                    <p>Пока нет ни одного отзыва!</p>-->
+    <!--                --><?php //endif; ?>
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </section>-->
 <?php /*
 <section class="page-section">
     <div class="container">
@@ -233,7 +233,7 @@ if ($sub == 'msk') { ?>
     <?php $APPLICATION->IncludeComponent(
         "bitrix:news.list",
         "articles",
-        array(
+        [
             "ACTIVE_DATE_FORMAT" => "d.m.Y",
             "ADD_SECTIONS_CHAIN" => "N",
             "AJAX_MODE" => "N",
@@ -253,7 +253,7 @@ if ($sub == 'msk') { ?>
             "DISPLAY_PICTURE" => "Y",
             "DISPLAY_PREVIEW_TEXT" => "Y",
             "DISPLAY_TOP_PAGER" => "N",
-            "FIELD_CODE" => array(0 => "", 1 => "",),
+            "FIELD_CODE" => [0 => "", 1 => "",],
             "FILTER_NAME" => "",
             "HIDE_LINK_WHEN_NO_DETAIL" => "N",
             "IBLOCK_ID" => "23",
@@ -270,7 +270,7 @@ if ($sub == 'msk') { ?>
             "PARENT_SECTION" => "",
             "PARENT_SECTION_CODE" => "",
             "PREVIEW_TRUNCATE_LEN" => "",
-            "PROPERTY_CODE" => array(0 => "", 1 => "",),
+            "PROPERTY_CODE" => [0 => "", 1 => "",],
             "SET_STATUS_404" => "N",
             "SET_TITLE" => "N",
             "SORT_BY1" => "ACTIVE_FROM",
@@ -279,7 +279,7 @@ if ($sub == 'msk') { ?>
             "SORT_ORDER2" => "ASC",
             "TAG_H" => "N",
 
-        )
+        ]
     ); ?>
     <!--/articles-->
 <?php } ?>
