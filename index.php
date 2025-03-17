@@ -3,7 +3,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 
 /**
  * @global CMain $APPLICATION
- * @var  string $sub
+ * @var  string  $sub
  */
 
 $APPLICATION->SetPageProperty("title", "Завод противопожарных дверей «Двери металл-М» в #WF_CITY_PRED#");
@@ -11,20 +11,20 @@ $APPLICATION->SetPageProperty("description", "Завод «Двери метал
 $APPLICATION->SetTitle("«Двери металл-М» - противопожарные двери в #WF_CITY_PRED#: огнеупорные, пожарные, противодымные двери");
 
 ?>
-<!--                           Open Graph-->
-<div style="display:none;">
-    <meta property="og:title" content="<?php $APPLICATION->ShowTitle(false) ?>"/>
-    <meta property="og:description" content="<?php $APPLICATION->ShowProperty("description") ?>"/>
-    <meta property="og:image" content="<?= SITE_TEMPLATE_PATH ?>/img/logo.svg"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://<?= SITE_SERVER_NAME . "/" ?>"/>
-    <meta property="og:locale" content="ru_RU"/>
-    <meta property="og:site_name" content="1dvm.ru"/>
-</div>
-<!--                          end  Open Graph-->
+    <!--                           Open Graph-->
+    <div style="display:none;">
+        <meta property="og:title" content="<?php $APPLICATION->ShowTitle(false) ?>"/>
+        <meta property="og:description" content="<?php $APPLICATION->ShowProperty("description") ?>"/>
+        <meta property="og:image" content="<?= SITE_TEMPLATE_PATH ?>/img/logo.svg"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://<?= SITE_SERVER_NAME . "/" ?>"/>
+        <meta property="og:locale" content="ru_RU"/>
+        <meta property="og:site_name" content="1dvm.ru"/>
+    </div>
+    <!--                          end  Open Graph-->
 <?php global $USER;
 if (true) { ?> <!--Top slider-->
-    <div id="top-screen-wrapper" style="background-image: url(<?=SITE_TEMPLATE_PATH?>/video/poster.webp);">
+    <div id="top-screen-wrapper" style="background-image: url(<?= SITE_TEMPLATE_PATH ?>/video/poster.webp);">
         <div class="bg-video-wrapper" id="bgVideo1">
             <script>
                 var bgVideo1 = {
@@ -111,7 +111,7 @@ if (true) { ?> <!--Top slider-->
         <?php $APPLICATION->IncludeComponent(
             "bitrix:news.detail",
             "banner",
-            array(
+            [
                 "ACTIVE_DATE_FORMAT" => "d.m.Y",
                 "ADD_ELEMENT_CHAIN" => "N",
                 "ADD_SECTIONS_CHAIN" => "N",
@@ -135,7 +135,7 @@ if (true) { ?> <!--Top slider-->
                 "DISPLAY_TOP_PAGER" => "N",
                 "ELEMENT_CODE" => "",
                 "ELEMENT_ID" => "386",
-                "FIELD_CODE" => array(0 => "", 1 => "",),
+                "FIELD_CODE" => [0 => "", 1 => "",],
                 "IBLOCK_ID" => "8",
                 "IBLOCK_TYPE" => "news",
                 "IBLOCK_URL" => "",
@@ -147,7 +147,7 @@ if (true) { ?> <!--Top slider-->
                 "PAGER_SHOW_ALL" => "N",
                 "PAGER_TEMPLATE" => ".default",
                 "PAGER_TITLE" => "Страница",
-                "PROPERTY_CODE" => array(0 => "", 1 => "IMG",),
+                "PROPERTY_CODE" => [0 => "", 1 => "IMG",],
                 "SET_BROWSER_TITLE" => "N",
                 "SET_CANONICAL_URL" => "N",
                 "SET_LAST_MODIFIED" => "N",
@@ -159,7 +159,7 @@ if (true) { ?> <!--Top slider-->
                 "STRICT_SECTION_CHECK" => "N",
                 "USE_PERMISSIONS" => "N",
                 "USE_SHARE" => "N"
-            )
+            ]
         ); ?>
     </div>
     <!--/Top slider-->
@@ -171,7 +171,7 @@ if (true) { ?> <!--Top slider-->
 ?><?php $APPLICATION->IncludeComponent(
     "bitrix:catalog.section.list",
     "main-2024",
-    array(
+    [
         "ADD_SECTIONS_CHAIN" => "N",
         "CACHE_GROUPS" => "Y",
         "CACHE_TIME" => "36000000",
@@ -180,12 +180,12 @@ if (true) { ?> <!--Top slider-->
         "IBLOCK_ID" => "3",
         "IBLOCK_TYPE" => "catalog",
         "SECTION_CODE" => "",
-        "SECTION_FIELDS" => array(0 => "", 1 => "",),
+        "SECTION_FIELDS" => [0 => "", 1 => "",],
         "SECTION_ID" => $_REQUEST["SECTION_ID"],
         "SECTION_URL" => "",
-        "SECTION_USER_FIELDS" => array(0 => "UF_PICS", 1 => "UF_FIRE_RESIST", 2 => "UF_FIRE_RESIST_TEXT", 3 => "UF_LIST_NAME", 4 => "",),
+        "SECTION_USER_FIELDS" => [0 => "UF_PICS", 1 => "UF_FIRE_RESIST", 2 => "UF_FIRE_RESIST_TEXT", 3 => "UF_LIST_NAME", 4 => "",],
         "TOP_DEPTH" => "1"
-    )
+    ]
 ); ?>
     <section class="page-section">
         <div class="h1 page-section__title text-center">Хит продаж</div>
@@ -197,7 +197,7 @@ if (true) { ?> <!--Top slider-->
             $APPLICATION->IncludeComponent(
                 "bitrix:catalog.section",
                 "main",
-                array(
+                [
                     'PRICE_MOD' => $price_mod,
                     'FILTER_NAME' => 'mainFilter',
                     'IBLOCK_TYPE' => 'catalog',
@@ -258,7 +258,7 @@ if (true) { ?> <!--Top slider-->
                     'CURRENCY_ID' => NULL,
                     'HIDE_NOT_AVAILABLE' => NULL,
                     'ADD_ELEMENT_CHAIN' => 'N',
-                ), false, ['HIDE_ICONS' => 'Y']
+                ], false, ['HIDE_ICONS' => 'Y']
             ); ?>
         </div>
     </section>
@@ -268,7 +268,7 @@ if (true) { ?> <!--Top slider-->
                 <div class="col-xs-12">
                     <div class="text-content"><?php
                         $APPLICATION->IncludeFile(
-                            SITE_DIR . "include/main/text1.php", array(), array("NAME" => "Текстовый блок 1", "MODE" => "html")
+                            SITE_DIR . "include/main/text1.php", [], ["NAME" => "Текстовый блок 1", "MODE" => "html"]
                         );
                         ?></div>
                 </div>
@@ -282,14 +282,14 @@ if (true) { ?> <!--Top slider-->
                     <div class="col-xs-12">
                         <div class="text-content"><?php
                             $APPLICATION->IncludeFile(
-                                SITE_DIR . "include/main/srok.php", array(), array("NAME" => "таблица цены и срока производства", "MODE" => "html")
+                                SITE_DIR . "include/main/srok.php", [], ["NAME" => "таблица цены и срока производства", "MODE" => "html"]
                             );
                             ?></div>
                     </div>
                     <div class="col-xs-12">
                         <div class="h2 page-section__title"><?php
                             $APPLICATION->IncludeFile(
-                                SITE_DIR . "include/main/title-1.php", array(), array("NAME" => "seo-текст", "MODE" => "html")
+                                SITE_DIR . "include/main/title-1.php", [], ["NAME" => "seo-текст", "MODE" => "html"]
                             );
                             ?>
                         </div>
@@ -300,7 +300,7 @@ if (true) { ?> <!--Top slider-->
                         <div class="text-content">
                             <?php
                             $APPLICATION->IncludeFile(
-                                SITE_DIR . "include/main/text-1.php", array(), array("NAME" => "seo-текст", "MODE" => "html")
+                                SITE_DIR . "include/main/text-1.php", [], ["NAME" => "seo-текст", "MODE" => "html"]
                             );
                             ?>
                         </div>
@@ -309,7 +309,7 @@ if (true) { ?> <!--Top slider-->
                         <div class="text-content">
                             <?php
                             $APPLICATION->IncludeFile(
-                                SITE_DIR . "include/main/text-2.php", array(), array("NAME" => "seo-текст", "MODE" => "html")
+                                SITE_DIR . "include/main/text-2.php", [], ["NAME" => "seo-текст", "MODE" => "html"]
                             );
                             ?>
                         </div>
@@ -319,7 +319,7 @@ if (true) { ?> <!--Top slider-->
         </div>
     </section>
 <?php
-$APPLICATION->IncludeFile("/include/benefits.php", array(), array("MODE" => "html", "NAME" => "Преимущества",));
+$APPLICATION->IncludeFile("/include/benefits.php", [], ["MODE" => "html", "NAME" => "Преимущества",]);
 ?>
 
 <?php $gallery4 = WFGeneral::GetGallery(4); ?>
@@ -328,7 +328,7 @@ $APPLICATION->IncludeFile("/include/benefits.php", array(), array("MODE" => "htm
         <div class="container">
             <div class="h1 page-section__title"><?php
                 $APPLICATION->IncludeFile(
-                    SITE_DIR . "include/main/title-2.php", array(), array("NAME" => "seo-текст", "MODE" => "html")
+                    SITE_DIR . "include/main/title-2.php", [], ["NAME" => "seo-текст", "MODE" => "html"]
                 );
                 ?>
             </div>
@@ -351,7 +351,7 @@ $APPLICATION->IncludeFile("/include/benefits.php", array(), array("MODE" => "htm
             <div class="page-section__footer">
                 <?php
                 $APPLICATION->IncludeFile(
-                    SITE_DIR . "include/main/button-1.php", array(), array("NAME" => "кнопку", "MODE" => "html")
+                    SITE_DIR . "include/main/button-1.php", [], ["NAME" => "кнопку", "MODE" => "html"]
                 );
                 ?>
             </div>
@@ -365,7 +365,7 @@ $APPLICATION->IncludeFile("/include/benefits.php", array(), array("MODE" => "htm
                     <div class="col-xs-12">
                         <div class="h2 page-section__title"><?php
                             $APPLICATION->IncludeFile(
-                                SITE_DIR . "include/main/title-4.php", array(), array("NAME" => "текст", "MODE" => "html")
+                                SITE_DIR . "include/main/title-4.php", [], ["NAME" => "текст", "MODE" => "html"]
                             );
                             ?>
                         </div>
@@ -376,7 +376,7 @@ $APPLICATION->IncludeFile("/include/benefits.php", array(), array("MODE" => "htm
                         <div class="text-content">
                             <?php
                             $APPLICATION->IncludeFile(
-                                SITE_DIR . "include/main/text-3.php", array(), array("NAME" => "текст", "MODE" => "html")
+                                SITE_DIR . "include/main/text-3.php", [], ["NAME" => "текст", "MODE" => "html"]
                             );
                             ?>
                         </div>
@@ -385,7 +385,7 @@ $APPLICATION->IncludeFile("/include/benefits.php", array(), array("MODE" => "htm
                         <div class="text-content">
                             <?php
                             $APPLICATION->IncludeFile(
-                                SITE_DIR . "include/main/text-4.php", array(), array("NAME" => "текст", "MODE" => "html")
+                                SITE_DIR . "include/main/text-4.php", [], ["NAME" => "текст", "MODE" => "html"]
                             );
                             ?>
                         </div>
@@ -400,8 +400,8 @@ $APPLICATION->IncludeFile("/include/benefits.php", array(), array("MODE" => "htm
             <h2 class="page-section__title text-center"><a href="/info/reviews/">Отзывы</a> о продукции Двери Металл М
             </h2>
             <div class="gal gal-v3">
-                <?php  $gallery = WFGeneral::GetGallery(9); ?>
-                <?php  if ($gallery):
+                <?php $gallery = WFGeneral::GetGallery(9); ?>
+                <?php if ($gallery):
                     foreach ($gallery as $key => $production):
                         if ($key >= 5) break;
                         if (!empty($production["DESCRIPTION"]))
@@ -417,7 +417,7 @@ $APPLICATION->IncludeFile("/include/benefits.php", array(), array("MODE" => "htm
                     <?php endforeach;
                 else:?>
                     <p>Пока нет ни одного отзыва!</p>
-                <?php  endif; ?>
+                <?php endif; ?>
             </div>
         </div>
     </section>
@@ -426,34 +426,34 @@ $APPLICATION->IncludeFile("/include/benefits.php", array(), array("MODE" => "htm
     <section class="double-column bordered" id="calculate">
         <div class="col">
             <!--noindex-->
-                <div class="page-section">
-                    <div class="calc-form-wrapper">
-                        <div class="page-section__title h3"><?php
-                            $APPLICATION->IncludeFile(
-                                SITE_DIR . "include/main/title-3.php", array(), array("NAME" => "текст", "MODE" => "html")
-                            );
-                            ?></div>
-                        <script id="bx24_form_inline" data-skip-moving="true">
-                            (function (w, d, u, b) {
-                                w['Bitrix24FormObject'] = b;
-                                w[b] = w[b] || function () {
-                                    arguments[0].ref = u;
-                                    (w[b].forms = w[b].forms || []).push(arguments[0])
-                                };
-                                if (w[b]['forms'])
-                                    return;
-                                s = d.createElement('script');
-                                r = 1 * new Date();
-                                s.async = 1;
-                                s.src = u + '?' + r;
-                                h = d.getElementsByTagName('script')[0];
-                                h.parentNode.insertBefore(s, h);
-                            })(window, document, 'https://dverim.bitrix24.ru/bitrix/js/crm/form_loader.js', 'b24form');
+            <div class="page-section">
+                <div class="calc-form-wrapper">
+                    <div class="page-section__title h3"><?php
+                        $APPLICATION->IncludeFile(
+                            SITE_DIR . "include/main/title-3.php", [], ["NAME" => "текст", "MODE" => "html"]
+                        );
+                        ?></div>
+                    <script id="bx24_form_inline" data-skip-moving="true">
+                        (function (w, d, u, b) {
+                            w['Bitrix24FormObject'] = b;
+                            w[b] = w[b] || function () {
+                                arguments[0].ref = u;
+                                (w[b].forms = w[b].forms || []).push(arguments[0])
+                            };
+                            if (w[b]['forms'])
+                                return;
+                            s = d.createElement('script');
+                            r = 1 * new Date();
+                            s.async = 1;
+                            s.src = u + '?' + r;
+                            h = d.getElementsByTagName('script')[0];
+                            h.parentNode.insertBefore(s, h);
+                        })(window, document, 'https://dverim.bitrix24.ru/bitrix/js/crm/form_loader.js', 'b24form');
 
-                            b24form({"id": "12", "lang": "ru", "sec": "x584cv", "type": "inline"});
-                        </script>
-                    </div>
+                        b24form({"id": "12", "lang": "ru", "sec": "x584cv", "type": "inline"});
+                    </script>
                 </div>
+            </div>
             <!--/noindex-->
         </div>
         <div class="col">
@@ -477,7 +477,7 @@ $APPLICATION->IncludeFile("/include/benefits.php", array(), array("MODE" => "htm
                 <div class="col-xs-12">
                     <p class="h1 page-section__title"><?php
                         $APPLICATION->IncludeFile(
-                            SITE_DIR . "include/main/title-5.php", array(), array("NAME" => "текст", "MODE" => "html")
+                            SITE_DIR . "include/main/title-5.php", [], ["NAME" => "текст", "MODE" => "html"]
                         );
                         ?></p>
                     <!--Gallery-->
@@ -500,7 +500,7 @@ $APPLICATION->IncludeFile("/include/benefits.php", array(), array("MODE" => "htm
                     <div class="page-section__footer">
                         <?php
                         $APPLICATION->IncludeFile(
-                            SITE_DIR . "include/main/button-2.php", array(), array("NAME" => "кнопку", "MODE" => "html")
+                            SITE_DIR . "include/main/button-2.php", [], ["NAME" => "кнопку", "MODE" => "html"]
                         );
                         ?>
                     </div>
@@ -510,7 +510,7 @@ $APPLICATION->IncludeFile("/include/benefits.php", array(), array("MODE" => "htm
     </section>
 <?php endif ?>
     <!--/Фотки-->
-<?php $APPLICATION->IncludeFile("/include/index-clients.html", array(), array("MODE" => "html", "NAME" => "Логотипы клиентов",));?>
+<?php $APPLICATION->IncludeFile("/include/index-clients.html", [], ["MODE" => "html", "NAME" => "Логотипы клиентов",]); ?>
     <!--Seotext-->
     <section class="page-section">
         <div class="container">
@@ -520,7 +520,7 @@ $APPLICATION->IncludeFile("/include/benefits.php", array(), array("MODE" => "htm
                         <div class="text-content">
                             <?php
                             $APPLICATION->IncludeFile(
-                                SITE_DIR . "include/main/text-5.php", array(), array("NAME" => "текст", "MODE" => "html")
+                                SITE_DIR . "include/main/text-5.php", [], ["NAME" => "текст", "MODE" => "html"]
                             );
                             ?>
                         </div>
@@ -529,7 +529,7 @@ $APPLICATION->IncludeFile("/include/benefits.php", array(), array("MODE" => "htm
                         <div class="text-content">
                             <?php
                             $APPLICATION->IncludeFile(
-                                SITE_DIR . "include/main/text-6.php", array(), array("NAME" => "текст", "MODE" => "html")
+                                SITE_DIR . "include/main/text-6.php", [], ["NAME" => "текст", "MODE" => "html"]
                             );
                             ?>
                         </div>
@@ -545,7 +545,7 @@ if ($sub == 'msk') { ?>
     <?php $APPLICATION->IncludeComponent(
         "bitrix:news.list",
         "articles",
-        array(
+        [
             "ACTIVE_DATE_FORMAT" => "d.m.Y",
             "ADD_SECTIONS_CHAIN" => "N",
             "AJAX_MODE" => "N",
@@ -565,7 +565,7 @@ if ($sub == 'msk') { ?>
             "DISPLAY_PICTURE" => "Y",
             "DISPLAY_PREVIEW_TEXT" => "Y",
             "DISPLAY_TOP_PAGER" => "N",
-            "FIELD_CODE" => array(0 => "", 1 => "",),
+            "FIELD_CODE" => [0 => "", 1 => "",],
             "FILTER_NAME" => "",
             "HIDE_LINK_WHEN_NO_DETAIL" => "N",
             "IBLOCK_ID" => "23",
@@ -582,7 +582,7 @@ if ($sub == 'msk') { ?>
             "PARENT_SECTION" => "",
             "PARENT_SECTION_CODE" => "",
             "PREVIEW_TRUNCATE_LEN" => "",
-            "PROPERTY_CODE" => array(0 => "", 1 => "",),
+            "PROPERTY_CODE" => [0 => "", 1 => "",],
             "SET_STATUS_404" => "N",
             "SET_TITLE" => "N",
             "SORT_BY1" => "ACTIVE_FROM",
@@ -590,7 +590,7 @@ if ($sub == 'msk') { ?>
             "SORT_ORDER1" => "DESC",
             "SORT_ORDER2" => "ASC",
             "TAG_H" => "N"
-        )
+        ]
     ); ?>
     <!--/articles-->
 <?php } ?><?php require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
