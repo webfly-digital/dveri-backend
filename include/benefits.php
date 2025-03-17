@@ -1,7 +1,7 @@
 <!--Изменения 05/2018--> <!--Блок с преимуществами-->
 <div class="page-section--contrast bg-dark">
 	<div class="container">
-		<h2 class="h1 page-section__title text-center">Почему Двери Металл-М?</h2>
+		<div class="h1 page-section__title text-center">Почему Двери Металл-М?</div>
 		<div class="vis-cards">
 			<div class="vis-card">
 				<div class="vis-card__content">
