@@ -397,8 +397,8 @@ $APPLICATION->IncludeFile("/include/benefits.php", [], ["MODE" => "html", "NAME"
     <!-- Отзывы -->
     <section class="page-section" id="sect-feedback">
         <div class="container">
-            <h2 class="page-section__title text-center"><a href="/info/reviews/">Отзывы</a> о продукции Двери Металл М
-            </h2>
+            <div class="h2 page-section__title text-center"><a href="/info/reviews/">Отзывы</a> о продукции Двери Металл М
+            </div>
             <div class="gal gal-v3">
                 <?php $gallery = WFGeneral::GetGallery(9); ?>
                 <?php if ($gallery):
