@@ -319,7 +319,7 @@ if (true) { ?> <!--Top slider-->
         </div>
     </section>
 <?php
-//$APPLICATION->IncludeFile("/include/benefits.php", array(), array("MODE" => "html", "NAME" => "Преимущества",));
+$APPLICATION->IncludeFile("/include/benefits.php", array(), array("MODE" => "html", "NAME" => "Преимущества",));
 ?>
 
 <?php $gallery4 = WFGeneral::GetGallery(4); ?>
@@ -395,32 +395,32 @@ if (true) { ?> <!--Top slider-->
         </div>
     </section>
     <!-- Отзывы -->
-<!--    <section class="page-section" id="sect-feedback">-->
-<!--        <div class="container">-->
-<!--            <h2 class="page-section__title text-center"><a href="/info/reviews/">Отзывы</a> о продукции Двери Металл М-->
-<!--            </h2>-->
-<!--            <div class="gal gal-v3">-->
-<!--                --><?php // $gallery = WFGeneral::GetGallery(9); ?>
-<!--                --><?php // if ($gallery):
-//                    foreach ($gallery as $key => $production):
-//                        if ($key >= 5) break;
-//                        if (!empty($production["DESCRIPTION"]))
-//                            $production_desc = $production["DESCRIPTION"];
-//                        else
-//                            $production_desc = $production["NAME"];
-//                        ?>
-<!--                        <div class="gal-item">-->
-<!--                            <a href="--><?php //= $production["PATH"] ?><!--" class="gal-item__preview lazyload"-->
-<!--                               title="--><?php //= $production_desc ?><!--"-->
-<!--                               data-original="--><?php //= $production['PATH'] ?><!--"></a>-->
-<!--                        </div>-->
-<!--                    --><?php //endforeach;
-//                else:?>
-<!--                    <p>Пока нет ни одного отзыва!</p>-->
-<!--                --><?php // endif; ?>
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
+    <section class="page-section" id="sect-feedback">
+        <div class="container">
+            <h2 class="page-section__title text-center"><a href="/info/reviews/">Отзывы</a> о продукции Двери Металл М
+            </h2>
+            <div class="gal gal-v3">
+                <?php  $gallery = WFGeneral::GetGallery(9); ?>
+                <?php  if ($gallery):
+                    foreach ($gallery as $key => $production):
+                        if ($key >= 5) break;
+                        if (!empty($production["DESCRIPTION"]))
+                            $production_desc = $production["DESCRIPTION"];
+                        else
+                            $production_desc = $production["NAME"];
+                        ?>
+                        <div class="gal-item">
+                            <a href="<?= $production["PATH"] ?>" class="gal-item__preview lazyload"
+                               title="<?= $production_desc ?>"
+                               data-original="<?= $production['PATH'] ?>"></a>
+                        </div>
+                    <?php endforeach;
+                else:?>
+                    <p>Пока нет ни одного отзыва!</p>
+                <?php  endif; ?>
+            </div>
+        </div>
+    </section>
     <!--/Отзывы -->
     <!--Рассчет стоимости b24-->
     <section class="double-column bordered" id="calculate">
