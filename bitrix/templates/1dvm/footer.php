@@ -408,6 +408,17 @@ if ($pagen || $sort) {
     <span itemprop="telephone">#WF_PHONES#</span>
     <span itemprop="email">#WF_EMAIL#</span>
 </div>
+<div class="h-card" style="display: none;">
+    <span class="p-name">ООО «Двери металл - М»</span>
+    <span class="p-tel">8(920)428-52-53</span>
+    <a class="u-email" href="mailto:89161868081@rambler.ru">89161868081@rambler.ru</a>
+    <div class="p-adr">
+        <span class="p-street-address">ул. Богдана Хмельницкого, д. 77А, Офис 1</span>,
+        <span class="p-locality">Воронеж</span>,
+        <span class="p-country-name">Россия</span>
+    </div>
+</div>
+
 <div class="scroll-top-button">
     <a href="#top" class="scroll-svg"></a>
 </div>

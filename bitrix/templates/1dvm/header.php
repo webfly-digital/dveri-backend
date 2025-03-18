@@ -35,6 +35,23 @@ if ($pos !== false) {
 ?>
     <head>
         #WF_META#
+        <?php
+        $ogTitle = !empty($APPLICATION->GetTitle()) ? $APPLICATION->GetTitle() : "Товар";
+        $ogDescription = !empty($APPLICATION->GetProperty("description")) ? $APPLICATION->GetProperty("description") : $ogTitle;
+        $ogImage = (!empty($arResult["PHOTOS"]["SMALL"][0]["src"]))
+            ? "https://" . SITE_SERVER_NAME . $arResult["PHOTOS"]["SMALL"][0]["src"]
+            : SITE_TEMPLATE_PATH . "/img/logo.svg";
+        $ogUrl = "https://" . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
+        ?>
+        <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?>"/>
+        <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>"/>
+        <meta property="og:image" content="<?= $ogImage ?>"/>
+        <meta property="og:type" content="product"/>
+        <meta property="og:url" content="<?= $ogUrl ?>"/>
+        <meta property="og:locale" content="ru_RU"/>
+        <meta property="og:site_name" content="1dvm.ru"/>
+
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <title><?php $APPLICATION->ShowTitle() ?></title>
         <link rel="preconnect" href="https://bitrix.info">
@@ -52,6 +69,48 @@ if ($pos !== false) {
         $APPLICATION->ShowHead();
         //$APPLICATION->ShowHeadStrings();
         //$APPLICATION->ShowHeadScripts(); ?>
+
+        <?php // JSON-LD  ?>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "ООО «Двери металл - М»",
+                "legalName": "Общество с ограниченной ответственностью «Двери металл - М»",
+                "url": "https://1dvm.ru/",
+                "logo": "https://1dvm.ru/favicon.svg",
+                "image": "https://1dvm.ru/img/company-photo.jpg",
+                "description": "Производство и продажа дверей в Воронеже.",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "ул. Богдана Хмельницкого, д.77А, Офис 1",
+                    "addressLocality": "Воронеж",
+                    "postalCode": "394024",
+                    "addressCountry": "RU"
+                },
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+7-920-428-52-53",
+                    "email": "89161868081@rambler.ru",
+                    "contactType": "customer service"
+                },
+                "founder": {
+                    "@type": "Person",
+                    "name": "Атаджанов Тимофей Анатольевич"
+                },
+                "bankAccount": {
+                    "@type": "BankOrCreditUnion",
+                    "name": "Центрально-черноземный банк Сбербанка России",
+                    "accountNumber": "40702810713000017576",
+                    "bankCode": "042007681",
+                    "correspondentAccount": "30101810600000000681"
+                },
+                "vatID": "INN 3661064739",
+                "taxID": "KPP 366101001",
+                "industryCode": "OKVED 51,53",
+                "organizationCode": "OKPO 31256360"
+            }
+        </script>
     </head>
 <?php
 global $USER;
