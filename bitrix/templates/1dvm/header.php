@@ -35,23 +35,6 @@ if ($pos !== false) {
 ?>
     <head>
         #WF_META#
-        <?php
-        $ogTitle = !empty($APPLICATION->GetTitle()) ? $APPLICATION->GetTitle() : "Товар";
-        $ogDescription = !empty($APPLICATION->GetProperty("description")) ? $APPLICATION->GetProperty("description") : $ogTitle;
-        $ogImage = (!empty($arResult["PHOTOS"]["SMALL"][0]["src"]))
-            ? "https://" . SITE_SERVER_NAME . $arResult["PHOTOS"]["SMALL"][0]["src"]
-            : SITE_TEMPLATE_PATH . "/img/logo.svg";
-        $ogUrl = "https://" . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
-        ?>
-        <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?>"/>
-        <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>"/>
-        <meta property="og:image" content="<?= $ogImage ?>"/>
-        <meta property="og:type" content="product"/>
-        <meta property="og:url" content="<?= $ogUrl ?>"/>
-        <meta property="og:locale" content="ru_RU"/>
-        <meta property="og:site_name" content="1dvm.ru"/>
-
-
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <title><?php $APPLICATION->ShowTitle() ?></title>
         <link rel="preconnect" href="https://bitrix.info">
