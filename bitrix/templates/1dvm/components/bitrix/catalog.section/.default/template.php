@@ -186,6 +186,6 @@ if (!empty($arResult["ITEMS"])) {
     <p align="center">Список товаров пуст
     </p>
     <p align="center">
-        <a class="btn" href="#calculate">Заказать противопожарную дверь по индивитуальным параметрам</a>
+        <a class="btn" href="#calculate">Заказать противопожарную дверь по индивидуальным параметрам</a>
     </p>
 <?php }
