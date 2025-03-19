@@ -5,7 +5,49 @@
  * @var array    $arParams
  * @var array    $arResult
  */
+
+$ogTitle = !empty($arResult['NAME']) ? $arResult['NAME'] : "Товар";
+$ogDescription = !empty($arResult["IPROPERTY_VALUES"]["ELEMENT_META_DESCRIPTION"]) ? $arResult["IPROPERTY_VALUES"]["ELEMENT_META_DESCRIPTION"] : $ogTitle;
+$ogImage = (!empty($arResult["PHOTOS"]["SMALL"][0]["src"]))
+    ? "https://" . SITE_SERVER_NAME . $arResult["PHOTOS"]["SMALL"][0]["src"]
+    : SITE_TEMPLATE_PATH . "/img/logo.svg";
+$ogUrl = "https://" . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
 ?>
+<!-- Open Graph -->
+<div style="display:none;">
+    <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?>"/>
+    <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>"/>
+    <meta property="og:image" content="<?= $ogImage ?>"/>
+    <meta property="og:type" content="product"/>
+    <meta property="og:url" content="<?= $ogUrl ?>"/>
+    <meta property="og:locale" content="ru_RU"/>
+    <meta property="og:site_name" content="1dvm.ru"/>
+</div>
+<!-- End Open Graph -->
+<!-- JSON-LD-->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "<?= htmlspecialchars($arResult['NAME']) ?>",
+    "image": "<?= (strpos($arResult["PHOTOS"]["SMALL"][0]["src"], 'http') === 0) ? $arResult["PHOTOS"]["SMALL"][0]["src"] : 'https://' . SITE_SERVER_NAME . $arResult["PHOTOS"]["SMALL"][0]["src"] ?>",
+    "description": "<?= htmlspecialchars($arResult["IPROPERTY_VALUES"]["ELEMENT_META_DESCRIPTION"] ?: $arResult['NAME']) ?>",
+    "sku": "<?= $arResult["PROPERTIES"]["ARTNUMBER"]["VALUE"] ?>",
+    "brand": {
+        "@type": "Brand",
+        "name": "ДВЕРИ МЕТАЛЛ-М"
+    },
+    "offers": {
+        "@type": "Offer",
+        "url": "<?= $ogUrl ?>",
+        "priceCurrency": "RUB",
+        "price": "<?= $arResult["PROPERTIES"]["PRICE_N"]["VALUE"] ?>",
+        "availability": "https://schema.org/InStock",
+        "priceValidUntil": "<?= date('Y-m-d', strtotime("+365 day")) ?>"
+    }
+}
+</script>
+<!-- End JSON-LD -->
 <div id="door-detail" class="row detail">
     <div class="col-md-6 col-md-push-6">
         <div class="detail-section hidden-md hidden-lg <?= $arResult["PROPERTIES"]["HIT"]["VALUE"] ? 'product__popular' : '' ?>">
@@ -318,6 +360,7 @@
         </div>
     <? endif */ ?>
 </div>
+<!-- Schema.org -->
 <div style="display: none" id="<?= $arResult['ID'] ?>" itemscope itemtype="http://schema.org/Product">
     <meta itemprop="name" content="<?= $arResult['NAME'] ?>"/>
     <meta itemprop="image" content="<?= $arResult["PHOTOS"]["SMALL"][0]["src"] ?>"/>
@@ -361,22 +404,4 @@
         <span itemprop="ratingCount">10</span>
     </span>
 </div>
-<?php
-$ogTitle = !empty($arResult['NAME']) ? $arResult['NAME'] : "Товар";
-$ogDescription = !empty($arResult["IPROPERTY_VALUES"]["ELEMENT_META_DESCRIPTION"]) ? $arResult["IPROPERTY_VALUES"]["ELEMENT_META_DESCRIPTION"] : $ogTitle;
-$ogImage = (!empty($arResult["PHOTOS"]["SMALL"][0]["src"]))
-    ? "https://" . SITE_SERVER_NAME . $arResult["PHOTOS"]["SMALL"][0]["src"]
-    : SITE_TEMPLATE_PATH . "/img/logo.svg";
-$ogUrl = "https://" . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
-?>
-<!-- Open Graph -->
-<div style="display:none;">
-    <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?>"/>
-    <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>"/>
-    <meta property="og:image" content="<?= $ogImage ?>"/>
-    <meta property="og:type" content="product"/>
-    <meta property="og:url" content="<?= $ogUrl ?>"/>
-    <meta property="og:locale" content="ru_RU"/>
-    <meta property="og:site_name" content="1dvm.ru"/>
-</div>
-<!-- End Open Graph -->
+<!-- End Schema.org -->

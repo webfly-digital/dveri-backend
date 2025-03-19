@@ -1,12 +1,14 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 IncludeTemplateLangFile(__FILE__);
 
 use Bitrix\Main\Page\Asset;
 
+/**@global CMain $APPLICATION */
+
 $dirInfo = wf_curdir();
 global $USER;
 ?>
-<?
+<?php
 $divs = 0;
 if ($dirInfo["CHAIN"][1] == "catalog") {
     switch ($dirInfo["COUNT"]) {
@@ -28,20 +30,20 @@ if ($dirInfo["CHAIN"][1] == "catalog") {
     }
 }
 ?>
-<? if ($dirInfo["CHAIN"][1] == "catalog"): ?>
+<?php if ($dirInfo["CHAIN"][1] == "catalog"): ?>
     </section><!--.page-section close-->
-    <? $APPLICATION->ShowViewContent('catalog_detail'); ?>
-    <? $APPLICATION->ShowViewContent('catalog_section'); ?>
-<? endif ?>
-<? if ($dirInfo["CHAIN"][1] !== "catalog" and $dirInfo["CHAIN"][1] !== "doors"): ?>
+    <?php $APPLICATION->ShowViewContent('catalog_detail'); ?>
+    <?php $APPLICATION->ShowViewContent('catalog_section'); ?>
+<?php endif ?>
+<?php if ($dirInfo["CHAIN"][1] !== "catalog" and $dirInfo["CHAIN"][1] !== "doors"): ?>
     </div>
     </div>
     </section>
-<? endif ?>
+<?php endif ?>
 </div>
 <!--maincontent close-->
 <!--Content ends-->
-<? if (defined("ERROR_404")): ?>
+<?php if (defined("ERROR_404")): ?>
     <div id="maincontent">
         <div id="errorPage" class="errorPage">
             <video class="bg-video jquery-background-video" loop autoplay muted
@@ -56,10 +58,10 @@ if ($dirInfo["CHAIN"][1] == "catalog") {
             </div>
         </div>
     </div>
-<? endif ?>
-<?
+<?php endif ?>
+<?php
 if (false) { ?>
-<? } else { ?>
+<?php } else { ?>
 
     <!--Footer-->
     <footer class="footer">
@@ -71,15 +73,15 @@ if (false) { ?>
                     </a>
                     <p class="phone h4">#WF_PHONE#</p>
                     <p>#WF_SCHEDULE#</p>
-                    <?
+                    <?php
                     $APPLICATION->IncludeComponent(
-                        "webfly:cities.popup", "popup_bottom", array(
+                        "webfly:cities.popup", "popup_bottom", [
                         "COMPONENT_TEMPLATE" => "popup",
                         "CACHE_TYPE" => "A",
                         "CACHE_TIME" => "3600",
                         "WF_FAVORITE" => "WF_FAVOURITE",
                         "WF_JQUERY" => "N"
-                    ), false
+                    ], false
                     );
                     ?>
                     <p>#WF_CONTACTS#</p>
@@ -90,9 +92,9 @@ if (false) { ?>
                         <span class="whatsapp"></span>
                     </div>
                     <p class="copyright">© 2014—<?= date("Y") ?><br/>
-                        <?
+                        <?php
                         $APPLICATION->IncludeFile(
-                            SITE_DIR . "include/footer/copyright.php", array(), array("NAME" => "кнопку", "MODE" => "html")
+                            SITE_DIR . "include/footer/copyright.php", [], ["NAME" => "кнопку", "MODE" => "html"]
                         );
                         ?>
                     </p>
@@ -100,8 +102,8 @@ if (false) { ?>
                     <p class="credits">Сделано в&nbsp;<a href="https://webfly.ru" target="_blank">Вебфлай</a></p>
                     <!--/noindex-->
                 </div>
-                <?
-                $APPLICATION->IncludeComponent("bitrix:menu", "bottom_products", array(
+                <?php
+                $APPLICATION->IncludeComponent("bitrix:menu", "bottom_products", [
                     "COMPONENT_TEMPLATE" => ".default",
                     "ROOT_MENU_TYPE" => "bottom_sections", // Тип меню для первого уровня
                     "MENU_CACHE_TYPE" => "Y", // Тип кеширования
@@ -113,12 +115,12 @@ if (false) { ?>
                     "USE_EXT" => "Y", // Подключать файлы с именами вида .тип_меню.menu_ext.php
                     "DELAY" => "N", // Откладывать выполнение шаблона меню
                     "ALLOW_MULTI_SELECT" => "N", // Разрешить несколько активных пунктов одновременно
-                ), false
+                ], false
                 );
                 ?>
                 <div class="col-md-3 col-sm-4">
-                    <?
-                    $APPLICATION->IncludeComponent("bitrix:menu", "bottom_info", array(
+                    <?php
+                    $APPLICATION->IncludeComponent("bitrix:menu", "bottom_info", [
                         "COMPONENT_TEMPLATE" => ".default",
                         "ROOT_MENU_TYPE" => "bottom_info", // Тип меню для первого уровня
                         "MENU_CACHE_TYPE" => "N", // Тип кеширования
@@ -130,12 +132,12 @@ if (false) { ?>
                         "USE_EXT" => "N", // Подключать файлы с именами вида .тип_меню.menu_ext.php
                         "DELAY" => "N", // Откладывать выполнение шаблона меню
                         "ALLOW_MULTI_SELECT" => "N", // Разрешить несколько активных пунктов одновременно
-                    ), false
+                    ], false
                     );
                     ?>
-                    <?
+                    <?php
                     $APPLICATION->IncludeFile(
-                        SITE_DIR . "include/footer/no_oferta.php", array(), array("NAME" => "Не оферта", "MODE" => "text")
+                        SITE_DIR . "include/footer/no_oferta.php", [], ["NAME" => "Не оферта", "MODE" => "text"]
                     );
                     ?>
                 </div>
@@ -143,7 +145,7 @@ if (false) { ?>
         </div>
     </footer>
     <!--Footer ends-->
-<? } ?>
+<?php } ?>
 
 
 <!--Mobile menu-->
@@ -151,10 +153,10 @@ if (false) { ?>
     <div class="nav-mobile">
         <button class="btn-transparent btn-close-menu"><span class="icon-cancel-music"></span></button>
         <div class="nav-mobile__title h6">Навигация по сайту</div>
-        <?
+        <?php
 
 
-        $APPLICATION->IncludeComponent("bitrix:menu", "vertical_multilevel_mobile", array(
+        $APPLICATION->IncludeComponent("bitrix:menu", "vertical_multilevel_mobile", [
             "COMPONENT_TEMPLATE" => "vertical_multilevel",
             "ROOT_MENU_TYPE" => "mobile_bottom",    // Тип меню для первого уровня
             "MENU_CACHE_TYPE" => "Y",    // Тип кеширования
@@ -167,7 +169,7 @@ if (false) { ?>
             "DELAY" => "N",    // Откладывать выполнение шаблона меню
             "ALLOW_MULTI_SELECT" => "N",    // Разрешить несколько активных пунктов одновременно
             "MENU_THEME" => "site"
-        ),
+        ],
             false
         );
 
@@ -226,23 +228,23 @@ if (false) { ?>
     </div>
 </nav>
 <!--/mobile menu-->
-<?
+<?php
 $APPLICATION->IncludeComponent(
-    "webfly:message.add", "order", array(
+    "webfly:message.add", "order", [
     "OK_TEXT" => GetMessage("WF_OK_TEXT"),
     "EMAIL_TO" => "",
     "IBLOCK_TYPE" => "feedback",
     "IBLOCK_ID" => "20",
-    "EVENT_MESSAGE_ID" => array(
+    "EVENT_MESSAGE_ID" => [
         0 => "12",
-    ),
+    ],
     "CACHE_TYPE" => "A",
     "CACHE_TIME" => "36000000",
     "SET_TITLE" => "N",
     "COMPONENT_TEMPLATE" => "order"
-), false, array(
+], false, [
         "HIDE_ICONS" => "Y"
-    )
+    ]
 );
 ?>
 <!--Bottom fixed panel-->
@@ -302,23 +304,23 @@ $APPLICATION->IncludeComponent(
 </div>
 <!--/bottom fixed panel-->
 
-<?
+<?php
 $APPLICATION->IncludeComponent(
-    "webfly:message.add", "universal", array(
+    "webfly:message.add", "universal", [
     "OK_TEXT" => GetMessage("WF_OK_TEXT"),
     "EMAIL_TO" => "",
     "IBLOCK_TYPE" => "feedback",
     "IBLOCK_ID" => "19",
-    "EVENT_MESSAGE_ID" => array(
+    "EVENT_MESSAGE_ID" => [
         0 => "11",
-    ),
+    ],
     "CACHE_TYPE" => "A",
     "CACHE_TIME" => "36000000",
     "SET_TITLE" => "N",
     "COMPONENT_TEMPLATE" => "universal"
-), false, array(
+], false, [
         "HIDE_ICONS" => "Y"
-    )
+    ]
 );
 
 $asset = \Bitrix\Main\Page\Asset::getInstance();
@@ -392,7 +394,8 @@ if ($pagen || $sort) {
 
 <script data-skip-moving="true">
     var YA_COUNTER_ID = #WF_YA_COUNTER
-    #;
+    #
+    ;
 </script>
 
 <div style="display: none;" itemscope itemtype="http://schema.org/Organization">
@@ -405,6 +408,17 @@ if ($pagen || $sort) {
     <span itemprop="telephone">#WF_PHONES#</span>
     <span itemprop="email">#WF_EMAIL#</span>
 </div>
+<div class="h-card" style="display: none;">
+    <span class="p-name">ООО «Двери металл - М»</span>
+    <span class="p-tel">8(920)428-52-53</span>
+    <a class="u-email" href="mailto:89161868081@rambler.ru">89161868081@rambler.ru</a>
+    <div class="p-adr">
+        <span class="p-street-address">ул. Богдана Хмельницкого, д. 77А, Офис 1</span>,
+        <span class="p-locality">Воронеж</span>,
+        <span class="p-country-name">Россия</span>
+    </div>
+</div>
+
 <div class="scroll-top-button">
     <a href="#top" class="scroll-svg"></a>
 </div>
