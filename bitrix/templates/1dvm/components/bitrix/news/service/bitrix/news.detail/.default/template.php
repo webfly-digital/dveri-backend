@@ -8,36 +8,35 @@ $serviceDescription = $arResult["PREVIEW_TEXT"] ?: $arResult["DETAIL_TEXT"] ?: "
 $ogUrl = "https://" . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
 $ogImage = SITE_TEMPLATE_PATH . "/img/logo.svg";
 ?>
-    <!-- Open Graph -->
-    <div style="display:none;">
-        <meta property="og:title" content="<?= htmlspecialchars($serviceName) ?>"/>
-        <meta property="og:description" content="<?= htmlspecialchars(strip_tags($serviceDescription)) ?>"/>
-        <meta property="og:image" content="<?= $ogImage ?>"/>
-        <meta property="og:type" content="article"/>
-        <meta property="og:url" content="<?= $ogUrl ?>"/>
-        <meta property="og:locale" content="ru_RU"/>
-        <meta property="og:site_name" content="1dvm.ru"/>
-    </div>
-    <!-- End Open Graph -->
+<!-- Open Graph -->
+<div style="display:none;">
+    <meta property="og:title" content="<?= htmlspecialchars($serviceName) ?>"/>
+    <meta property="og:description" content="<?= htmlspecialchars(strip_tags($serviceDescription)) ?>"/>
+    <meta property="og:image" content="<?= $ogImage ?>"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="<?= $ogUrl ?>"/>
+    <meta property="og:locale" content="ru_RU"/>
+    <meta property="og:site_name" content="1dvm.ru"/>
+</div>
+<!-- End Open Graph -->
 
-    <!-- JSON-LD -->
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "<?= htmlspecialchars($serviceName) ?>",
-    "description": "<?= htmlspecialchars(strip_tags($serviceDescription)) ?>",
-    "provider": {
-        "@type": "Organization",
-        "name": "Двери Металл-М",
-        "url": "https://1dvm.ru/"
-    },
-    "image": "<?= $ogImage ?>",
-    "url": "<?= $ogUrl ?>"
-}
-
-    </script>
-    <!-- End JSON-LD -->
+<!-- JSON-LD -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "<?= htmlspecialchars($serviceName) ?>",
+        "description": "<?= htmlspecialchars(strip_tags($serviceDescription)) ?>",
+        "provider": {
+            "@type": "Organization",
+            "name": "Двери Металл-М",
+            "url": "https://1dvm.ru/"
+        },
+        "image": "<?= $ogImage ?>",
+        "url": "<?= $ogUrl ?>"
+    }
+</script>
+<!-- End JSON-LD -->
 
 <?php if (empty($arResult["DETAIL_TEXT"])) { ?>
     Раздел в разработке!
@@ -50,11 +49,7 @@ $ogImage = SITE_TEMPLATE_PATH . "/img/logo.svg";
         <?php if ($gallery) { ?>
             <div class="gal gal-v1">
                 <?php foreach ($gallery as $img) {
-                    if (!empty($img["DESCRIPTION"])) {
-                        $desc = $img["DESCRIPTION"];
-                    } else {
-                        $desc = $img["NAME"];
-                    }
+                    $desc = !empty($img["DESCRIPTION"]) ? $img["DESCRIPTION"] : $img["NAME"];
                     ?>
                     <div class="gal-item">
                         <a href="<?= $img["PATH"] ?>" class="gal-item__preview">
