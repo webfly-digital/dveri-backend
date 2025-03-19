@@ -142,7 +142,7 @@ if (!empty($arResult["ITEMS"])) {
         <?php } ?>
     </div>
 
-    <!-- Schema.org (скрытый блок) -->
+    <!-- Schema.org  -->
     <div style="display: none;">
         <div itemscope itemtype="https://schema.org/CollectionPage">
             <meta itemprop="name" content="<?= htmlspecialchars($ogTitle) ?>"/>
