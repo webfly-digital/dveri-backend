@@ -4,25 +4,26 @@
  * @global CMain $APPLICATION
  * @var array    $arParams
  * @var array    $arResult
+ * @var  string  $sub (определяется в хедере)
  */
 
 if (!empty($arResult["ITEMS"])) {
     $ogTitle = !empty($arResult["IPROPERTY_VALUES"]["SECTION_PAGE_TITLE"]) ? $arResult["IPROPERTY_VALUES"]["SECTION_PAGE_TITLE"] : "Каталог товаров";
     $ogDescription = !empty($arResult["IPROPERTY_VALUES"]["SECTION_META_DESCRIPTION"]) ? $arResult["IPROPERTY_VALUES"]["SECTION_META_DESCRIPTION"] : $ogTitle;
     $ogImage = (!empty($arResult["PICTURE"]["SRC"]))
-        ? "https://" . SITE_SERVER_NAME . $arResult["PICTURE"]["SRC"]
-        : SITE_TEMPLATE_PATH . "/img/logo.svg";
-    $ogUrl = "https://" . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
+        ? "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . $arResult["PICTURE"]["SRC"]
+        : "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . SITE_TEMPLATE_PATH . "/img/logo.svg";
+    $ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
     ?>
     <!-- Open Graph -->
     <div style="display:none;">
-        <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?>"/>
+        <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?> в <?= htmlspecialchars("#WF_CITY_PRED#") ?>"/>
         <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>"/>
         <meta property="og:image" content="<?= $ogImage ?>"/>
         <meta property="og:type" content="website"/>
         <meta property="og:url" content="<?= $ogUrl ?>"/>
         <meta property="og:locale" content="ru_RU"/>
-        <meta property="og:site_name" content="1dvm.ru"/>
+        <meta property="og:site_name" content="«Двери металл-М» в #WF_CITY_PRED#"/>
     </div>
     <!-- End Open Graph -->
 
@@ -31,7 +32,7 @@ if (!empty($arResult["ITEMS"])) {
     {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": "<?= htmlspecialchars($ogTitle) ?>",
+        "name": "<?= htmlspecialchars($ogTitle) ?> в <?= htmlspecialchars("#WF_CITY_PRED#") ?>",
         "url": "<?= $ogUrl ?>",
         "image": "<?= $ogImage ?>",
         "description": "<?= htmlspecialchars($ogDescription) ?>",
@@ -42,13 +43,13 @@ if (!empty($arResult["ITEMS"])) {
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Главная",
-                    "item": "https://1dvm.ru/"
+                    "item": "https://<?= ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') ?>1dvm.ru/"
                 },
                 {
                     "@type": "ListItem",
                     "position": 2,
                     "name": "Каталог",
-                    "item": "https://1dvm.ru/catalog/"
+                    "item": "https://<?= ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') ?>1dvm.ru/catalog/"
                 },
                 {
                     "@type": "ListItem",
@@ -62,8 +63,8 @@ if (!empty($arResult["ITEMS"])) {
                 {
                     "@type": "Product",
                     "name": "<?= htmlspecialchars($arElement["NAME"]) ?>",
-                    "url": "https://<?= SITE_SERVER_NAME . $arElement["DETAIL_PAGE_URL"] ?>",
-                    "image": "<?= $arElement["PREVIEW_PICTURE"]["SRC"] ?>",
+                    "url": "https://<?= ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . $arElement["DETAIL_PAGE_URL"] ?>",
+                    "image": "<?= (!empty($arElement["PREVIEW_PICTURE"]["SRC"]) ? 'https://' . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . $arElement["PREVIEW_PICTURE"]["SRC"] : $ogImage) ?>",
                     "description": "<?= htmlspecialchars($arElement["PREVIEW_TEXT"] ?: $arElement["NAME"]) ?>",
                     "offers": {
                         "@type": "Offer",
@@ -72,7 +73,7 @@ if (!empty($arResult["ITEMS"])) {
                         "availability": "https://schema.org/InStock"
                     }
                 }<?php if ($index !== array_key_last($arResult["ITEMS"])) echo ','; ?>
-            <?php } ?>
+        <?php } ?>
         ]
     }
     </script>

@@ -3,22 +3,24 @@
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
+/** @var string $sub (определяется в хедере) */
 
 $this->setFrameMode(true);
-$seoH1 = $arResult["IPROPERTY_VALUES"]["SECTION_PAGE_TITLE"] ?: "Услуги";
-$ogUrl = "https://" . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
-$ogImage = SITE_TEMPLATE_PATH . "/img/logo.svg";
 
+$ogTitle = $arResult["IPROPERTY_VALUES"]["SECTION_PAGE_TITLE"] ?: "Услуги";
+$ogDescription = "Список услуг компании «Двери Металл-М» в #WF_CITY_PRED#.";
+$ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
+$ogImage = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . SITE_TEMPLATE_PATH . "/img/logo.svg";
 ?>
     <!-- Open Graph -->
     <div style="display:none;">
-        <meta property="og:title" content="<?= htmlspecialchars($seoH1) ?>"/>
-        <meta property="og:description" content="<?= htmlspecialchars($seoH1) ?>"/>
+    <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?>"/>
+    <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>"/>
         <meta property="og:image" content="<?= $ogImage ?>"/>
         <meta property="og:type" content="website"/>
         <meta property="og:url" content="<?= $ogUrl ?>"/>
         <meta property="og:locale" content="ru_RU"/>
-        <meta property="og:site_name" content="1dvm.ru"/>
+        <meta property="og:site_name" content="«Двери металл-М» в #WF_CITY_PRED#"/>
     </div>
     <!-- End Open Graph -->
 
@@ -27,10 +29,10 @@ $ogImage = SITE_TEMPLATE_PATH . "/img/logo.svg";
 {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "<?= htmlspecialchars($seoH1) ?>",
+    "name": "<?= htmlspecialchars($ogTitle) ?>",
     "url": "<?= $ogUrl ?>",
     "image": "<?= $ogImage ?>",
-    "description": "Список услуг компании",
+    "description": "<?= htmlspecialchars($ogDescription) ?>",
     "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -38,7 +40,7 @@ $ogImage = SITE_TEMPLATE_PATH . "/img/logo.svg";
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Главная",
-                "item": "https://1dvm.ru/"
+                "item": "https://<?= ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . "1dvm.ru/" ?>"
             },
             {
                 "@type": "ListItem",
@@ -53,13 +55,12 @@ $ogImage = SITE_TEMPLATE_PATH . "/img/logo.svg";
             {
                 "@type": "Service",
                 "name": "<?= htmlspecialchars($arItem["NAME"]) ?>",
-                "url": "https://<?= SITE_SERVER_NAME . $arItem["DETAIL_PAGE_URL"] ?>",
+                "url": "https://<?= ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . $arItem["DETAIL_PAGE_URL"] ?>",
                 "description": "<?= htmlspecialchars($arItem["PREVIEW_TEXT"]) ?>"
             }<?php if ($index !== array_key_last($arResult["ITEMS"])) echo ','; ?>
         <?php } ?>
     ]
 }
-
     </script>
     <!-- End JSON-LD -->
 

@@ -2,23 +2,26 @@
 
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
+/** @var  string $sub (определяется в хедере) */
 
-$infoTitle = $arResult["NAME"] ?: "Информация";
-$infoDescription = !empty($arResult["IPROPERTY_VALUES"]["ELEMENT_META_DESCRIPTION"])
+$ogTitle = $arResult["NAME"] ?: "Информация";
+$ogDescription = !empty($arResult["IPROPERTY_VALUES"]["ELEMENT_META_DESCRIPTION"])
     ? $arResult["IPROPERTY_VALUES"]["ELEMENT_META_DESCRIPTION"]
     : strip_tags($arResult["DETAIL_TEXT"]);
-$ogUrl = "https://" . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
-$ogImage = SITE_TEMPLATE_PATH . "/img/logo.svg";
+$ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
+$ogImage = !empty($arResult["DETAIL_PICTURE"]["SRC"])
+    ? "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . $arResult["DETAIL_PICTURE"]["SRC"]
+    : "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . SITE_TEMPLATE_PATH . "/img/logo.svg";
 ?>
 <!-- Open Graph -->
 <div style="display:none;">
-    <meta property="og:title" content="<?= htmlspecialchars($infoTitle) ?>"/>
-    <meta property="og:description" content="<?= htmlspecialchars($infoDescription) ?>"/>
+    <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?> в <?= htmlspecialchars("#WF_CITY_PRED#") ?>"/>
+    <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>"/>
     <meta property="og:image" content="<?= $ogImage ?>"/>
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="<?= $ogUrl ?>"/>
     <meta property="og:locale" content="ru_RU"/>
-    <meta property="og:site_name" content="Двери Металл-М"/>
+    <meta property="og:site_name" content="«Двери металл-М» в #WF_CITY_PRED#"/>
 </div>
 <!-- End Open Graph -->
 
@@ -27,8 +30,8 @@ $ogImage = SITE_TEMPLATE_PATH . "/img/logo.svg";
 {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "<?= htmlspecialchars($infoTitle) ?>",
-    "description": "<?= htmlspecialchars($infoDescription) ?>",
+    "headline": "<?= htmlspecialchars($ogTitle) ?>",
+    "description": "<?= htmlspecialchars($ogDescription) ?>",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "<?= $ogUrl ?>"
