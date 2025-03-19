@@ -22,3 +22,11 @@ bitrix/templates/*
 
 # Исключаем конкретные файлы и папки внутри templates
 !bitrix/templates/1dvm/
+
+# Сначала исключаем саму папку modules, чтобы её содержимое можно было обработать
+!bitrix/modules/
+bitrix/modules/*
+
+# Исключаем собственные модули
+!bitrix/modules/webfly.seocities
+!bitrix/modules/webfly.utils

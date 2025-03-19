@@ -1,0 +1,29 @@
+<?
+$MESS["PLURALS_hours"] = "час|часа|часов";
+$MESS["PLURALS_pieces"] = "штука|штуки|штук";
+$MESS["PLURALS_packs"] = "упаковка|упаковки|упаковок";
+$MESS["PLURALS_commentary"] = 'комментарий|комментария|комментариев';
+$MESS["PLURALS_wares"] = 'товар|товара|товаров';
+$MESS["PLURALS_roubles"] = 'рубль|рубля|рублей';
+$MESS["PLURALS_units"] = 'единица|единицы|единиц';
+$MESS["PLURALS_meters"] = 'метр|метра|метров';
+$MESS["PLURALS_years"] = 'год|года|лет';
+$MESS["PLURALS_days"] = 'день|дня|дней';
+$MESS["PLURALS_minutes"] = 'минута|минуты|минут';
+$MESS["PLURALS_seconds"] = 'секунда|секунды|секунд';
+$MESS["PLURALS_words"] = 'слово|слова|слов';
+$MESS["PLURALS_letters"] = 'письмо|письма|писем';
+$MESS["PLURALS_literals"] = 'буква|буквы|букв';
+$MESS["PLURALS_strings"] = 'строка|строки|строк';
+$MESS["PLURALS_results"] = 'результат|результата|результатов';
+$MESS["PLURALS_positions"] = 'позиция|позиции|позиций';
+$MESS["PLURALS_offers"] = 'предложение|предложения|предложений';
+$MESS["PLURALS_orders"] = 'заказ|заказа|заказов';
+$MESS["PLURALS_feedbacks"] = 'отзыв|отзыва|отзывов';
+$MESS["PLURALS_reply"] = 'ответ|ответа|ответов';
+$MESS["PLURALS_votes"] = 'голос|голоса|голосов';
+$MESS["PLURALS_credits"] = 'кредит|кредита|кредитов';
+$MESS["PLURALS_moto"] = 'мотоцикл|мотоцикла|мотоциков';
+$MESS["PLURALS_motor"] = 'мотоцикле|мотоциклах|мотоциклах';
+$MESS["MIBS"] = "Б|кБ|МБ";
+?>
