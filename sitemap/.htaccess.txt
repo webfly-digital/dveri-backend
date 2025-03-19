@@ -1,0 +1,30 @@
+RewriteCond  %{HTTP_HOST} msk.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/msk/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} ryasan.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/ryasan/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} belgorod.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/belgorod/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} kursk.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/kursk/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} lipetsk.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/lipetsk/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} tambov.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/tambov/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} vladimir.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/vladimir/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} bryansk.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/bryansk/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} kaluga.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/kaluga/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} kostroma.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/kostroma/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} orel.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/orel/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} smolensk.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/smolensk/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} tver.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/tver/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} tula.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/tula/sitemap.xml [L]
+RewriteCond  %{HTTP_HOST} yaroslavl.1dvm.ru$
+RewriteRule ^sitemap.xml$ /sitemap/yaroslavl/sitemap.xml [L]
