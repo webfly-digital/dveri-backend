@@ -3,8 +3,13 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 
 /** @global CMain $APPLICATION */
 
-$APPLICATION->SetPageProperty("title", "Контакты в #WF_CITY_PRED# | Завод «Двери металл-М»");
-$APPLICATION->SetPageProperty("description", "Контакты завода Двери металл-М в #WF_CITY_PRED#  - производство противопожарных дверей. Схема проезда, телефоны, адрес, производство и продажа противопожарных дверей.");
+$ogTitle = "Контакты в #WF_CITY_PRED# | Завод «Двери металл-М»";
+$ogDescription = "Контакты завода Двери металл-М в #WF_CITY_PRED#  - производство противопожарных дверей. Схема проезда, телефоны, адрес, производство и продажа противопожарных дверей.";
+$ogUrl = "https://" . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
+$ogImage = SITE_TEMPLATE_PATH . "/img/logo.svg";
+
+$APPLICATION->SetPageProperty("title", $ogTitle);
+$APPLICATION->SetPageProperty("description", $ogDescription);
 $APPLICATION->SetTitle("«Двери металл-М» в #WF_CITY_PRED#");
 
 $APPLICATION->IncludeComponent(
@@ -22,7 +27,47 @@ $APPLICATION->IncludeComponent(
         "ROOT_MENU_TYPE" => "left",
         "USE_EXT" => "N"
     ]
-); ?>
+);
+?>
+    <!-- Open Graph -->
+    <div style="display:none;">
+        <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?>"/>
+        <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>"/>
+        <meta property="og:image" content="<?= $ogImage ?>"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="<?= $ogUrl ?>"/>
+        <meta property="og:locale" content="ru_RU"/>
+        <meta property="og:site_name" content="Двери Металл-М"/>
+    </div>
+    <!-- End Open Graph -->
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Двери Металл-М",
+            "url": "<?= $ogUrl ?>",
+            "logo": "<?= $ogImage ?>",
+            "image": "<?= $ogImage ?>",
+            "description": "<?= htmlspecialchars($ogDescription) ?>",
+            "telephone": "#WF_PHONE#",
+            "email": "#WF_EMAIL#",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "#WF_CONTACTS#",
+                "addressLocality": "#WF_CITY_PRED#",
+                "addressCountry": "RU"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "#WF_PHONE#",
+                "contactType": "customer service"
+            }
+        }
+    </script>
+    <!-- End JSON-LD -->
+
     <div class="col-md-9">
         <div class="row">
             <div class="col-sm-4">
@@ -34,9 +79,7 @@ $APPLICATION->IncludeComponent(
                         #WF_PHONES_GOR#
                     </div>
                     <div class="contacts-section__bottom">
-                        <p>
-                            <br/> #WF_SCHEDULE#
-                        </p>
+                        <p><br/> #WF_SCHEDULE#</p>
                     </div>
                 </div>
             </div>
@@ -87,8 +130,6 @@ $APPLICATION->IncludeComponent(
             #WF_CONTACTS_FOTO#
         </div>
     </div>
-    </div>
-    <div style="clear: both;">
-    </div>
+    <div style="clear: both;"></div>
     <br>
 <?php require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
