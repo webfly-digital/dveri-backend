@@ -18,6 +18,51 @@ if (!empty($arResult["SECTIONS"])) {
         <meta property="og:site_name" content="1dvm.ru"/>
     </div>
     <!-- End Open Graph -->
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Противопожарная продукция в #WF_CITY_PRED#",
+        "url": "<?= $ogUrl ?>",
+        "image": "<?= SITE_TEMPLATE_PATH ?>/img/logo.svg",
+        "description": "Каталог противопожарной продукции в #WF_CITY_PRED#",
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Главная",
+                    "item": "https://1dvm.ru/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Каталог",
+                    "item": "https://1dvm.ru/catalog/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Противопожарная продукция"
+                }
+            ]
+        },
+        "hasPart": [
+            <?php foreach ($arResult["SECTIONS"] as $index => $arSection) { ?>
+                {
+                    "@type": "Category",
+                    "name": "<?= $arSection["NAME"] ?>",
+                    "url": "https://<?= SITE_SERVER_NAME . $arSection["SECTION_PAGE_URL"] ?>"
+                }<?php if ($index !== array_key_last($arResult["SECTIONS"])) echo ','; ?>
+            <?php } ?>
+        ]
+    }
+    </script>
+    <!-- End JSON-LD -->
+
     <section class="page-section" id="catalog-index">
         <h2 class="h1 page-section__title text-center">Противопожарная продукция в #WF_CITY_PRED#</h2>
         <!--Catalog tiles-->
@@ -79,4 +124,22 @@ if (!empty($arResult["SECTIONS"])) {
             </div>
         </div>
     </section>
+    <!-- Schema.org -->
+    <div style="display: none;">
+        <div itemscope itemtype="https://schema.org/CollectionPage">
+            <meta itemprop="name" content="Противопожарная продукция в #WF_CITY_PRED#"/>
+            <meta itemprop="url" content="<?= $ogUrl ?>"/>
+            <meta itemprop="image" content="<?= SITE_TEMPLATE_PATH ?>/img/logo.svg"/>
+            <meta itemprop="description" content="Каталог противопожарной продукции в #WF_CITY_PRED#"/>
+            <div itemprop="hasPart">
+                <?php foreach ($arResult["SECTIONS"] as $arSection) { ?>
+                    <div itemscope itemtype="https://schema.org/Category">
+                        <meta itemprop="name" content="<?= $arSection["NAME"] ?>"/>
+                        <meta itemprop="url" content="https://<?= SITE_SERVER_NAME . $arSection["SECTION_PAGE_URL"] ?>"/>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+    <!-- End Schema.org -->
 <?php } ?>

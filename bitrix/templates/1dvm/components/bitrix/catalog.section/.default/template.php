@@ -26,6 +26,58 @@ if (!empty($arResult["ITEMS"])) {
     </div>
     <!-- End Open Graph -->
 
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "<?= htmlspecialchars($ogTitle) ?>",
+        "url": "<?= $ogUrl ?>",
+        "image": "<?= $ogImage ?>",
+        "description": "<?= htmlspecialchars($ogDescription) ?>",
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Главная",
+                    "item": "https://1dvm.ru/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Каталог",
+                    "item": "https://1dvm.ru/catalog/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "<?= htmlspecialchars($ogTitle) ?>"
+                }
+            ]
+        },
+        "hasPart": [
+            <?php foreach ($arResult["ITEMS"] as $index => $arElement) { ?>
+                {
+                    "@type": "Product",
+                    "name": "<?= htmlspecialchars($arElement["NAME"]) ?>",
+                    "url": "https://<?= SITE_SERVER_NAME . $arElement["DETAIL_PAGE_URL"] ?>",
+                    "image": "<?= $arElement["PREVIEW_PICTURE"]["SRC"] ?>",
+                    "description": "<?= htmlspecialchars($arElement["PREVIEW_TEXT"] ?: $arElement["NAME"]) ?>",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "<?= $arElement["PROPERTIES"]["PRICE_N"]["VALUE"] ?>",
+                        "priceCurrency": "RUB",
+                        "availability": "https://schema.org/InStock"
+                    }
+                }<?php if ($index !== array_key_last($arResult["ITEMS"])) echo ','; ?>
+            <?php } ?>
+        ]
+    }
+    </script>
+    <!-- End JSON-LD -->
+
     <div class="catalog-products catalog-products--slim">
         <?php foreach ($arResult["ITEMS"] as $cell => $arElement) {
             $this->AddEditAction($arElement['ID'], $arElement['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
@@ -41,7 +93,7 @@ if (!empty($arResult["ITEMS"])) {
                                 <div class="el-sticker <?= $label ?>"></div>
                             <?php } ?>
                             <img alt="<?= $arElement["PREVIEW_PICTURE"]["ALT"] ?>"
-                                 TITLE="<?= $arElement["PREVIEW_PICTURE"]["TITLE"] ?>" class="lazyload"
+                                 title="<?= $arElement["PREVIEW_PICTURE"]["TITLE"] ?>" class="lazyload"
                                  data-original="<?= $arElement["PREVIEW_PICTURE"]["SRC"] ?>">
                         </div>
                         <div class="product__details">
@@ -89,6 +141,32 @@ if (!empty($arResult["ITEMS"])) {
             </div>
         <?php } ?>
     </div>
+
+    <!-- Schema.org (скрытый блок) -->
+    <div style="display: none;">
+        <div itemscope itemtype="https://schema.org/CollectionPage">
+            <meta itemprop="name" content="<?= htmlspecialchars($ogTitle) ?>"/>
+            <meta itemprop="url" content="<?= $ogUrl ?>"/>
+            <meta itemprop="image" content="<?= $ogImage ?>"/>
+            <meta itemprop="description" content="<?= htmlspecialchars($ogDescription) ?>"/>
+            <div itemprop="hasPart">
+                <?php foreach ($arResult["ITEMS"] as $arElement) { ?>
+                    <div itemscope itemtype="https://schema.org/Product">
+                        <meta itemprop="name" content="<?= htmlspecialchars($arElement["NAME"]) ?>"/>
+                        <meta itemprop="url" content="https://<?= SITE_SERVER_NAME . $arElement["DETAIL_PAGE_URL"] ?>"/>
+                        <meta itemprop="image" content="<?= $arElement["PREVIEW_PICTURE"]["SRC"] ?>"/>
+                        <meta itemprop="description" content="<?= htmlspecialchars($arElement["PREVIEW_TEXT"] ?: $arElement["NAME"]) ?>"/>
+                        <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                            <meta itemprop="price" content="<?= $arElement["PROPERTIES"]["PRICE_N"]["VALUE"] ?>"/>
+                            <meta itemprop="priceCurrency" content="RUB"/>
+                            <link itemprop="availability" href="https://schema.org/InStock"/>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+    <!-- End Schema.org -->
     <?php if ($arParams["DISPLAY_BOTTOM_PAGER"]) { ?>
         <div class="clearfix"></div>
         <?= $arResult["NAV_STRING"] ?>
