@@ -4,34 +4,36 @@
  * @global CMain $APPLICATION
  * @var array    $arParams
  * @var array    $arResult
+ * @var  string  $sub (определяется в хедере)
  */
 
 $ogTitle = !empty($arResult['NAME']) ? $arResult['NAME'] : "Товар";
 $ogDescription = !empty($arResult["IPROPERTY_VALUES"]["ELEMENT_META_DESCRIPTION"]) ? $arResult["IPROPERTY_VALUES"]["ELEMENT_META_DESCRIPTION"] : $ogTitle;
 $ogImage = (!empty($arResult["PHOTOS"]["SMALL"][0]["src"]))
-    ? "https://" . SITE_SERVER_NAME . $arResult["PHOTOS"]["SMALL"][0]["src"]
-    : SITE_TEMPLATE_PATH . "/img/logo.svg";
-$ogUrl = "https://" . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
+    ? "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . $arResult["PHOTOS"]["SMALL"][0]["src"]
+    : "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . SITE_TEMPLATE_PATH . "/img/logo.svg";
+$ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
 ?>
 <!-- Open Graph -->
 <div style="display:none;">
-    <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?>"/>
+    <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?> в <?= htmlspecialchars("#WF_CITY_PRED#") ?>"/>
     <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>"/>
     <meta property="og:image" content="<?= $ogImage ?>"/>
     <meta property="og:type" content="product"/>
     <meta property="og:url" content="<?= $ogUrl ?>"/>
     <meta property="og:locale" content="ru_RU"/>
-    <meta property="og:site_name" content="1dvm.ru"/>
+    <meta property="og:site_name" content="«Двери металл-М» в #WF_CITY_PRED#"/>
 </div>
 <!-- End Open Graph -->
+
 <!-- JSON-LD-->
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": "<?= htmlspecialchars($arResult['NAME']) ?>",
-    "image": "<?= (strpos($arResult["PHOTOS"]["SMALL"][0]["src"], 'http') === 0) ? $arResult["PHOTOS"]["SMALL"][0]["src"] : 'https://' . SITE_SERVER_NAME . $arResult["PHOTOS"]["SMALL"][0]["src"] ?>",
-    "description": "<?= htmlspecialchars($arResult["IPROPERTY_VALUES"]["ELEMENT_META_DESCRIPTION"] ?: $arResult['NAME']) ?>",
+    "image": "<?= $ogImage ?>",
+    "description": "<?= htmlspecialchars($ogDescription) ?>",
     "sku": "<?= $arResult["PROPERTIES"]["ARTNUMBER"]["VALUE"] ?>",
     "brand": {
         "@type": "Brand",
@@ -48,6 +50,7 @@ $ogUrl = "https://" . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
 }
 </script>
 <!-- End JSON-LD -->
+
 <div id="door-detail" class="row detail">
     <div class="col-md-6 col-md-push-6">
         <div class="detail-section hidden-md hidden-lg <?= $arResult["PROPERTIES"]["HIT"]["VALUE"] ? 'product__popular' : '' ?>">
@@ -362,7 +365,7 @@ $ogUrl = "https://" . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
 </div>
 <!-- Schema.org -->
 <div style="display: none" id="<?= $arResult['ID'] ?>" itemscope itemtype="http://schema.org/Product">
-    <meta itemprop="name" content="<?= $arResult['NAME'] ?>"/>
+    <meta itemprop="name" content="<?= htmlspecialchars($arResult['NAME']) ?> в <?= htmlspecialchars("#WF_CITY_PRED#") ?>"/>
     <meta itemprop="image" content="<?= $arResult["PHOTOS"]["SMALL"][0]["src"] ?>"/>
     <meta itemprop="category" content="<?= $arResult["SECTION"]["NAME"] ?>"/>
     <span itemprop="description"><?= $arResult["IPROPERTY_VALUES"]["ELEMENT_META_DESCRIPTION"] ?></span>

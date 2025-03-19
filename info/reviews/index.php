@@ -2,65 +2,40 @@
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 
 /** @global CMain $APPLICATION */
+/** @var string $sub (определяется в хедере) */
 
-$APPLICATION->SetPageProperty("title", "Отзывы | Завод «Двери металл-М»");
-$APPLICATION->SetTitle("Отзывы");
+$ogTitle = "Отзывы о Заводе «Двери металл-М» в #WF_CITY_PRED#";
+$ogDescription = "Реальные отзывы клиентов о Заводе «Двери металл-М». Фото продукции, мнения заказчиков.";
+$ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
+$ogImage = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . SITE_TEMPLATE_PATH . "/img/logo.svg";
 
-$ogUrl = "https://" . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
-$ogImage = SITE_TEMPLATE_PATH . "/img/logo.svg";
+$APPLICATION->SetPageProperty("title", $ogTitle);
+$APPLICATION->SetPageProperty("description", $ogDescription);
+$APPLICATION->SetTitle($ogTitle);
+
 $gallery = WFGeneral::GetGallery(9); // Галерея отзывов
-
 ?>
 <!-- Open Graph -->
 <div style="display:none;">
-    <meta property="og:title" content="Отзывы о Заводе «Двери металл-М»"/>
-    <meta property="og:description" content="Реальные отзывы клиентов о Заводе «Двери металл-М». Фото продукции, мнения заказчиков."/>
+    <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?>"/>
+    <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>"/>
     <meta property="og:image" content="<?= $ogImage ?>"/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="<?= $ogUrl ?>"/>
     <meta property="og:locale" content="ru_RU"/>
-    <meta property="og:site_name" content="Двери Металл-М"/>
+    <meta property="og:site_name" content="«Двери металл-М» в #WF_CITY_PRED#"/>
 </div>
 <!-- End Open Graph -->
 
-<!-- JSON-LD (Отзывы о компании) -->
+<!-- JSON-LD -->
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Завод «Двери металл-М»",
-    "url": "https://1dvm.ru/",
+    "@type": "CollectionPage",
+    "name": "<?= htmlspecialchars($ogTitle) ?>",
+    "url": "<?= $ogUrl ?>",
     "image": "<?= $ogImage ?>",
-    "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "35"
-    },
-    "review": [
-        <?php
-        $reviews = [];
-        if ($gallery) {
-            foreach ($gallery as $production) {
-                $desc = !empty($production["DESCRIPTION"]) ? $production["DESCRIPTION"] : "Фотоотзыв";
-                $reviews[] = '{
-                    "@type": "Review",
-                    "author": {
-                        "@type": "Person",
-                        "name": "Анонимный клиент"
-                    },
-                    "reviewBody": "' . htmlspecialchars($desc) . '",
-                    "reviewRating": {
-                        "@type": "Rating",
-                        "ratingValue": "5",
-                        "bestRating": "5"
-                    },
-                    "image": "' . $production["PATH"] . '"
-                }';
-            }
-        }
-        echo implode(",", $reviews);
-        ?>
-    ]
+    "description": "<?= htmlspecialchars($ogDescription) ?>"
 }
 </script>
 <!-- End JSON-LD -->

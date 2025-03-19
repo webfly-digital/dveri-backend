@@ -3,57 +3,60 @@
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
+/** @var  string $sub (определяется в хедере) */
 
 $this->setFrameMode(true);
 
-$ogUrl = "https://" . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
-$ogImage = SITE_TEMPLATE_PATH . "/img/logo.svg";
-$ogTitle = "Список объектов компании Двери Металл-М";
+$ogTitle = "Список объектов компании Двери Металл-М в #WF_CITY_PRED#";
+$ogDescription = "Список выполненных проектов и объектов компании Двери Металл-М.";
+$ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
+$ogImage = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . SITE_TEMPLATE_PATH . "/img/logo.svg";
 ?>
-    <!-- Open Graph -->
-    <div style="display:none;">
-        <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?>"/>
-        <meta property="og:description" content="Список выполненных проектов и объектов компании Двери Металл-М."/>
-        <meta property="og:image" content="<?= $ogImage ?>"/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:url" content="<?= $ogUrl ?>"/>
-        <meta property="og:locale" content="ru_RU"/>
-        <meta property="og:site_name" content="Двери Металл-М"/>
-    </div>
-    <!-- End Open Graph -->
+<!-- Open Graph -->
+<div style="display:none;">
+    <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?>"/>
+    <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>"/>
+    <meta property="og:image" content="<?= $ogImage ?>"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="<?= $ogUrl ?>"/>
+    <meta property="og:locale" content="ru_RU"/>
+    <meta property="og:site_name" content="«Двери металл-М» в #WF_CITY_PRED#"/>
+</div>
+<!-- End Open Graph -->
 
-    <!-- JSON-LD -->
-    <script type="application/ld+json">
+<!-- JSON-LD -->
+<script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "<?= htmlspecialchars($ogTitle) ?>",
-    "url": "<?= $ogUrl ?>",
-    "image": "<?= $ogImage ?>",
-    "description": "Список выполненных проектов и объектов компании Двери Металл-М.",
-    "hasPart": [
-        <?php
+"@context": "https://schema.org",
+"@type": "CollectionPage",
+"name": "<?= htmlspecialchars($ogTitle) ?>",
+"url": "<?= $ogUrl ?>",
+"image": "<?= $ogImage ?>",
+"description": "<?= htmlspecialchars($ogDescription) ?>",
+"hasPart": [
+    <?php
         $objects = [];
         foreach ($arResult['SECTIONS'] as $section) {
             if (empty($section['ITEMS'])) continue;
 
             foreach ($section['ITEMS'] as $arItem) {
-                $imageSrc = !empty($arItem['PREVIEW_PICTURE']['SRC']) ? $arItem['PREVIEW_PICTURE']['SRC'] : $ogImage;
+                $imageSrc = !empty($arItem['PREVIEW_PICTURE']['SRC'])
+                    ? "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . $arItem['PREVIEW_PICTURE']['SRC']
+                    : $ogImage;
                 $objects[] = '{
-                    "@type": "Place",
-                    "name": "' . htmlspecialchars($arItem['NAME']) . '",
-                    "image": "' . $imageSrc . '",
-                    "url": "' . $ogUrl . '"
-                }';
+                "@type": "Place",
+                "name": "' . htmlspecialchars($arItem['NAME']) . '",
+                "image": "' . $imageSrc . '",
+                "url": "' . $ogUrl . '"
+            }';
             }
         }
         echo implode(",", $objects);
         ?>
-    ]
+]
 }
-
-    </script>
-    <!-- End JSON-LD -->
+</script>
+<!-- End JSON-LD -->
 
 <?php
 foreach ($arResult['SECTIONS'] as $section) {

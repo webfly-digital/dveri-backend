@@ -2,6 +2,7 @@
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 
 /**
+ * /**
  * @global CMain $APPLICATION
  * @var  string  $sub
  */
@@ -11,17 +12,18 @@ $APPLICATION->SetPageProperty("description", "Завод «Двери метал
 $APPLICATION->SetTitle("«Двери металл-М» - противопожарные двери в #WF_CITY_PRED#: огнеупорные, пожарные, противодымные двери");
 
 ?>
-    <!--                           Open Graph-->
+    <!-- Open Graph -->
     <div style="display:none;">
-        <meta property="og:title" content="<?php $APPLICATION->ShowTitle(false) ?>"/>
+        <meta property="og:title" content="<?php $APPLICATION->ShowTitle(false) ?> в <?= htmlspecialchars("#WF_CITY_PRED#") ?>"/>
         <meta property="og:description" content="<?php $APPLICATION->ShowProperty("description") ?>"/>
-        <meta property="og:image" content="<?= SITE_TEMPLATE_PATH ?>/img/logo.svg"/>
+        <meta property="og:image" content="https://<?= ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . SITE_TEMPLATE_PATH; ?>/img/logo.svg"/>
         <meta property="og:type" content="website"/>
-        <meta property="og:url" content="https://<?= SITE_SERVER_NAME . "/" ?>"/>
+        <meta property="og:url" content="https://<?= ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . "/" ?>"/>
         <meta property="og:locale" content="ru_RU"/>
-        <meta property="og:site_name" content="1dvm.ru"/>
+        <meta property="og:site_name" content="«Двери металл-М» в #WF_CITY_PRED#"/>
     </div>
-    <!--                          end  Open Graph-->
+    <!-- End Open Graph -->
+
 <?php global $USER;
 if (true) { ?> <!--Top slider-->
     <div id="top-screen-wrapper" style="background-image: url(<?= SITE_TEMPLATE_PATH ?>/video/poster.webp);">

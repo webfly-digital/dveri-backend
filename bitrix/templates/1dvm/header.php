@@ -109,6 +109,7 @@ $bodyClass = $USER->isAdmin() ? 'header' : $bodyClass;
 <?php
 // нужно настроить перенаправление по geo ip московский трафик с основного домена
 //  https://1dvm.ru/ на https://msk.1dvm.ru/ соответственно.
+// todo: Прямо в хедере статический метод вызывается нестатически. Тут тоже исправить!
 $wfc = new CWebflyCities();
 $sub = $wfc->GetSubDomain();
 if (false === strpos($_SERVER['HTTP_USER_AGENT'], 'YandexBot'))

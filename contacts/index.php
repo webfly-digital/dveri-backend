@@ -2,11 +2,12 @@
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 
 /** @global CMain $APPLICATION */
+/** @var  string $sub (определяется в хедере) */
 
 $ogTitle = "Контакты в #WF_CITY_PRED# | Завод «Двери металл-М»";
 $ogDescription = "Контакты завода Двери металл-М в #WF_CITY_PRED#  - производство противопожарных дверей. Схема проезда, телефоны, адрес, производство и продажа противопожарных дверей.";
-$ogUrl = "https://" . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
-$ogImage = SITE_TEMPLATE_PATH . "/img/logo.svg";
+$ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
+$ogImage = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . SITE_TEMPLATE_PATH . "/img/logo.svg";
 
 $APPLICATION->SetPageProperty("title", $ogTitle);
 $APPLICATION->SetPageProperty("description", $ogDescription);
@@ -37,7 +38,7 @@ $APPLICATION->IncludeComponent(
         <meta property="og:type" content="website"/>
         <meta property="og:url" content="<?= $ogUrl ?>"/>
         <meta property="og:locale" content="ru_RU"/>
-        <meta property="og:site_name" content="Двери Металл-М"/>
+        <meta property="og:site_name" content="«Двери металл-М» в #WF_CITY_PRED#"/>
     </div>
     <!-- End Open Graph -->
 
@@ -46,7 +47,7 @@ $APPLICATION->IncludeComponent(
         {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Двери Металл-М",
+            "name": "Двери Металл-М в #WF_CITY_PRED#",
             "url": "<?= $ogUrl ?>",
             "logo": "<?= $ogImage ?>",
             "image": "<?= $ogImage ?>",
@@ -65,6 +66,7 @@ $APPLICATION->IncludeComponent(
                 "contactType": "customer service"
             }
         }
+
     </script>
     <!-- End JSON-LD -->
 

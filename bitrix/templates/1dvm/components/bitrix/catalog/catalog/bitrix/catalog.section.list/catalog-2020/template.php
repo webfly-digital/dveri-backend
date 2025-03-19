@@ -1,21 +1,26 @@
 <?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+
 /**
  * @global CMain $APPLICATION
  * @var array    $arResult
+ * @var  string  $sub (определяется в хедере)
  */
+
 if (!empty($arResult["SECTIONS"])) {
     $ogTitle = "Противопожарная продукция в #WF_CITY_PRED#";
-    $ogUrl = "https://" . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
+    $ogDescription = "Каталог противопожарной продукции в #WF_CITY_PRED#";
+    $ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
+    $ogImage = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . SITE_TEMPLATE_PATH . "/img/logo.svg";
     ?>
     <!-- Open Graph -->
     <div style="display:none;">
         <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?>"/>
-        <meta property="og:description" content="<?= htmlspecialchars($ogTitle) ?>"/>
-        <meta property="og:image" content="<?= SITE_TEMPLATE_PATH ?>/img/logo.svg"/>
+        <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>"/>
+        <meta property="og:image" content="<?= $ogImage ?>"/>
         <meta property="og:type" content="website"/>
         <meta property="og:url" content="<?= $ogUrl ?>"/>
         <meta property="og:locale" content="ru_RU"/>
-        <meta property="og:site_name" content="1dvm.ru"/>
+        <meta property="og:site_name" content="«Двери металл-М» в #WF_CITY_PRED#"/>
     </div>
     <!-- End Open Graph -->
 
@@ -24,10 +29,10 @@ if (!empty($arResult["SECTIONS"])) {
     {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": "Противопожарная продукция в #WF_CITY_PRED#",
+        "name": "<?= htmlspecialchars($ogTitle) ?>",
         "url": "<?= $ogUrl ?>",
-        "image": "<?= SITE_TEMPLATE_PATH ?>/img/logo.svg",
-        "description": "Каталог противопожарной продукции в #WF_CITY_PRED#",
+        "image": "<?= $ogImage ?>",
+        "description": "<?= htmlspecialchars($ogDescription) ?>",
         "breadcrumb": {
             "@type": "BreadcrumbList",
             "itemListElement": [
@@ -35,13 +40,13 @@ if (!empty($arResult["SECTIONS"])) {
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Главная",
-                    "item": "https://1dvm.ru/"
+                    "item": "https://<?= ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . "1dvm.ru/" ?>"
                 },
                 {
                     "@type": "ListItem",
                     "position": 2,
                     "name": "Каталог",
-                    "item": "https://1dvm.ru/catalog/"
+                    "item": "https://<?= ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . "1dvm.ru/catalog/" ?>"
                 },
                 {
                     "@type": "ListItem",
@@ -55,9 +60,9 @@ if (!empty($arResult["SECTIONS"])) {
                 {
                     "@type": "Category",
                     "name": "<?= $arSection["NAME"] ?>",
-                    "url": "https://<?= SITE_SERVER_NAME . $arSection["SECTION_PAGE_URL"] ?>"
+                    "url": "https://<?= ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . $arSection["SECTION_PAGE_URL"] ?>"
                 }<?php if ($index !== array_key_last($arResult["SECTIONS"])) echo ','; ?>
-            <?php } ?>
+        <?php } ?>
         ]
     }
     </script>
