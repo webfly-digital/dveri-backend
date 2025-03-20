@@ -4,10 +4,10 @@
  * @global CMain $APPLICATION
  * @var array    $arParams
  * @var array    $arResult
- * @var  string  $sub (определяется в хедере)
  */
 
 if (!empty($arResult["ITEMS"])) {
+    $sub = $arParams['SUBDOMAIN'] ?? 'default';
     $ogTitle = !empty($arResult["IPROPERTY_VALUES"]["SECTION_PAGE_TITLE"]) ? $arResult["IPROPERTY_VALUES"]["SECTION_PAGE_TITLE"] : "Каталог товаров";
     $ogDescription = !empty($arResult["IPROPERTY_VALUES"]["SECTION_META_DESCRIPTION"]) ? $arResult["IPROPERTY_VALUES"]["SECTION_META_DESCRIPTION"] : $ogTitle;
     $ogImage = (!empty($arResult["PICTURE"]["SRC"]))

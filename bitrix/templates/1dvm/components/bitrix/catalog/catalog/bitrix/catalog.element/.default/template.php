@@ -4,9 +4,9 @@
  * @global CMain $APPLICATION
  * @var array    $arParams
  * @var array    $arResult
- * @var  string  $sub (определяется в хедере)
  */
 
+$sub = $arParams['SUBDOMAIN'] ?? 'default';
 $ogTitle = !empty($arResult['NAME']) ? $arResult['NAME'] : "Товар";
 $ogDescription = !empty($arResult["IPROPERTY_VALUES"]["ELEMENT_META_DESCRIPTION"]) ? $arResult["IPROPERTY_VALUES"]["ELEMENT_META_DESCRIPTION"] : $ogTitle;
 $ogImage = (!empty($arResult["PHOTOS"]["SMALL"][0]["src"]))

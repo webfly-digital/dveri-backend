@@ -2,7 +2,8 @@
 
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
-/** @var  string $sub (определяется в хедере) */
+
+$sub = CWebflyCities::GetSubDomain();
 
 $ogTitle = $arResult["NAME"] ?: "Информация";
 $ogDescription = !empty($arResult["IPROPERTY_VALUES"]["ELEMENT_META_DESCRIPTION"])

@@ -2,7 +2,8 @@
 
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
-/** @var string $sub (определяется в хедере) */
+
+$sub = CWebflyCities::GetSubDomain();
 
 $ogTitle = $arResult["NAME"] ?: "Услуга";
 $ogDescription = !empty($arResult["PREVIEW_TEXT"]) ? $arResult["PREVIEW_TEXT"] : (!empty($arResult["DETAIL_TEXT"]) ? strip_tags($arResult["DETAIL_TEXT"]) : "Описание услуги");
