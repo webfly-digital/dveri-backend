@@ -7,8 +7,8 @@
  * @var CatalogElementComponent $component
  */
 
-$wfc = new CWebflyCities();
-$sub = $wfc->GetSubDomain();
+$sub = CWebflyCities::GetSubDomain();
+
 $price_mod = 0;
 if ($sub == 'msk') $price_mod = 1;
 

@@ -16,8 +16,7 @@ $res = CIBlockSection::GetNavChain($arParams['IBLOCK_ID'], $sectionID);
 while ($nav = $res->GetNext())
     $APPLICATION->AddChainItem($nav['NAME'], $nav['SECTION_PAGE_URL']);
 
-$wfc = new CWebflyCities();
-$sub = $wfc->GetSubDomain();
+$sub = CWebflyCities::GetSubDomain();
 ?>
     <div class="row double-column-layout">
 

@@ -23,9 +23,7 @@ if ($section['ACTIVE'] != 'Y') {
     //LocalRedirect('/404.php');
 }
 
-//todo: Нахрена, а главное зачем статический метод вызывать в динамическом контексте? Исправить позже. Здесь и во множестве других мест.
-$wfc = new CWebflyCities();
-$sub = $wfc->GetSubDomain();
+$sub = CWebflyCities::GetSubDomain();
 
 global $cityFilter;
 
