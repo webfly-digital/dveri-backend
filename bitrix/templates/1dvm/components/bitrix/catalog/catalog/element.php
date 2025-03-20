@@ -77,6 +77,7 @@ $ElementID = $APPLICATION->IncludeComponent(
         "ADD_ELEMENT_CHAIN" => $arParams["ADD_ELEMENT_CHAIN"],
         'ADD_SECTIONS_CHAIN' => $arParams["ADD_SECTIONS_CHAIN"],
         "SET_CANONICAL_URL" => "N",
+        'SUBDOMAIN' => $sub
     ],
     $component
 ); ?>

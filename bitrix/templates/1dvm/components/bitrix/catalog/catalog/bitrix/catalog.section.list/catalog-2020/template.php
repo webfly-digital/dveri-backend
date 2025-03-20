@@ -3,10 +3,11 @@
 /**
  * @global CMain $APPLICATION
  * @var array    $arResult
- * @var  string  $sub (определяется в хедере)
  */
 
 if (!empty($arResult["SECTIONS"])) {
+    $sub = CWebflyCities::GetSubDomain();
+
     $ogTitle = "Противопожарная продукция в #WF_CITY_PRED#";
     $ogDescription = "Каталог противопожарной продукции в #WF_CITY_PRED#";
     $ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . $APPLICATION->GetCurPage();

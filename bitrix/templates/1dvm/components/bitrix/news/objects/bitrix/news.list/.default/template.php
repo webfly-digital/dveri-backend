@@ -3,9 +3,10 @@
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
-/** @var  string $sub (определяется в хедере) */
 
 $this->setFrameMode(true);
+
+$sub = CWebflyCities::GetSubDomain();
 
 $ogTitle = "Список объектов компании Двери Металл-М в #WF_CITY_PRED#";
 $ogDescription = "Список выполненных проектов и объектов компании Двери Металл-М.";
