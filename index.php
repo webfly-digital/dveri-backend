@@ -14,7 +14,8 @@ $APPLICATION->SetTitle("«Двери металл-М» - противопожа�
 ?>
     <!-- Open Graph -->
     <div style="display:none;">
-        <meta property="og:title" content="<?php $APPLICATION->ShowTitle(false) ?> в <?= htmlspecialchars("#WF_CITY_PRED#") ?>"/>
+<!--        <meta property="og:title" content="--><?php //$APPLICATION->ShowTitle(false) ?><!-- в --><?php //= htmlspecialchars("#WF_CITY_PRED#") ?><!--"/>-->
+        <meta property="og:title" content="<?php $APPLICATION->ShowTitle(false) ?>"/>
         <meta property="og:description" content="<?php $APPLICATION->ShowProperty("description") ?>"/>
         <meta property="og:image" content="https://<?= ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . SITE_TEMPLATE_PATH; ?>/img/logo.svg"/>
         <meta property="og:type" content="website"/>

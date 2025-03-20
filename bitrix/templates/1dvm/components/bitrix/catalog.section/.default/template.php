@@ -17,7 +17,7 @@ if (!empty($arResult["ITEMS"])) {
     ?>
     <!-- Open Graph -->
     <div style="display:none;">
-        <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?> в <?= htmlspecialchars("#WF_CITY_PRED#") ?>"/>
+        <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?>"/>
         <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>"/>
         <meta property="og:image" content="<?= $ogImage ?>"/>
         <meta property="og:type" content="website"/>
