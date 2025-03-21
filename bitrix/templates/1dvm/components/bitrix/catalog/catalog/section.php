@@ -298,7 +298,7 @@ $sub = CWebflyCities::GetSubDomain();
             <?php if ($gallery6): ?>
                 <div class="square-pics">
                     <?php foreach ($gallery6 as $minigal): ?>
-                        <div class="pic lazyload" data-original="<?= $minigal["PATH"] ?>"></div>
+                        <div class="pic" style="background-image: url('<?= ImageCompressor::getCompressedSrc($minigal["ID"]) ?>');"></div>
                     <?php endforeach ?>
                 </div>
             <?php endif ?>

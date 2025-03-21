@@ -1,8 +1,10 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+
+/** @var array $arResult */
+
 $gallery = WFGeneral::GetGallery($arResult["PROPERTIES"]["GALLERY"]["VALUE"]); ?>
 <div class="gal gal-v2">
-    <?
+    <?php
     if ($gallery):
         foreach ($gallery as $production):
             $pos = '';
@@ -15,21 +17,22 @@ $gallery = WFGeneral::GetGallery($arResult["PROPERTIES"]["GALLERY"]["VALUE"]); ?
             }
             ?>
             <div class="gal-item">
-                <? if (!empty($art)): ?>
+                <?php if (!empty($art)): ?>
                     <div class="gal-item-article"><?= $art ?></div>
-                <? endif ?>
-                <? if (!empty($production["KEYWORDS"])): ?>
+                <?php endif ?>
+                <?php if (!empty($production["KEYWORDS"])): ?>
                     <div class="gal-item-price"><?= $production["KEYWORDS"] ?></div>
-                <? endif ?>
-                <a href="<?= $production["PATH"] ?>" class="gal-item__preview lazyload"
+                <?php endif ?>
+                <a href="<?= $production["PATH"] ?>" class="gal-item__preview"
                    title="<?= $production["NAME"] ?>"
-                   data-original="<?= $production["PATH"] ?>"></a>
+                   style="background-image: url('<?= ImageCompressor::getCompressedSrc($production["ID"]) ?>');">
+                </a>
                 <div class="gal-item-subtitle"><?= $production["NAME"] ?></div>
-                <? if (!empty($desc)): ?>
+                <?php if (!empty($desc)): ?>
                     <div class="gal-item-info"><?= $desc ?></div>
-                <? endif ?>
+                <?php endif ?>
             </div>
-        <?
+        <?php
         endforeach;
     endif; ?>
 </div>

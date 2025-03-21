@@ -93,9 +93,10 @@ if (!empty($arResult["ITEMS"])) {
                                 ?>
                                 <div class="el-sticker <?= $label ?>"></div>
                             <?php } ?>
+
                             <img alt="<?= $arElement["PREVIEW_PICTURE"]["ALT"] ?>"
-                                 title="<?= $arElement["PREVIEW_PICTURE"]["TITLE"] ?>" class="lazyload"
-                                 data-original="<?= $arElement["PREVIEW_PICTURE"]["SRC"] ?>">
+                                 title="<?= $arElement["PREVIEW_PICTURE"]["TITLE"] ?>"
+                                 src="<?= ImageCompressor::getCompressedSrc($arElement["PREVIEW_PICTURE"]["ID"]) ?>">
                         </div>
                         <div class="product__details">
                             <p class="product__option"><?= $arElement["PROPERTIES"]["ARTNUMBER"]["VALUE"] ? 'Артикул: ' . $arElement["PROPERTIES"]["ARTNUMBER"]["VALUE"] : '' ?></p>

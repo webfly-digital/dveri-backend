@@ -30,9 +30,7 @@ class ImageCompressor
             return $arFile['SRC'];
         }
 
-
         $quality = $startQuality;
-
 
         $width = $arFile['WIDTH'];
         $height = $arFile['HEIGHT'];

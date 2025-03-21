@@ -1,98 +1,35 @@
-<!--Изменения 05/2018--> <!--Блок с преимуществами-->
+<!--Изменения 05/2018-->
+<!--Блок с преимуществами-->
 <div class="page-section--contrast bg-dark">
-	<div class="container">
-		<div class="h1 page-section__title text-center">Почему Двери Металл-М?</div>
-		<div class="vis-cards">
-			<div class="vis-card">
-				<div class="vis-card__content">
-					<div class="vis-card__pic">
-						<img alt="Собственное производство" loading="lazy" src="/bitrix/templates/1dvm/img/benefits/opt/01.jpg" class="lazyload" data-original="/bitrix/templates/1dvm/img/benefits/opt/01.jpg">
-						<div class="vis-card__title text--sky">Собственное производство</div>
-						<p class="vis-card__descr">
-							Наш завод осуществляет <b>полный производственный цикл</b> от разработки ТУ до заготовок деталей, сварочных работ, покраски и упаковки.
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="vis-card">
-				<div class="vis-card__content">
-					<div class="vis-card__pic">
-						<img alt="Гибкое ценообразование" loading="lazy" src="/bitrix/templates/1dvm/img/benefits/opt/02.jpg" class="lazyload" data-original="/bitrix/templates/1dvm/img/benefits/opt/02.jpg">
-						<div class="vis-card__title text--sky">Гибкое ценообразование</div>
-						<p class="vis-card__descr">
-							Наличие собственного производственного цеха <b>позволяет предоставлять выгодную стоимость</b> и делать скидки на продукцию.
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="vis-card">
-				<div class="vis-card__content">
-					<div class="vis-card__pic">
-						<img alt="Широкий ассортимент" loading="lazy" src="/bitrix/templates/1dvm/img/benefits/opt/03.jpg" class="lazyload" data-original="/bitrix/templates/1dvm/img/benefits/opt/03.jpg">
-						<div class="vis-card__title text--sky">Широкий ассортимент</div>
-						<p class="vis-card__descr">
-							Вашему вниманию предоставляется огромный выбор уже готовых изделий или <b>возможность создания уникального товара под заказ.</b>
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="vis-card">
-				<div class="vis-card__content">
-					<div class="vis-card__pic">
-						<img alt="Надёжность конструкций" loading="lazy" src="/bitrix/templates/1dvm/img/benefits/opt/04.jpg" class="lazyload" data-original="/bitrix/templates/1dvm/img/benefits/opt/04.jpg">
-						<div class="vis-card__title text--sky">Надежность конструкций</div>
-						<p class="vis-card__descr">
-							Продукция изготавливается из <b>высококачественной холоднокатаной стали</b> опытными мастерами в соответствии со стандартами.
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="vis-card">
-				<div class="vis-card__content">
-					<div class="vis-card__pic">
-						<img alt="Гарантия качества продукции" loading="lazy" src="/bitrix/templates/1dvm/img/benefits/opt/05.jpg" class="lazyload" data-original="/bitrix/templates/1dvm/img/benefits/opt/05.jpg">
-						<div class="vis-card__title text--sky">Гарантия качества продукции</div>
-						<p class="vis-card__descr">
-							Все изделия <b>проходят сертификацию на соответствие ГОСТ</b>, поэтому мы предоставляем гарантию на все виды продукции и работы.
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="vis-card">
-				<div class="vis-card__content">
-					<div class="vis-card__pic">
-						<img alt="Расчет стоимости по звонку" loading="lazy" src="/bitrix/templates/1dvm/img/benefits/opt/06.jpg" class="lazyload" data-original="/bitrix/templates/1dvm/img/benefits/opt/06.jpg">
-						<div class="vis-card__title text--sky">Расчет стоимости по звонку</div>
-						<p class="vis-card__descr">
-							Чтобы узнать, во сколько обойдется полный спектр работ, позвоните нам, и наши <b>сотрудники рассчитают для вас итоговую стоимость.</b>
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="vis-card">
-				<div class="vis-card__content">
-					<div class="vis-card__pic">
-						<img alt="Профессиональный монтаж" loading="lazy" src="/bitrix/templates/1dvm/img/benefits/opt/07.jpg" class="lazyload" data-original="/bitrix/templates/1dvm/img/benefits/opt/07.jpg">
-						<div class="vis-card__title text--sky">Профессиональный монтаж</div>
-						<p class="vis-card__descr">
-							При необходимости квалифицированные специалисты быстро и <b>грамотно проведут подготовку и установку изделия</b> на месте.
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="vis-card">
-				<div class="vis-card__content">
-					<div class="vis-card__pic">
-						<img alt="Оперативная доставка" loading="lazy" src="/bitrix/templates/1dvm/img/benefits/opt/08.jpg" class="lazyload" data-original="/bitrix/templates/1dvm/img/benefits/opt/08.jpg">
-						<div class="vis-card__title text--sky">Оперативная доставка</div>
-						<p class="vis-card__descr">
-							Доступны <b>быстрая доставка собственным транспортом фирмы</b> в пределах региона или отправка заказа посредством транспортной компании.
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="h1 page-section__title text-center">Почему Двери Металл-М?</div>
+        <div class="vis-cards">
+            <?php
+            $benefits = [
+                ["alt" => "Собственное производство", "src" => "01.jpg", "title" => "Собственное производство", "descr" => "Наш завод осуществляет <b>полный производственный цикл</b> от разработки ТУ до заготовок деталей, сварочных работ, покраски и упаковки."],
+                ["alt" => "Гибкое ценообразование", "src" => "02.jpg", "title" => "Гибкое ценообразование", "descr" => "Наличие собственного производственного цеха <b>позволяет предоставлять выгодную стоимость</b> и делать скидки на продукцию."],
+                ["alt" => "Широкий ассортимент", "src" => "03.jpg", "title" => "Широкий ассортимент", "descr" => "Вашему вниманию предоставляется огромный выбор уже готовых изделий или <b>возможность создания уникального товара под заказ.</b>"],
+                ["alt" => "Надёжность конструкций", "src" => "04.jpg", "title" => "Надежность конструкций", "descr" => "Продукция изготавливается из <b>высококачественной холоднокатаной стали</b> опытными мастерами в соответствии со стандартами."],
+                ["alt" => "Гарантия качества продукции", "src" => "05.jpg", "title" => "Гарантия качества продукции", "descr" => "Все изделия <b>проходят сертификацию на соответствие ГОСТ</b>, поэтому мы предоставляем гарантию на все виды продукции и работы."],
+                ["alt" => "Расчет стоимости по звонку", "src" => "06.jpg", "title" => "Расчет стоимости по звонку", "descr" => "Чтобы узнать, во сколько обойдется полный спектр работ, позвоните нам, и наши <b>сотрудники рассчитают для вас итоговую стоимость.</b>"],
+                ["alt" => "Профессиональный монтаж", "src" => "07.jpg", "title" => "Профессиональный монтаж", "descr" => "При необходимости квалифицированные специалисты быстро и <b>грамотно проведут подготовку и установку изделия</b> на месте."],
+                ["alt" => "Оперативная доставка", "src" => "08.jpg", "title" => "Оперативная доставка", "descr" => "Доступны <b>быстрая доставка собственным транспортом фирмы</b> в пределах региона или отправка заказа посредством транспортной компании."]
+            ];
+
+            foreach ($benefits as $benefit) : ?>
+                <div class="vis-card">
+                    <div class="vis-card__content">
+                        <div class="vis-card__pic">
+                            <img alt="<?= $benefit["alt"] ?>"
+                                 src="<?= ImageCompressor::getCompressedSrc("/bitrix/templates/1dvm/img/benefits/opt/" . $benefit["src"]) ?>">
+                            <div class="vis-card__title text--sky"><?= $benefit["title"] ?></div>
+                            <p class="vis-card__descr"><?= $benefit["descr"] ?></p>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
 </div>
 <!--Блок с преимуществами-->
 <!--/изменения 05/2018-->

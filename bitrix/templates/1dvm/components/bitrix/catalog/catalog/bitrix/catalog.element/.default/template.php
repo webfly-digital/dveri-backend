@@ -125,8 +125,9 @@ $ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') .
                                        id="opt-<?= $comlect["ID"] ?>" value="<?= $comlect["PROPERTY_PRICE_VALUE"] ?>">
                                 <div class="checkbox__inner">
                                     <div class="product-option">
-                                        <div class="product-option__visual lazyload"
-                                             data-original="<?= $comlect["PHOTO"]["src"] ?>"></div>
+                                        <div class="product-option__visual"
+                                             style="background-image: url('<?= ImageCompressor::getCompressedSrc($comlect["PHOTO"]["ID"]) ?>');">
+                                        </div>
                                         <div class="product-option__details">
                                             <p class="product-option__name"><?= $comlect["NAME"] ?></p>
                                             <p class="product-option__description"><?= $comlect["PREVIEW_TEXT"] ?></p>
@@ -187,8 +188,9 @@ $ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') .
                     <?php foreach ($arResult["COLORS"] as $color) { ?>
                         <li>
                             <div class="color-option">
-                                <div class="color-option__visual lazyload"
-                                     data-original="<?= $color["PHOTO"]["src"] ?>"></div>
+                                <div class="color-option__visual"
+                                     style="background-image: url('<?= ImageCompressor::getCompressedSrc($color["PHOTO"]["ID"]) ?>');">
+                                </div>
                                 <p class="color-option__caption"><?= $color["PROPERTY_DOP_NAME_VALUE"]["TEXT"] ?: $color["NAME"] ?></p>
                             </div>
                         </li>
@@ -271,11 +273,11 @@ $ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') .
             <div class="product-gallery">
                 <div class="product-gallery__big">
                     <div class="product-gallery__photo" id="product-gallery-mainphoto">
-                        <img class="lazyload" data-original="<?= $arResult["PHOTOS"]["SMALL"][0]["src"] ?>"
+                        <img src="<?= ImageCompressor::getCompressedSrc($arResult["PHOTOS"]["SMALL"][0]["ID"]) ?>"
                              alt="<?= $arResult["PHOTOS"]["BIG"][0]["ALT"] ?>"
                              title="<?= $arResult["PHOTOS"]["BIG"][0]["TITLE"] ?>">
                         <noscript>
-                            <img src="<?= $arResult["PHOTOS"]["SMALL"][0]["src"] ?>"
+                            <img src="<?= ImageCompressor::getCompressedSrc($arResult["PHOTOS"]["SMALL"][0]["ID"]) ?>"
                                  alt="<?= $arResult["PHOTOS"]["BIG"][0]["ALT"] ?>"
                                  title="<?= $arResult["PHOTOS"]["BIG"][0]["TITLE"] ?>">
                         </noscript>
@@ -284,13 +286,15 @@ $ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') .
                 <div class="product-gallery__previews">
                     <?php foreach ($arResult["PHOTOS"]["SMALL"] as $phKey => $photo) { ?>
                         <div class="product-gallery__preview active"
-                             data-src="<?= $arResult["PHOTOS"]["BIG"][$phKey]["src"] ?>">
-                            <img class="lazyload" data-original="<?= $photo["src"] ?>"
+                             data-src="<?= ImageCompressor::getCompressedSrc($arResult["PHOTOS"]["BIG"][$phKey]["ID"]) ?>">
+                            <img src="<?= ImageCompressor::getCompressedSrc($photo["ID"]) ?>"
                                  alt="<?= $arResult["PHOTOS"]["BIG"][$phKey]["ALT"] ?>"
                                  title="<?= $arResult["PHOTOS"]["BIG"][$phKey]["TITLE"] ?>">
-                            <noscript><img src="<?= $photo["src"] ?>"
-                                           alt="<?= $arResult["PHOTOS"]["BIG"][$phKey]["ALT"] ?>"
-                                           title="<?= $arResult["PHOTOS"]["BIG"][$phKey]["TITLE"] ?>"></noscript>
+                            <noscript>
+                                <img src="<?= ImageCompressor::getCompressedSrc($photo["ID"]) ?>"
+                                     alt="<?= $arResult["PHOTOS"]["BIG"][$phKey]["ALT"] ?>"
+                                     title="<?= $arResult["PHOTOS"]["BIG"][$phKey]["TITLE"] ?>">
+                            </noscript>
                         </div>
                     <?php } ?>
                 </div>
@@ -324,18 +328,20 @@ $ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') .
                                                 else
                                                     $desc = $img["NAME"];
                                                 ?>
-                                                <?php if ($utp["ID"] == 395) {
-                                                ?>
+
+                                                <?php if ($utp["ID"] == 395) { ?>
                                                 <div class="gal-item">
                                                     <a href="<?= $img["PATH"] ?>" class="gal-item__preview">
-                                                        <img alt="<?= $desc ?>" title="<?= $desc ?>" class="lazyload"
-                                                             data-original="<?= $img["THUMB_PATH"] ?>"></a>
+                                                        <img alt="<?= $desc ?>" title="<?= $desc ?>"
+                                                             src="<?= ImageCompressor::getCompressedSrc($img["THUMB_ID"]) ?>">
+                                                    </a>
                                                 </div>
                                             <?php } else { ?>
                                                 <div class="gal-item">
-                                                    <a href="<?= $img["PATH"] ?>" class="gal-item__preview lazyload"
+                                                    <a href="<?= $img["PATH"] ?>" class="gal-item__preview"
                                                        title="<?= $desc ?>"
-                                                       data-original="<?= $img["THUMB_PATH"] ?>"></a>
+                                                       style="background-image: url('<?= ImageCompressor::getCompressedSrc($img["THUMB_ID"]) ?>');">
+                                                    </a>
                                                 </div>
                                             <?php } ?>
                                             <?php endforeach ?>

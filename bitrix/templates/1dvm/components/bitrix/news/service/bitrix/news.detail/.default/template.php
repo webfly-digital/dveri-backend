@@ -10,20 +10,20 @@ $ogDescription = !empty($arResult["PREVIEW_TEXT"]) ? $arResult["PREVIEW_TEXT"] :
 $ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
 $ogImage = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . SITE_TEMPLATE_PATH . "/img/logo.svg";
 ?>
-<!-- Open Graph -->
-<div style="display:none;">
-    <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?> в <?= htmlspecialchars("#WF_CITY_PRED#") ?>"/>
-    <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>"/>
-    <meta property="og:image" content="<?= $ogImage ?>"/>
-    <meta property="og:type" content="article"/>
-    <meta property="og:url" content="<?= $ogUrl ?>"/>
-    <meta property="og:locale" content="ru_RU"/>
-    <meta property="og:site_name" content="«Двери металл-М» в #WF_CITY_PRED#"/>
-</div>
-<!-- End Open Graph -->
+    <!-- Open Graph -->
+    <div style="display:none;">
+        <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?> в <?= htmlspecialchars("#WF_CITY_PRED#") ?>"/>
+        <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>"/>
+        <meta property="og:image" content="<?= $ogImage ?>"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:url" content="<?= $ogUrl ?>"/>
+        <meta property="og:locale" content="ru_RU"/>
+        <meta property="og:site_name" content="«Двери металл-М» в #WF_CITY_PRED#"/>
+    </div>
+    <!-- End Open Graph -->
 
-<!-- JSON-LD -->
-<script type="application/ld+json">
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Service",
@@ -37,8 +37,9 @@ $ogImage = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '')
         "image": "<?= $ogImage ?>",
         "url": "<?= $ogUrl ?>"
     }
-</script>
-<!-- End JSON-LD -->
+
+    </script>
+    <!-- End JSON-LD -->
 
 <?php if (empty($arResult["DETAIL_TEXT"])) { ?>
     Раздел в разработке!
@@ -55,7 +56,8 @@ $ogImage = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '')
                     ?>
                     <div class="gal-item">
                         <a href="<?= $img["PATH"] ?>" class="gal-item__preview">
-                            <img alt="<?= $desc ?>" title="<?= $desc ?>" class="lazyload" data-original="<?= $img["THUMB_PATH"] ?>">
+                            <img alt="<?= $desc ?>" title="<?= $desc ?>"
+                                 src="<?= ImageCompressor::getCompressedSrc($img["THUMB_ID"]) ?>">
                         </a>
                     </div>
                 <?php } ?>

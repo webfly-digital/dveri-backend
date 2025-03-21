@@ -345,8 +345,8 @@ $APPLICATION->IncludeFile("/include/benefits.php", [], ["MODE" => "html", "NAME"
                     ?>
                     <div class="gal-item">
                         <a href="<?= $cert["PATH"] ?>" class="gal-item__preview">
-                            <img alt="<?= $cert_desc ?>" title="<?= $cert_desc ?>" class="lazyload" src="<?= $cert["PATH"] ?>"
-                                 data-original="<?= $cert["PATH"] ?>">
+                            <img alt="<?= $cert_desc ?>" title="<?= $cert_desc ?>"
+                                 src="<?= ImageCompressor::getCompressedSrc($cert['ID']) ?>">
                         </a>
                     </div>
                 <?php endforeach ?>
@@ -413,9 +413,10 @@ $APPLICATION->IncludeFile("/include/benefits.php", [], ["MODE" => "html", "NAME"
                             $production_desc = $production["NAME"];
                         ?>
                         <div class="gal-item">
-                            <a href="<?= $production["PATH"] ?>" class="gal-item__preview lazyload"
+                            <a href="<?= $production["PATH"] ?>" class="gal-item__preview"
                                title="<?= $production_desc ?>"
-                               data-original="<?= $production['PATH'] ?>"></a>
+                               style="background-image: url('<?= ImageCompressor::getCompressedSrc($production["ID"]) ?>');">
+                            </a>
                         </div>
                     <?php endforeach;
                 else:?>
@@ -464,7 +465,7 @@ $APPLICATION->IncludeFile("/include/benefits.php", [], ["MODE" => "html", "NAME"
             <?php if ($gallery6): ?>
                 <div class="square-pics">
                     <?php foreach ($gallery6 as $minigal): ?>
-                        <div class="pic lazyload" data-original="<?= $minigal["PATH"] ?>"></div>
+                        <div class="pic" style="background-image: url('<?= ImageCompressor::getCompressedSrc($minigal["ID"]) ?>');"></div>
                     <?php endforeach ?>
                 </div>
             <?php endif ?>
@@ -493,10 +494,12 @@ $APPLICATION->IncludeFile("/include/benefits.php", [], ["MODE" => "html", "NAME"
                                 $production_desc = $production["NAME"];
                             ?>
                             <div class="gal-item">
-                                <a href="<?= $production["PATH"] ?>" class="gal-item__preview lazyload"
+                                <a href="<?= $production["PATH"] ?>" class="gal-item__preview"
                                    title="<?= $production_desc ?>"
-                                   data-original="<?= $production["PATH"] ?>"></a>
+                                   style="background-image: url('<?= ImageCompressor::getCompressedSrc($production["ID"]) ?>');">
+                                </a>
                             </div>
+
                         <?php endforeach ?>
                     </div>
                     <!--/gallery-->

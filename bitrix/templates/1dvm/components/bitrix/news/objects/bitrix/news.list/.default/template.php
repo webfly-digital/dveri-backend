@@ -13,20 +13,20 @@ $ogDescription = "Список выполненных проектов и объ
 $ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . $APPLICATION->GetCurPage();
 $ogImage = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') . SITE_SERVER_NAME . SITE_TEMPLATE_PATH . "/img/logo.svg";
 ?>
-<!-- Open Graph -->
-<div style="display:none;">
-    <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?>"/>
-    <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>"/>
-    <meta property="og:image" content="<?= $ogImage ?>"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="<?= $ogUrl ?>"/>
-    <meta property="og:locale" content="ru_RU"/>
-    <meta property="og:site_name" content="«Двери металл-М» в #WF_CITY_PRED#"/>
-</div>
-<!-- End Open Graph -->
+    <!-- Open Graph -->
+    <div style="display:none;">
+        <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?>"/>
+        <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>"/>
+        <meta property="og:image" content="<?= $ogImage ?>"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="<?= $ogUrl ?>"/>
+        <meta property="og:locale" content="ru_RU"/>
+        <meta property="og:site_name" content="«Двери металл-М» в #WF_CITY_PRED#"/>
+    </div>
+    <!-- End Open Graph -->
 
-<!-- JSON-LD -->
-<script type="application/ld+json">
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
 {
 "@context": "https://schema.org",
 "@type": "CollectionPage",
@@ -56,8 +56,9 @@ $ogImage = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '')
         ?>
 ]
 }
-</script>
-<!-- End JSON-LD -->
+
+    </script>
+    <!-- End JSON-LD -->
 
 <?php
 foreach ($arResult['SECTIONS'] as $section) {
@@ -72,10 +73,13 @@ foreach ($arResult['SECTIONS'] as $section) {
                 ?>
                 <div class="col-xs-12 col-sm-4" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
                     <div class="work-card">
-                        <div class="work-card__pic"><img data-original="<?= $arItem['PREVIEW_PICTURE']['SRC'] ?>" class="lazyload"></div>
+                        <div class="work-card__pic">
+                            <img src="<?= ImageCompressor::getCompressedSrc($arItem['PREVIEW_PICTURE']['ID']) ?>">
+                        </div>
                         <p class="work-card__caption"><?= $arItem['NAME'] ?></p>
                     </div>
                 </div>
+
             <?php } ?>
         </div>
     </section>

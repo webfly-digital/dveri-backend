@@ -1,16 +1,21 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+
+/** @var array $arResult */
+?>
 <div class="news-detail">
-    <? if ($arResult["DETAIL_PICTURE"]): ?>
+    <?php if ($arResult["DETAIL_PICTURE"]): ?>
         <div class="news-detail__cover">
-            <img data-original="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>" alt="<?= $arResult["DETAIL_PICTURE"]["ALT"] ?>" title="<?= $arResult["DETAIL_PICTURE"]["TITLE"] ?>"class="lazyload">
+            <img src="<?= ImageCompressor::getCompressedSrc($arResult["DETAIL_PICTURE"]["ID"]) ?>"
+                 alt="<?= $arResult["DETAIL_PICTURE"]["ALT"] ?>"
+                 title="<?= $arResult["DETAIL_PICTURE"]["TITLE"] ?>">
         </div>
-    <? endif ?>
+    <?php endif ?>
     <div class="text-content">
         <div class="news-detail__intro">
-            <? echo $arResult["PREVIEW_TEXT"]; ?>
+            <?php echo $arResult["PREVIEW_TEXT"]; ?>
         </div>
         <div class="news-detail__content">
-            <? echo $arResult["DETAIL_TEXT"]; ?>
+            <?php echo $arResult["DETAIL_TEXT"]; ?>
         </div>
     </div>
 </div>

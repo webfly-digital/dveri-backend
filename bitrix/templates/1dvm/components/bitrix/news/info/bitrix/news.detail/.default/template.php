@@ -66,7 +66,8 @@ $ogImage = !empty($arResult["DETAIL_PICTURE"]["SRC"])
                     ?>
                     <div class="gal-item">
                         <a href="<?= $img["PATH"] ?>" class="gal-item__preview" title="<?= $desc ?>">
-                            <img alt="<?= $desc ?>" title="<?= $desc ?>" class="lazyload" data-original="<?= $img["THUMB_PATH"] ?>">
+                            <img alt="<?= $desc ?>" title="<?= $desc ?>"
+                                 src="<?= ImageCompressor::getCompressedSrc($img["THUMB_ID"]) ?>">
                         </a>
                         <div class="gal-item-subtitle"><?= $desc ?></div>
                     </div>

@@ -62,9 +62,12 @@ $APPLICATION->IncludeComponent("bitrix:menu", "left", [
                 $desc = !empty($production["DESCRIPTION"]) ? $production["DESCRIPTION"] : "Фотоотзыв";
                     ?>
                     <div class="gal-item">
-                    <a href="<?= $production["PATH"] ?>" class="gal-item__preview lazyload" title="<?= $desc ?>"
-                           data-original="<?= $production["PATH"] ?>"></a>
+                        <a href="<?= $production["PATH"] ?>" class="gal-item__preview"
+                           title="<?= $desc ?>"
+                           style="background-image: url('<?= ImageCompressor::getCompressedSrc($production["ID"]) ?>');">
+                        </a>
                     </div>
+
                     <?php
                 }
             } else { ?>

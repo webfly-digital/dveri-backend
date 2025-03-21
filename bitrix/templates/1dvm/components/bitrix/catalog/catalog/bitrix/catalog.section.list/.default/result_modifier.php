@@ -1,5 +1,6 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+
+/** @var array $arResult */
 
 //Шаблон сетки
 if ($arResult["SECTIONS"]) {
@@ -15,11 +16,11 @@ if ($arResult["SECTIONS"]) {
       9 => array("MAIN" => "tile--sq", "INNER" => "theme-gray-2"),
       10 => array("MAIN" => "tile--sq", "INNER" => "theme-gray"),
       11 => array("MAIN" => "tile--sq", "INNER" => "theme-gray-2"),
-      12 => array("MAIN" => "tile--h", "INNER" => "theme-dark photo-bg center lazyload"),
-      13 => array("MAIN" => "tile--sq", "INNER" => "theme-gray photo-bg center lazyload"),
+      12 => array("MAIN" => "tile--h", "INNER" => "theme-dark photo-bg center"),
+      13 => array("MAIN" => "tile--sq", "INNER" => "theme-gray photo-bg center"),
       14 => array("MAIN" => "tile--sq", "INNER" => "theme-dark photo-bg cover"),
       15 => array("MAIN" => "tile--sq", "INNER" => "theme-default"),
-      16 => array("MAIN" => "tile--sq", "INNER" => "photo-bg cover lazyload"),
+      16 => array("MAIN" => "tile--sq", "INNER" => "photo-bg cover"),
     );
     //Получение изображений раздела
     foreach ($arResult["SECTIONS"] as $key => &$arSection) {
