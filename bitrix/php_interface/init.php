@@ -26,6 +26,11 @@ $htmlType = $_SERVER["DOCUMENT_ROOT"] . '/bitrix/php_interface/user_type/usertyp
 if (file_exists($htmlType))
     include_once $htmlType;
 
+$imageCompressorPath = $_SERVER["DOCUMENT_ROOT"] . '/bitrix/php_interface/include/classes/ImageCompressor.php';
+if (file_exists($imageCompressorPath)) {
+    include_once $imageCompressorPath;
+}
+
 //iblocks
 define("WF_CATALOG",3);
 define("WF_ADDITIONAL_COMPLECT",16);
