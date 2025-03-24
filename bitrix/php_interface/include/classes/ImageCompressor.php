@@ -25,8 +25,7 @@ class ImageCompressor
             return '';
         }
 
-
-        if ($arFile['FILE_SIZE'] <= self::MAX_FILE_SIZE) {
+        if ($arFile['FILE_SIZE'] <= self::MAX_FILE_SIZE || $arFile['WIDTH'] <= 100 || $arFile['HEIGHT'] <= 100) {
             return $arFile['SRC'];
         }
 
