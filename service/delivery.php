@@ -66,17 +66,17 @@ $APPLICATION->SetTitle("Доставка и оплата (Москва и обл
             <div class="gal gal-v4">
                 <div class="gal-item">
                 <a href="/bitrix/templates/1dvm/img/doc-examples/doc-1.jpg" class="gal-item__preview">
-                    <img alt="" src="<?= ImageCompressor::getCompressedSrc('/bitrix/templates/1dvm/img/doc-examples/preview/doc-1.jpg') ?>">
+                    <img alt="" src="<?= ImageCompressor::getCompressedSrcUniversal('/bitrix/templates/1dvm/img/doc-examples/preview/doc-1.jpg') ?>">
                 </a>
                 </div>
                 <div class="gal-item">
                 <a href="/bitrix/templates/1dvm/img/doc-examples/doc-2.jpg" class="gal-item__preview">
-                    <img alt="" src="<?= ImageCompressor::getCompressedSrc('/bitrix/templates/1dvm/img/doc-examples/preview/doc-2.jpg') ?>">
+                    <img alt="" src="<?= ImageCompressor::getCompressedSrcUniversal('/bitrix/templates/1dvm/img/doc-examples/preview/doc-2.jpg') ?>">
                 </a>
                 </div>
                 <div class="gal-item">
                 <a href="/bitrix/templates/1dvm/img/doc-examples/doc-3.jpg" class="gal-item__preview">
-                    <img alt="" src="<?= ImageCompressor::getCompressedSrc('/bitrix/templates/1dvm/img/doc-examples/preview/doc-3.jpg') ?>">
+                    <img alt="" src="<?= ImageCompressor::getCompressedSrcUniversal('/bitrix/templates/1dvm/img/doc-examples/preview/doc-3.jpg') ?>">
                 </a>
                 </div>
             </div>
@@ -146,17 +146,17 @@ $APPLICATION->SetTitle("Доставка и оплата (Москва и обл
             <div class="gal gal-v2">
                 <div class="gal-item">
                 <a href="/bitrix/templates/1dvm/img/gal/04.jpg" class="gal-item__preview"
-                   style="background-image: url('<?= ImageCompressor::getCompressedSrc('/bitrix/templates/1dvm/img/gal/04.jpg') ?>');">
+                   style="background-image: url('<?= ImageCompressor::getCompressedSrcUniversal('/bitrix/templates/1dvm/img/gal/04.jpg') ?>');">
                 </a>
                 </div>
                 <div class="gal-item">
                 <a href="/bitrix/templates/1dvm/img/gal/07.jpg" class="gal-item__preview"
-                   style="background-image: url('<?= ImageCompressor::getCompressedSrc('/bitrix/templates/1dvm/img/gal/07.jpg') ?>');">
+                   style="background-image: url('<?= ImageCompressor::getCompressedSrcUniversal('/bitrix/templates/1dvm/img/gal/07.jpg') ?>');">
                 </a>
                 </div>
                 <div class="gal-item">
                 <a href="/bitrix/templates/1dvm/img/gal/08.jpg" class="gal-item__preview"
-                   style="background-image: url('<?= ImageCompressor::getCompressedSrc('/bitrix/templates/1dvm/img/gal/08.jpg') ?>');">
+                   style="background-image: url('<?= ImageCompressor::getCompressedSrcUniversal('/bitrix/templates/1dvm/img/gal/08.jpg') ?>');">
                 </a>
                 </div>
             </div>
