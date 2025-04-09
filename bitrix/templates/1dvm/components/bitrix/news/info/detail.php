@@ -69,19 +69,19 @@ if ($arResult['VARIABLES']["ELEMENT_CODE"] == 'devel') { ?>
             <!--Gallery-->
             <div class="gal gal-v2">
                 <?php
-                foreach ($gallery3 as $production):
-                    if (!empty($production["DESCRIPTION"]))
+                foreach ($gallery3 as $production) {
+                    if (!empty($production["DESCRIPTION"])) {
                         $production_desc = $production["DESCRIPTION"];
-                    else
+                    } else {
                         $production_desc = $production["NAME"];
-                    ?>
+                    } ?>
                     <div class="gal-item">
                         <a href="<?= $production["PATH"] ?>" class="gal-item__preview"
                            title="<?= $production_desc ?>"
-                           style="background-image: url('<?= ImageCompressor::getCompressedSrc($production["ID"]) ?>');">
+                           style="background-image: url('<?= ImageCompressor::getCompressedSrcUniversal($production["PATH"]) ?>');">
                         </a>
                     </div>
-                <?php endforeach ?>
+                <?php } ?>
             </div>
             <!--/gallery-->
             <div class="page-section__footer">
@@ -102,19 +102,19 @@ if ($arResult['VARIABLES']["ELEMENT_CODE"] == 'devel') { ?>
             <h3 class="h3 page-section__title text-center">Сертификаты и ГОСТы</h3>
             <div class="gal gal-v1">
                 <?php
-                foreach ($gallery4 as $cert):
-                    if (!empty($cert["DESCRIPTION"]))
+                foreach ($gallery4 as $cert) {
+                    if (!empty($cert["DESCRIPTION"])) {
                         $cert_desc = $cert["DESCRIPTION"];
-                    else
+                    } else {
                         $cert_desc = $cert["NAME"];
-                    ?>
+                    } ?>
                     <div class="gal-item">
-                        <a href="<?= $production["PATH"] ?>" class="gal-item__preview"
-                           title="<?= $production_desc ?>"
-                           style="background-image: url('<?= ImageCompressor::getCompressedSrc($production["ID"]) ?>');">
+                        <a href="<?= $cert["PATH"] ?>" class="gal-item__preview"
+                           title="<?= $$cert_desc ?>"
+                           style="background-image: url('<?= ImageCompressor::getCompressedSrcUniversal($cert["PATH"]) ?>');">
                         </a>
                     </div>
-                <?php endforeach ?>
+                <?php } ?>
             </div>
             <div class="page-section__footer">
                 <?php
