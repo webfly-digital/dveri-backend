@@ -15,20 +15,20 @@ $APPLICATION->SetTitle($ogTitle);
 
 $gallery = WFGeneral::GetGallery(9); // Галерея отзывов
 ?>
-<!-- Open Graph -->
-<div style="display:none;">
-    <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?>"/>
-    <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>"/>
-    <meta property="og:image" content="<?= $ogImage ?>"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="<?= $ogUrl ?>"/>
-    <meta property="og:locale" content="ru_RU"/>
-    <meta property="og:site_name" content="«Двери металл-М» в #WF_CITY_PRED#"/>
-</div>
-<!-- End Open Graph -->
+    <!-- Open Graph -->
+    <div style="display:none;">
+        <meta property="og:title" content="<?= htmlspecialchars($ogTitle) ?>"/>
+        <meta property="og:description" content="<?= htmlspecialchars($ogDescription) ?>"/>
+        <meta property="og:image" content="<?= $ogImage ?>"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="<?= $ogUrl ?>"/>
+        <meta property="og:locale" content="ru_RU"/>
+        <meta property="og:site_name" content="«Двери металл-М» в #WF_CITY_PRED#"/>
+    </div>
+    <!-- End Open Graph -->
 
-<!-- JSON-LD -->
-<script type="application/ld+json">
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -37,8 +37,9 @@ $gallery = WFGeneral::GetGallery(9); // Галерея отзывов
     "image": "<?= $ogImage ?>",
     "description": "<?= htmlspecialchars($ogDescription) ?>"
 }
-</script>
-<!-- End JSON-LD -->
+
+    </script>
+    <!-- End JSON-LD -->
 
 <?php
 $APPLICATION->IncludeComponent("bitrix:menu", "left", [
@@ -59,15 +60,14 @@ $APPLICATION->IncludeComponent("bitrix:menu", "left", [
             <?php
             if ($gallery) {
                 foreach ($gallery as $production) {
-                $desc = !empty($production["DESCRIPTION"]) ? $production["DESCRIPTION"] : "Фотоотзыв";
+                    $desc = !empty($production["DESCRIPTION"]) ? $production["DESCRIPTION"] : "Фотоотзыв";
                     ?>
                     <div class="gal-item">
                         <a href="<?= $production["PATH"] ?>" class="gal-item__preview"
-                           title="<?= $desc ?>"
-                           style="background-image: url('<?= ImageCompressor::getCompressedSrc($production["ID"]) ?>');">
+                       title="<?= htmlspecialchars($desc) ?>"
+                       style="background-image: url('<?= ImageCompressor::getCompressedSrcUniversal($production["PATH"]) ?>');">
                         </a>
                     </div>
-
                     <?php
                 }
             } else { ?>
