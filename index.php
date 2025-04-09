@@ -346,7 +346,7 @@ $APPLICATION->IncludeFile("/include/benefits.php", [], ["MODE" => "html", "NAME"
                     <div class="gal-item">
                         <a href="<?= $cert["PATH"] ?>" class="gal-item__preview">
                             <img alt="<?= $cert_desc ?>" title="<?= $cert_desc ?>"
-                                 src="<?= ImageCompressor::getCompressedSrc($cert['ID']) ?>">
+                                 src="<?= ImageCompressor::getCompressedSrcUniversal($cert['ID']) ?>">
                         </a>
                     </div>
                 <?php endforeach ?>
@@ -415,7 +415,7 @@ $APPLICATION->IncludeFile("/include/benefits.php", [], ["MODE" => "html", "NAME"
                         <div class="gal-item">
                             <a href="<?= $production["PATH"] ?>" class="gal-item__preview"
                                title="<?= $production_desc ?>"
-                               style="background-image: url('<?= ImageCompressor::getCompressedSrc($production["ID"]) ?>');">
+                               style="background-image: url('<?= ImageCompressor::getCompressedSrcUniversal($production["ID"]) ?>');">
                             </a>
                         </div>
                     <?php endforeach;
@@ -465,7 +465,7 @@ $APPLICATION->IncludeFile("/include/benefits.php", [], ["MODE" => "html", "NAME"
             <?php if ($gallery6): ?>
                 <div class="square-pics">
                     <?php foreach ($gallery6 as $minigal): ?>
-                        <div class="pic" style="background-image: url('<?= ImageCompressor::getCompressedSrc($minigal["ID"]) ?>');"></div>
+                        <div class="pic" style="background-image: url('<?= ImageCompressor::getCompressedSrcUniversal($minigal["ID"]) ?>');"></div>
                     <?php endforeach ?>
                 </div>
             <?php endif ?>
@@ -496,7 +496,7 @@ $APPLICATION->IncludeFile("/include/benefits.php", [], ["MODE" => "html", "NAME"
                             <div class="gal-item">
                                 <a href="<?= $production["PATH"] ?>" class="gal-item__preview"
                                    title="<?= $production_desc ?>"
-                                   style="background-image: url('<?= ImageCompressor::getCompressedSrc($production["ID"]) ?>');">
+                                   style="background-image: url('<?= ImageCompressor::getCompressedSrcUniversal($production["ID"]) ?>');">
                                 </a>
                             </div>
 
