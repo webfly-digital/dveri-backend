@@ -21,7 +21,7 @@
                     <div class="vis-card__content">
                         <div class="vis-card__pic">
                             <img alt="<?= $benefit["alt"] ?>"
-                                 src="<?= ImageCompressor::getCompressedSrc("/bitrix/templates/1dvm/img/benefits/opt/" . $benefit["src"]) ?>">
+                                 src="<?= ImageCompressor::getCompressedSrcUniversal("/bitrix/templates/1dvm/img/benefits/opt/" . $benefit["src"]) ?>">
                             <div class="vis-card__title text--sky"><?= $benefit["title"] ?></div>
                             <p class="vis-card__descr"><?= $benefit["descr"] ?></p>
                         </div>
