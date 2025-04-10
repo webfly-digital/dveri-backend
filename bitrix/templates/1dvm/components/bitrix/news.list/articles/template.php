@@ -12,7 +12,7 @@
                     <<?= $tagH2 ?> class="h2 page-section__title text-center">Статьи
                 </<?= $tagH2 ?>>
                 <div class="news-list">
-                    <?php foreach ($arResult["ITEMS"] as $arItem): ?>
+                    <?php foreach ($arResult["ITEMS"] as $arItem) { ?>
                     <!--News list-->
                     <?php
                     $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
@@ -20,11 +20,11 @@
                     ?>
                     <div class="news-card plugin-clickable" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
                         <div class="news-card__inner">
-                            <?php if ($arItem["PREVIEW_PICTURE"]["SRC"]): ?>
+                            <?php if ($arItem["PREVIEW_PICTURE"]["SRC"]) { ?>
                                 <div class="news-card__visual"
-                                     style="background-image: url('<?= ImageCompressor::getCompressedSrc($arItem["PREVIEW_PICTURE"]["ID"]) ?>');">
+                                     style="background-image: url('<?= ImageCompressor::getCompressedSrcUniversal($arItem["PREVIEW_PICTURE"]["SRC"]) ?>');">
                                 </div>
-                            <?php endif ?>
+                            <?php } ?>
                             <div class="news-card__details">
                                 <?php $tagH4 = $arParams['TAG_H'] == 'N' ? 'div' : 'h4' ?>
                                 <<?= $tagH4 ?> class="news-card__title h4">
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            <?php } ?>
             </div>
             <div class="page-section__footer">
                 <a href="<?= $arResult["LIST_PAGE_URL"] ?>" class="btn btn--sky">Все статьи</a>

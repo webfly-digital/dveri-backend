@@ -6,7 +6,7 @@
 <div class="other-news">
     <h6>Другие новости</h6>
     <div class="news-list--rows">
-        <?php foreach ($arResult["ITEMS"] as $arItem): ?>
+        <?php foreach ($arResult["ITEMS"] as $arItem) { ?>
             <!--News list-->
             <?php
             $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
@@ -14,12 +14,12 @@
             ?>
             <div class="news-card plugin-clickable" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
                 <div class="news-card__inner">
-                    <?php if ($arItem["PREVIEW_PICTURE"]["SRC"]): ?>
+                    <?php if ($arItem["PREVIEW_PICTURE"]["SRC"]) { ?>
                         <div class="news-card__visual"
-                             style="background-image: url('<?= ImageCompressor::getCompressedSrc($arItem["PREVIEW_PICTURE"]["ID"]) ?>');">
+                             style="background-image: url('<?= ImageCompressor::getCompressedSrcUniversal($arItem["PREVIEW_PICTURE"]["SRC"]) ?>');">
                         </div>
 
-                    <?php endif ?>
+                    <?php } ?>
                     <div class="news-card__details">
                         <h4 class="news-card__title"><a href="<?php echo $arItem["DETAIL_PAGE_URL"] ?>" class="link-detail"><?php echo $arItem["NAME"] ?></a></h4>
                         <p class="news-card__intro"><?php echo $arItem["PREVIEW_TEXT"]; ?></p>
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-        <?php endforeach; ?>
+        <?php } ?>
     </div>
     <p><a href="<?= $arResult["LIST_PAGE_URL"] ?>" class="text--sky">Все новости</a></p>
 </div>
