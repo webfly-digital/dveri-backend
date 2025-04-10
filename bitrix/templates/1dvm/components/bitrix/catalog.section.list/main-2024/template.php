@@ -24,20 +24,21 @@ if ($arResult["SECTIONS"]): ?>
                     <div class="<?= $columnClasses ?>" id="<?= $this->GetEditAreaId($arSection['ID']); ?>">
                         <div class="cat-section">
 
-                            <<div class="cat-section__visual <?= $arResult["GRID_TEMPLATE"][$sectCount]["INNER"] ?>">
+                            <
+                            <div class="cat-section__visual <?= $arResult["GRID_TEMPLATE"][$sectCount]["INNER"] ?>">
                                 <a href="<?= $arSection["SECTION_PAGE_URL"] ?>">
                                     <?php if (count($arSection["PICS"]) > 1): ?>
                                         <div class="double-photo">
                                             <?php foreach ($arSection["PICS"] as $pkey => $pic):
                                                 $picClass = [0 => "-top", 1 => "-bottom"]; ?>
                                                 <div class="photo<?= $picClass[$pkey] ?>"
-                                                     style="background-image: url('<?= ImageCompressor::getCompressedSrc($pic) ?>');">
+                                                     style="background-image: url('<?= ImageCompressor::getCompressedSrcUniversal($pic) ?>');">
                                                 </div>
                                             <?php endforeach ?>
                                         </div>
                                     <?php else: ?>
                                         <img class="photo<?= $arSection["ID"] == 25 ? " image-position-bottom" : "" ?>"
-                                             src="<?= ImageCompressor::getCompressedSrc($arSection["PICS"][0]) ?>"
+                                             src="<?= ImageCompressor::getCompressedSrcUniversal($arSection["PICS"][0]) ?>"
                                              alt="<?= $arSection["NAME"] ?>">
                                     <?php endif ?>
 
