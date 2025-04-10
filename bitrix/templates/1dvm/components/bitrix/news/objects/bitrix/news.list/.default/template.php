@@ -57,6 +57,7 @@ $ogImage = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '')
 ]
 }
 
+
     </script>
     <!-- End JSON-LD -->
 
@@ -74,7 +75,7 @@ foreach ($arResult['SECTIONS'] as $section) {
                 <div class="col-xs-12 col-sm-4" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
                     <div class="work-card">
                         <div class="work-card__pic">
-                            <img src="<?= ImageCompressor::getCompressedSrc($arItem['PREVIEW_PICTURE']['ID']) ?>">
+                            <img src="<?= ImageCompressor::getCompressedSrcUniversal($arItem['PREVIEW_PICTURE']['SRC']) ?>">
                         </div>
                         <p class="work-card__caption"><?= $arItem['NAME'] ?></p>
                     </div>
