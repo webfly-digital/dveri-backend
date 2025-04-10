@@ -126,7 +126,7 @@ $ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') .
                                 <div class="checkbox__inner">
                                     <div class="product-option">
                                         <div class="product-option__visual"
-                                             style="background-image: url('<?= ImageCompressor::getCompressedSrc($comlect["PHOTO"]["ID"]) ?>');">
+                                             style="background-image: url('<?= ImageCompressor::getCompressedSrcUniversal($comlect["PHOTO"]["src"]) ?>');">
                                         </div>
                                         <div class="product-option__details">
                                             <p class="product-option__name"><?= $comlect["NAME"] ?></p>
@@ -189,7 +189,7 @@ $ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') .
                         <li>
                             <div class="color-option">
                                 <div class="color-option__visual"
-                                     style="background-image: url('<?= ImageCompressor::getCompressedSrc($color["PHOTO"]["ID"]) ?>');">
+                                     style="background-image: url('<?= ImageCompressor::getCompressedSrcUniversal($color["PHOTO"]["src"]) ?>');">
                                 </div>
                                 <p class="color-option__caption"><?= $color["PROPERTY_DOP_NAME_VALUE"]["TEXT"] ?: $color["NAME"] ?></p>
                             </div>
@@ -273,11 +273,11 @@ $ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') .
             <div class="product-gallery">
                 <div class="product-gallery__big">
                     <div class="product-gallery__photo" id="product-gallery-mainphoto">
-                        <img src="<?= ImageCompressor::getCompressedSrc($arResult["PHOTOS"]["SMALL"][0]["ID"]) ?>"
+                        <img src="<?= ImageCompressor::getCompressedSrcUniversal($arResult["PHOTOS"]["SMALL"][0]["src"]) ?>"
                              alt="<?= $arResult["PHOTOS"]["BIG"][0]["ALT"] ?>"
                              title="<?= $arResult["PHOTOS"]["BIG"][0]["TITLE"] ?>">
                         <noscript>
-                            <img src="<?= ImageCompressor::getCompressedSrc($arResult["PHOTOS"]["SMALL"][0]["ID"]) ?>"
+                            <img src="<?= ImageCompressor::getCompressedSrcUniversal($arResult["PHOTOS"]["SMALL"][0]["src"]) ?>"
                                  alt="<?= $arResult["PHOTOS"]["BIG"][0]["ALT"] ?>"
                                  title="<?= $arResult["PHOTOS"]["BIG"][0]["TITLE"] ?>">
                         </noscript>
@@ -286,12 +286,12 @@ $ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') .
                 <div class="product-gallery__previews">
                     <?php foreach ($arResult["PHOTOS"]["SMALL"] as $phKey => $photo) { ?>
                         <div class="product-gallery__preview active"
-                             data-src="<?= ImageCompressor::getCompressedSrc($arResult["PHOTOS"]["BIG"][$phKey]["ID"]) ?>">
-                            <img src="<?= ImageCompressor::getCompressedSrc($photo["ID"]) ?>"
+                             data-src="<?= ImageCompressor::getCompressedSrcUniversal($arResult["PHOTOS"]["BIG"][$phKey]["src"]) ?>">
+                            <img src="<?= ImageCompressor::getCompressedSrcUniversal($photo["src"]) ?>"
                                  alt="<?= $arResult["PHOTOS"]["BIG"][$phKey]["ALT"] ?>"
                                  title="<?= $arResult["PHOTOS"]["BIG"][$phKey]["TITLE"] ?>">
                             <noscript>
-                                <img src="<?= ImageCompressor::getCompressedSrc($photo["ID"]) ?>"
+                                <img src="<?= ImageCompressor::getCompressedSrcUniversal($photo["src"]) ?>"
                                      alt="<?= $arResult["PHOTOS"]["BIG"][$phKey]["ALT"] ?>"
                                      title="<?= $arResult["PHOTOS"]["BIG"][$phKey]["TITLE"] ?>">
                             </noscript>
@@ -333,14 +333,14 @@ $ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') .
                                                 <div class="gal-item">
                                                     <a href="<?= $img["PATH"] ?>" class="gal-item__preview">
                                                         <img alt="<?= $desc ?>" title="<?= $desc ?>"
-                                                             src="<?= ImageCompressor::getCompressedSrc($img["THUMB_ID"]) ?>">
+                                                             src="<?= ImageCompressor::getCompressedSrcUniversal($img["THUMB_PATH"]) ?>">
                                                     </a>
                                                 </div>
                                             <?php } else { ?>
                                                 <div class="gal-item">
                                                     <a href="<?= $img["PATH"] ?>" class="gal-item__preview"
                                                        title="<?= $desc ?>"
-                                                       style="background-image: url('<?= ImageCompressor::getCompressedSrc($img["THUMB_ID"]) ?>');">
+                                                       style="background-image: url('<?= ImageCompressor::getCompressedSrcUniversal($img["THUMB_PATH"]) ?>');">
                                                     </a>
                                                 </div>
                                             <?php } ?>

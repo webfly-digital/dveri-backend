@@ -2,7 +2,7 @@
 
 /** @var array $arResult */
 
-if ($arResult["SECTIONS"]): ?>
+if ($arResult["SECTIONS"]) { ?>
     <div class="tiles catalog-items">
         <?php
         $sectCount = 0;
@@ -17,33 +17,33 @@ if ($arResult["SECTIONS"]): ?>
                         <h4 class="cat-item__title"><a href="<?= $arSection["SECTION_PAGE_URL"] ?>"
                                                        class="link-detail"><?= $arSection["~UF_LIST_NAME"] ?: $arSection["NAME"] ?></a></h4>
                         <div class="cat-item__visual">
-                            <?php if (count($arSection["PICS"]) > 1): ?>
+                            <?php if (count($arSection["PICS"]) > 1) { ?>
                                 <div class="double-photo">
-                                    <?php foreach ($arSection["PICS"] as $pkey => $pic):
+                                    <?php foreach ($arSection["PICS"] as $pkey => $pic) {
                                         $picClass = [0 => "-top", 1 => "-bottom"]; ?>
                                         <div class="photo<?= $picClass[$pkey] ?>"
-                                             style="background-image: url('<?= ImageCompressor::getCompressedSrc($pic) ?>');">
+                                             style="background-image: url('<?= ImageCompressor::getCompressedSrcUniversal($pic) ?>');">
                                         </div>
-                                    <?php endforeach ?>
+                                    <?php } ?>
                                 </div>
-                            <?php else: ?>
+                            <?php } else { ?>
                                 <img class="photo"
-                                     src="<?= ImageCompressor::getCompressedSrc($arSection["PICS"][0]) ?>"
+                                     src="<?= ImageCompressor::getCompressedSrcUniversal($arSection["PICS"][0]) ?>"
                                      alt="Фото" title="Фото">
-                            <?php endif ?>
+                            <?php } ?>
                         </div>
 
                         <div class="cat-item__description">
-                            <?php if ($arSection["UF_FIRE_RESIST"] == "1"): ?>
+                            <?php if ($arSection["UF_FIRE_RESIST"] == "1") { ?>
                                 <div class="fire-resistance">
                                     <div class="icon-fire"></div>
                                     <?= $arSection["~UF_FIRE_RESIST_TEXT"] ?: "" ?>
                                 </div>
-                            <?php endif ?>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
             </div>
         <?php } ?>
     </div>
-<?php endif ?>
+<?php } ?>
