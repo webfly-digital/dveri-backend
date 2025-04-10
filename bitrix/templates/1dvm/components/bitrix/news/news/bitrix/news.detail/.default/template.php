@@ -3,13 +3,13 @@
 /** @var array $arResult */
 ?>
 <div class="news-detail">
-    <?php if ($arResult["DETAIL_PICTURE"]): ?>
+    <?php if ($arResult["DETAIL_PICTURE"]) { ?>
         <div class="news-detail__cover">
-            <img src="<?= ImageCompressor::getCompressedSrc($arResult["DETAIL_PICTURE"]["ID"]) ?>"
+            <img src="<?= ImageCompressor::getCompressedSrcUniversal($arResult["DETAIL_PICTURE"]["SRC"]) ?>"
                  alt="<?= $arResult["DETAIL_PICTURE"]["ALT"] ?>"
                  title="<?= $arResult["DETAIL_PICTURE"]["TITLE"] ?>">
         </div>
-    <?php endif ?>
+    <?php } ?>
     <div class="text-content">
         <div class="news-detail__intro">
             <?php echo $arResult["PREVIEW_TEXT"]; ?>
