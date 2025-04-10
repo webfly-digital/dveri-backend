@@ -15,7 +15,7 @@
             <div class="news-card__inner">
                 <?php if ($arItem["PREVIEW_PICTURE"]["SRC"]): ?>
                     <div class="news-card__visual"
-                         style="background-image: url('<?= ImageCompressor::getCompressedSrc($arItem["PREVIEW_PICTURE"]["ID"]) ?>');">
+                         style="background-image: url('<?= ImageCompressor::getCompressedSrcUniversal($arItem["PREVIEW_PICTURE"]["SRC"]) ?>');">
                     </div>
                 <?php endif ?>
                 <div class="news-card__details">
