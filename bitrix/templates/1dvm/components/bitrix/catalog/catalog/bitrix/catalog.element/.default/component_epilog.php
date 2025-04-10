@@ -1,4 +1,8 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+
+/** @var array $arResult */
+/** @global CMain $APPLICATION */
+
 $dbSectionTree = CIBlockSection::GetNavChain($arResult["IBLOCK_ID"], $arResult["IBLOCK_SECTION_ID"], array("ID", "CODE"));
 $arPath = array();
 while($arSTree = $dbSectionTree->Fetch()){
