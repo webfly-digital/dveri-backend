@@ -95,13 +95,15 @@ if (!empty($arResult["SECTIONS"])) {
                                         <div class="double-photo">
                                             <?php foreach ($arSection["PICS"] as $pkey => $pic):
                                                 $picClass = [0 => "-top", 1 => "-bottom"]; ?>
-                                                <div class="photo<?= $picClass[$pkey] ?> "
-                                                     data-original="<?= $pic ?>"></div>
+                                                <div class="photo<?= $picClass[$pkey] ?>"
+                                                     style="background-image: url('<?= ImageCompressor::getCompressedSrcUniversal($pic) ?>');">
+                                                </div>
                                             <?php endforeach ?>
                                         </div>
                                     <?php else: ?>
-                                        <img class="photo<?= $arSection["ID"] == 25 ? " image-position-bottom" : "" ?>" alt="<?= $arSection["NAME"] ?>"
-                                             data-original="<?= $arSection["PICS"][0] ?>" src="<?= $arSection["PICS"][0] ?>">
+                                        <img class="photo<?= $arSection["ID"] == 25 ? " image-position-bottom" : "" ?>"
+                                             src="<?= ImageCompressor::getCompressedSrcUniversal($arSection["PICS"][0]) ?>"
+                                             alt="<?= $arSection["NAME"] ?>">
                                     <?php endif ?>
 
                                     <?php if ($arSection["UF_FIRE_RESIST"] == "1"): ?>
