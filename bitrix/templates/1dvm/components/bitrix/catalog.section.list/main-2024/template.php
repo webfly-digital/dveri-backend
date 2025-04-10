@@ -24,7 +24,6 @@ if ($arResult["SECTIONS"]): ?>
                     <div class="<?= $columnClasses ?>" id="<?= $this->GetEditAreaId($arSection['ID']); ?>">
                         <div class="cat-section">
 
-                            <
                             <div class="cat-section__visual <?= $arResult["GRID_TEMPLATE"][$sectCount]["INNER"] ?>">
                                 <a href="<?= $arSection["SECTION_PAGE_URL"] ?>">
                                     <?php if (count($arSection["PICS"]) > 1): ?>
