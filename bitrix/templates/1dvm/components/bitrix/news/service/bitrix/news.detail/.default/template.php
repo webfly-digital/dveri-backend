@@ -38,6 +38,7 @@ $ogImage = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '')
         "url": "<?= $ogUrl ?>"
     }
 
+
     </script>
     <!-- End JSON-LD -->
 
@@ -57,7 +58,7 @@ $ogImage = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '')
                     <div class="gal-item">
                         <a href="<?= $img["PATH"] ?>" class="gal-item__preview">
                             <img alt="<?= $desc ?>" title="<?= $desc ?>"
-                                 src="<?= ImageCompressor::getCompressedSrc($img["THUMB_ID"]) ?>">
+                                 src="<?= ImageCompressor::getCompressedSrcUniversal($img["THUMB_PATH"]) ?>">
                         </a>
                     </div>
                 <?php } ?>
