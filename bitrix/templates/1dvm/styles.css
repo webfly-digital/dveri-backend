@@ -250,7 +250,7 @@
 
 @media (max-width:768px){
     /* .header-affix .affix-content .h-top .h-top__path:nth-child(4){
-        
+
     }
     .header-affix .affix-content .h-top .h-top__path:nth-child(4) .h-top__buttons a{
         display: none;
@@ -269,8 +269,8 @@
         height: 42px !important;
     }
     .header-affix .affix-content .h-top .h-top__path:nth-child(4) .h-top__buttons .modal-universal-button{
-        
-        
+
+
     } */
     .bottom-panel.hidden-xs {
         display: block !important;
@@ -324,7 +324,7 @@
     top:0;
     left:0;
     overflow: hidden;
-    
+
     display:flex;
     width:50px;
     height:50px;
@@ -371,6 +371,13 @@
 .el-sticker.ei-90:before{content: "El-90";}
 .el-sticker.eis-60:before{content: "ElS-60";}
 .el-sticker.eis-90:before{content: "ElS-90";}
+
+/*убираем подчёркивание ссылок*/
+.product__inner a {
+    text-decoration: none;
+}
+
+
 
 @media(max-width:768px){.catalog-filter{transition: background .2s ease;}.catalog-filter:not(:has(.toggler.show)){background-color:#00b7f3}}
 
@@ -497,7 +504,7 @@ a:has(.flaticon-user-1) {
         width: 24px;
         height: 24px;
         display: block;
-    
+
         background: url(img/header/header-call.svg) no-repeat;
         background-size: contain;
     }
@@ -705,7 +712,7 @@ header .h-top .h-top__buttons .btn+.btn {
     .detail-section.product__popular:before {
         left: 10px;
     }
-    
+
     .detail-section.product__popular:has(.el-sticker):before {
         top: 73px !important;
     }
