@@ -88,12 +88,12 @@ $ogUrl = "https://" . ($sub !== 'default' ? htmlspecialchars($sub) . '.' : '') .
                 <button data-target="#modalOrder" class="btn-order btn btn--lg btn--sky">Заказать</button>
             </div>
             <div class="alert alert-info">
-                * Минимальный заказ для получения скидки - 100 шт (#WF_CITY_NAME#). <br>
+                * Минимальный заказ для оптовой цены - 100 шт (#WF_CITY_NAME#). <br>
                 * Скидка на товар зависит от количества заказа. <br>
                 Стоимость и сроки производства уточняйте у менеджера по телефону:
                 8&nbsp;(800)&nbsp;700-13-04
             </div>
-
+            <button data-target="#modalOrder" class="btn-order btn-wholesale btn btn--lg">Купить оптом</button>
         </div>
 
         <div class="detail-section">

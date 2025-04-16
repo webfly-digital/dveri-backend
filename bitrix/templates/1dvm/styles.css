@@ -548,6 +548,35 @@ header .h-top .h-top__buttons .btn+.btn {
     margin-top: 4px;
 }
 
+/*Кнопка купить оптом на детальной странице*/
+.btn-order.btn-wholesale {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+
+    margin-top: 25px;
+    padding: 0 30px;
+
+    border: 3px solid #f24840;
+    background-color: transparent;
+
+    color: #f24840 !important;
+    font-size: 18px;
+    text-transform: uppercase;
+
+    transition: border-color .3s ease, background-color .3s ease, color .3s ease;
+}
+
+.btn-order.btn-wholesale:hover {
+    border-color: #d53636;
+    background-color: rgba(242, 72, 64, 0.05);
+    color: #d53636 !important;
+}
+
 @media (min-width: 768px) {
     header .h-top {
         justify-content: unset !important;
