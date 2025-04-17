@@ -9,7 +9,7 @@ if(document.querySelector('.scroll-top-button')) {
             item.classList.remove('visible')
         }
     })
-    
+
     item.addEventListener('click', (e) => {
         e.preventDefault()
         window.scrollTo({
@@ -44,3 +44,21 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(123);
     };
 })
+
+// Обработчик кнопки "Заказать" на плитке товара.
+// Открывает попап с формой и подставляет название товара в поле комментария.
+// Перекрывает действие стандартного обработчика ".btn-order",
+// который не учитывает название товара и вызывает форму с пустым комментарием.
+$(document).on('click', '.btn-order-list', function (e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+
+    const $btn = $(this);
+    const productName = $btn.closest('.product').find('.product-name').val();
+
+    if (productName) {
+        const comment = "Меня интересует " + productName;
+        $('#orderComment').text(comment);
+        $('#modalOrder').modal('show');
+    }
+});
