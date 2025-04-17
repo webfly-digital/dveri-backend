@@ -275,19 +275,24 @@ $sub = CWebflyCities::GetSubDomain();
                                 w['Bitrix24FormObject'] = b;
                                 w[b] = w[b] || function () {
                                     arguments[0].ref = u;
-                                    (w[b].forms = w[b].forms || []).push(arguments[0])
+                                    (w[b].forms = w[b].forms || []).push(arguments[0]);
                                 };
-                                if (w[b]['forms'])
-                                    return;
-                                s = d.createElement('script');
-                                r = 1 * new Date();
+                                if (w[b]['forms']) return;
+                                var s = d.createElement('script');
                                 s.async = 1;
-                                s.src = u + '?' + r;
-                                h = d.getElementsByTagName('script')[0];
+                                s.src = u + '?' + Date.now();
+                                var h = d.getElementsByTagName('script')[0];
                                 h.parentNode.insertBefore(s, h);
                             })(window, document, 'https://dverim.bitrix24.ru/bitrix/js/crm/form_loader.js', 'b24form');
 
-                            b24form({"id": "12", "lang": "ru", "sec": "x584cv", "type": "inline"});
+                            /* ➜ ждём появления функции и только потом инициализируем форму */
+                            (function init() {
+                                if (typeof window.b24form === 'function') {
+                                    window.b24form({id: 12, lang: 'ru', sec: 'x584cv', type: 'inline'});
+                                } else {
+                                    setTimeout(init, 300);      // проверяем каждые 300 мс
+                                }
+                            })();
                         </script>
                     </div>
                 </div>
