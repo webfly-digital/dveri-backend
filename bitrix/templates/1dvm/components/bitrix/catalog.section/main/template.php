@@ -39,7 +39,16 @@ if ($arResult["ITEMS"]) { ?>
                                         echo $arProperty["DISPLAY_VALUE"];
                                     ?></p>
                             <?php } ?>
-                            <div class="product__price"><a href="<?= $arElement["DETAIL_PAGE_URL"] ?>" class="btn btn--sky">Заказать</a>
+                            <input type="hidden" name="product-name" class="product-name" value="<?= $arElement["NAME"] ?>">
+                            <div class="product__price">
+                                <button
+                                        type="button"
+                                        class="btn-order btn btn--sky btn-order-list"
+                                        data-target="#modalOrder"
+                                >
+                                    Заказать
+                                </button>
+
                                 <?php if ($arElement["PROPERTIES"]["PRICE_N"]["VALUE"]) { ?>
                                     <?php
                                     $price = $arElement["PROPERTIES"]["PRICE_N"]["VALUE"];
